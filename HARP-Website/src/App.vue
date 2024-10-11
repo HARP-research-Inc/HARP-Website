@@ -1,6 +1,4 @@
 <script setup>
-import Home from "./views/Home.vue";
-import About from "./views/About.vue";
 import Nav from "./components/Nav.vue";
 </script>
 
@@ -11,7 +9,6 @@ import Nav from "./components/Nav.vue";
 
   <main>
     <router-view></router-view>
-
   </main>
 
 </template>
