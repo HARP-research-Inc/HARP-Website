@@ -16,6 +16,12 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
+nav {
+  display: flex;
+  justify-content: space-between; 
+  padding: 10px 20px;
+  width: 100%;
+}
 
 </style>

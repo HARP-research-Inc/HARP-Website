@@ -16,6 +16,6 @@ import Nav from "./components/Nav.vue";
 
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 
 </style>
