@@ -21,7 +21,9 @@ nav {
   display: flex;
   justify-content: space-between; 
   padding: 10px 20px;
-  width: 100%;
+  background-color: transparent;
+  z-index: 10;
+
 }
 
 </style>
