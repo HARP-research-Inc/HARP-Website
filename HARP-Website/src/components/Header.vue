@@ -20,15 +20,32 @@ const props = defineProps({
 <style lang="css" scoped>
     .header{
         position: relative;
-        background-color: aquamarine;
+        background-image:  url("@/assets/prometheus.webp");
         height: 30rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
+        color: white;
+        z-index: -1;
+    }
+    .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 2;
+    }
+    .header h1{
+        font-weight: bold;
+        z-index: 3;
     }
     .header h3{
         margin: 2rem;
+        z-index: 3;
     }
 </style>

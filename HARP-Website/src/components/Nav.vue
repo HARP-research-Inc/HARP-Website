@@ -32,6 +32,7 @@
         background-color: transparent;
         z-index:  1000;
         text-decoration: none;
+        
     }
     .nav-left,
     .nav-right {
@@ -41,7 +42,7 @@
     }
     .navLink{
         text-decoration: none;
-        color: black;
+        color: white;
     }
 
 </style>

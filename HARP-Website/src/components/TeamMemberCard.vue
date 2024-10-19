@@ -2,14 +2,13 @@
     <div class= "member"> 
         <div class="member-card">
             <div class="card front">
+                <img src="../assets/profile.png" alt="profile picture ">
                 <div class= "member-box"></div>
-                
             </div>
             <div class="card back">
                 <div class= "member-box"></div>
-                <!-- <a href=""><img src="" alt=""></a> -->
-                <h4 class="member-github">{{ member.github }}</h4> 
-                <h5 class="member-linkedin">{{ member.linkedin }}</h5> 
+                 <a class="logo" href="{{ member.github }}"><img src="../assets/linkedin.png" alt="linkedin Logo"></a>
+                 <a class="logo" href="{{ member.linkedin }}"><img src="../assets/github.png" alt="github logo" ></a>
            </div>
         </div>
         <h4 class="member-name">{{ member.name }}</h4> 
@@ -37,14 +36,7 @@ const props = defineProps({
         align-items: center;
         perspective: 1000px;
     }
-    /* .member-box{
-        width: 15rem;
-        height: 15rem;  
-        border-radius: 10%;
-        background: linear-gradient(to bottom, #54204d 0%,#7db9e8 100%);
-        transition: transform 0.6s; 
-        transform-style: preserve-3d;
-    } */
+   
     .member-card {
         width: 15rem;
         height: 15rem;
@@ -52,6 +44,7 @@ const props = defineProps({
         transform-style: preserve-3d;
         transition: transform 0.6s;
     }
+    
 
     .card {
         position: absolute;
@@ -70,13 +63,23 @@ const props = defineProps({
     .front {
         background: linear-gradient(to bottom, #54204d 0%, #7db9e8 100%);
     }
+    .front img{
+        width: 15rem;
+        border-radius: 10%;
+    }
 
     .back {
         background: #7db9e8;
+        display: flex;
+        flex-direction: row;
         transform: rotateY(-180deg);
         color: black;
     }
-
+    .back img{
+        height: 3rem;
+        width: 3rem;
+        margin: 1rem;
+    }
     .member-card:hover {
         transform: rotateY(-180deg);
     }
