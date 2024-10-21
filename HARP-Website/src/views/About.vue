@@ -11,20 +11,32 @@
             </div>
             <div class="values-text">
                 <h5>Our Values</h5>
-                <h3>Meet Harp Research</h3>
-                <h3>Pioneers.</h3>
-                <h3>Innovative.</h3>
-                <h3>Polymorphic.</h3>
-                <h6>Join a team where diverse talents from various fields, including leading researchers and core innovators, come together to push the boundaries of what's possible.</h6>
+                <h2>Meet Harp Research</h2>
+                <div class="gradient-text">
+                    <h2 class="gradient one">Pioneers.</h2>
+                    <h2 class="gradient two">Innovative.</h2>
+                    <h2 class="gradient three">Polymorphic.</h2>    
+                </div>
+                
+                <h6>Join a team where diverse talents from various fields, including leading researchers and core innovators, come together to
+                     push thJoin a team where diverse talents from various fields, including leading researchers and core innovators, come togethe
+                     r to push thJoin a team where diverse talents from various fields, including leading researchers and core innovators, come 
+                     together to push thJoin a team where diverse talents from various fields, including leading researchers and core innovators,
+                      come together to push thJoin a team where diverse talents from various fields, including leading researchers and core innov
+                      ators, come together to push the boundaries of what's possible.</h6>
             </div>
-           
-
         </div>
         <div class="mission">
             <div class="mission-text">
                 <h5>Our Story and Mission</h5>
-                <h3>Accessible automation tools creating value for everyone</h3>
-                <h6>After years of developing our virtual lithography technology, we refocused our efforts on AI. After testing our framework developing software tools for the FDA's Summer Food Service Program, we began developing the Simplified Semantic System Synthesis Framework, or S4, our proprietary polymorphic AI language, built from the ground up for planning. From here, HARP research hopes to expand its capabilities, allowing anyone to create anything.</h6>
+                <h2>Accessible automation tools creating value for <span class="gradient one">everyone</span></h2>
+                <h6>After years of developing our virtual lithography technology, we refocused our efforts on AI. After testing our framework
+                     developing software tools for the FDA's Summer Food Service Program, we began developing the Simplified Semantic System
+                      Synthesis Framework, or S4, our proprietary polymorphic AI language, built from the ground up for planning. From here,
+                      HARP research hopes to expand its capabilities, allowing anyone to create anyth AI language, built from the ground up for planning. From here,
+                      HARP research hopes to expand its capabilities, allowing anyone to create anyth AI language, built from the ground up for planning. From here,
+                      HARP research hopes to expand its capabilities, allowing anyone to create anyth AI language, built from the ground up for planning. From here,
+                      HARP research hopes to expand its capabilities, allowing anyone to create anything.</h6>
             </div>
            
             <div class="mission-img">
@@ -42,12 +54,27 @@
                 <TeamMember v-for="member in TeamMembers.filter(member=> !member.founder)" :key="member.id" :member="member" />
             </div>
         </div>
+        <div class="join">
+            <div class="join-pic">
+                <div class="join-pic-box1"></div>
+                <div class="join-pic-box2"></div>
+                <div class="join-pic-box1"></div>
+                <div class="join-pic-box2"></div>
+            </div>
+            <div class="join-text">
+                <h2>Join our team</h2>
+                <p>After years of developing our virtual lithography technology, we refocused our efforts on AI. After testing our framework developing software
+                 tools for the FDA's Summer Food Service Program, we began developing the Simplified Semantic System Syn</p>
+                <Button>Careers</Button>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
 import TeamMember from '@/components/TeamMemberCard.vue';
 import Header from '@/components/Header.vue';
+import Button from '@/components/Button.vue';
 
 const TeamMembers= [
     { id: 1, name: "Harper Chisari", role: "Cheif Executive Officer", founder: true, github:"https://github.com/dashboard" , linkedin:"https://www.linkedin.com/feed/" },
@@ -67,12 +94,15 @@ const TeamMembers= [
 
 </script>
 
+
 <style lang="css" scoped>
     
     .team{
-        margin-top: 4rem;
-        margin-right: 8rem;
-        margin-left: 8rem;
+        margin: 4rem 8rem;
+    }
+    .team h1{
+        text-align: center;
+        
     }
     .team-foundersCards,
     .team-membersCards{
@@ -82,14 +112,21 @@ const TeamMembers= [
         flex: 1 1 22%;
         gap: 2%;
     }
-    .values,
+    .values{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 8rem 8rem;
+        flex-wrap: wrap;
+        margin-bottom: 15rem;
+    }
     .mission{
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         margin: 4rem 8rem;
         flex-wrap: wrap;
-        max-width: 90%;
+        margin-bottom: 8rem;
     }
     img{
         border-radius: 10%;
@@ -98,23 +135,25 @@ const TeamMembers= [
     .values-img {
         position: relative;
         display: flex;
+        margin-right: 10rem;
     }
 
     .values-img img {
-        width: 300px; 
+        width: 22rem; 
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .values-img img:first-child {
         position: relative;
-        z-index: 2;
+        z-index: 1;
         margin-right: -150px;
     }
 
     .values-img img:last-child {
         position: relative;
-        z-index: 1;
+        z-index: 2;
         transform: translateX(-50px); 
+        transform: translateY(150px); 
     }
 
     .values-text {
@@ -122,11 +161,75 @@ const TeamMembers= [
         padding: 1rem;
         flex: 1;
     }
+    .values-text h2{
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    .values-text h6{
+        font-size: .9rem;
+    }
+    .gradient-text{
+        margin-bottom: 2rem;
+    }
+    .one{
+        background: linear-gradient(to right, #54204d, #7db9e8);
+    }
+    .two{
+        background: linear-gradient(to right, #54204d, #7db9e8);
+    }
+    .three{
+        background: linear-gradient(to right, #54204d, #7db9e8);
+    } 
+    .gradient {
+        -webkit-background-clip: text; /* For webkit-based browsers */
+        -webkit-text-fill-color: transparent; /* Makes the text color transparent */
+        margin: 0; /* Removes default margin */
+        font-size: 2rem; /* Adjust size as needed */
+        font-weight: bold; /* Make it bold */
+        
+    }
     .mission-text{
         flex: 1;
+        margin-right: 10rem;
     }
+    .mission-text h2{
+        margin-bottom: 2rem;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    .mission-text h6{
+        font-size: .9rem;
+    }
+
     .mission-img{
         flex: 1;
+    }
+    .join-pic{
+        display: flex;
+
+    }
+    .join-pic-box1{
+        width: 25vw;
+        height: 20rem;
+        background: linear-gradient(to bottom, #649BE6 0%, #101451 100%);
+    }
+    .join-pic-box2{
+        width: 25vw;
+        height: 20rem;
+        background:  linear-gradient(to bottom, #101451 0%, #649BE6 100%);
+    }
+    .join-text{
+        text-align: center;
+        padding: 8rem;
+        background: radial-gradient(circle, #124188 0%, #041022 100%);
+        color: white;
+    }
+    .join-text h2{
+        font-weight: bold;
+        padding-bottom: 2rem;
+    }
+    .join-text p {
+        margin-bottom: 3rem;
     }
 
 </style>
