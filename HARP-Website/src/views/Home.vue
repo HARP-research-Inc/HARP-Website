@@ -53,7 +53,7 @@ export default {
         <div class="harpinfo2">
           <h1 id="projectstext">
             Transforming AI's powerful predictions into ultra-compact tools,
-            small enough to fit on
+            small enough to fit on <br />
             <span class="gradient-text">a calculator.</span>
           </h1>
           <ProjectsButton />
@@ -96,10 +96,11 @@ export default {
     rgba(166, 251, 229, 1) 49%,
     rgba(27, 104, 236, 1) 82%
   );
+
+  font-size: 1.5em;
+  margin-left: 0.2em;
   background-clip: text;
   color: transparent;
-  font-size: 1.6em;
-  margin-left: 0.2em;
 }
 .gradient-text {
   color: linear-gradient(
@@ -257,7 +258,7 @@ export default {
   font-size: 2em;
 }
 .productsinfo {
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

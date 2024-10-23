@@ -21,8 +21,7 @@ export default {
         <span class="gradient-text">Polymorphic AI</span>
       </h1>
       <h3 id="heheh">
-        Pioneering Hybrid Symbolic-Synthetic AI for Next-Gen <br />
-        Task Planning
+        Pioneering Hybrid Symbolic-Synthetic AI for Next-Gen Task Planning
       </h3>
       <div class="action-items">
         <get-started></get-started>
@@ -51,7 +50,7 @@ export default {
 }
 #heh {
   position: absolute;
-  top: 9em; /* Adjust the position of the heading */
+  top: 8em; /* Adjust the position of the heading */
   left: 31%;
   transform: translateX(-50%);
   color: white;
