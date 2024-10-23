@@ -4,12 +4,15 @@ import Nav from "./components/Nav.vue";
 
 <template>
   <header>
-    <Nav />
+   <Nav/>
   </header>
 
   <main>
     <router-view></router-view>
   </main>
+
 </template>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+
+</style>
