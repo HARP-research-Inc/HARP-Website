@@ -1,11 +1,3 @@
-<script>
-import GetStarted from "./GetStarted.vue";
-
-export default {
-  components: { GetStarted },
-};
-</script>
-
 <template>
   <div>
     <nav>
@@ -23,13 +15,13 @@ export default {
       </div>
       <div class="nav-right">
         <router-link class="navLink" to="/contact">Contact Us</router-link>
-        <router-link class="navLink" to="/login"
-          ><get-started></get-started
-        ></router-link>
+        <router-link class="navLink" to="/login">Get Started</router-link>
       </div>
     </nav>
   </div>
 </template>
+
+<script setup></script>
 
 <style lang="css" scoped>
 nav {
@@ -37,7 +29,7 @@ nav {
   position: fixed;
   display: flex;
   justify-content: space-between;
-  padding: 2% 5% 0% 5%;
+  padding: 2% 5%;
   background-color: transparent;
   z-index: 1000;
   text-decoration: none;
