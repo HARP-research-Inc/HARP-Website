@@ -28,7 +28,7 @@ const props = defineProps({
         align-items: center;
         box-sizing: border-box;
         color: white;
-        z-index: -1;
+        z-index: 2;
     }
     .header::before {
         content: "";

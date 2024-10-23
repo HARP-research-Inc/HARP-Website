@@ -43,6 +43,7 @@ const props = defineProps({
         position: relative;
         transform-style: preserve-3d;
         transition: transform 0.6s;
+        margin-bottom: 1rem;
     }
     
 

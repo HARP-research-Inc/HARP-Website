@@ -74,7 +74,7 @@
 <script setup>
 import TeamMember from '@/components/TeamMemberCard.vue';
 import Header from '@/components/Header.vue';
-import Button from '@/components/Button.vue';
+// import Button from '@/components/Button.vue';
 
 const TeamMembers= [
     { id: 1, name: "Harper Chisari", role: "Cheif Executive Officer", founder: true, github:"https://github.com/dashboard" , linkedin:"https://www.linkedin.com/feed/" },
@@ -96,9 +96,9 @@ const TeamMembers= [
 
 
 <style lang="css" scoped>
-    
     .team{
         margin: 4rem 8rem;
+        color: white;
     }
     .team h1{
         text-align: center;
@@ -160,6 +160,7 @@ const TeamMembers= [
         text-align: left;
         padding: 1rem;
         flex: 1;
+        color: white;
     }
     .values-text h2{
         font-weight: bold;
@@ -191,6 +192,7 @@ const TeamMembers= [
     .mission-text{
         flex: 1;
         margin-right: 10rem;
+        color: white;
     }
     .mission-text h2{
         margin-bottom: 2rem;
