@@ -43,6 +43,7 @@ const props = defineProps({
         position: relative;
         transform-style: preserve-3d;
         transition: transform 0.6s;
+        margin-bottom: 1rem;
     }
     
 
@@ -82,6 +83,10 @@ const props = defineProps({
     }
     .member-card:hover {
         transform: rotateY(-180deg);
+    }
+    .member-name{
+        font-weight: bold ;
+        font-size: 1.1rem;
     }
  
 </style>
