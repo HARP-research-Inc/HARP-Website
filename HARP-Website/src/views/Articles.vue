@@ -1,13 +1,21 @@
 <template>
-    <div>
-        <h1>Articles</h1>
-    </div>
+  <div>
+    <TopStories></TopStories>
+    <Explore />
+    <StayInTheLoop />
+    <Footer />
+  </div>
 </template>
 
-<script setup>
+<script>
+import Explore from "../components/Explore.vue";
+import StayInTheLoop from "../components/StayInTheLoop.vue";
+import TopStories from "@/components/TopStories.vue";
+import Footer from "@/components/Footer.vue";
 
+export default {
+  components: { Explore, StayInTheLoop, TopStories, Footer },
+};
 </script>
 
-<style lang="css" scoped>
-
-</style>
+<style scoped></style>

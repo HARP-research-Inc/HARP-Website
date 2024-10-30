@@ -44,7 +44,7 @@ export default {
   );
   border-radius: 2em;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin: 40% 7% 5% 7%;
+  margin: 5% 7% 5% 7%;
 }
 
 .image-section {

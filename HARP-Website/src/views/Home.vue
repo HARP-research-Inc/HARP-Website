@@ -268,6 +268,7 @@ export default {
   position: relative;
   width: 40em;
   height: 20em;
+  margin-bottom: 30em;
 }
 
 .images img {
