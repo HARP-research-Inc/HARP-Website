@@ -101,8 +101,6 @@ import Header from "../components/Header.vue";
 import GeneralButton from "@/components/GeneralButton.vue";
 import CareersButton from "@/components/CareersButton.vue";
 
-
-
 const TeamMembers = [
   {
     id: 1,
@@ -330,9 +328,9 @@ img {
 .gradient {
   background-clip: text;
   color: transparent;
-  margin: 0; /* Removes default margin */
-  font-size: 2rem; /* Adjust size as needed */
-  font-weight: bold; /* Make it bold */
+  margin: 0; 
+  font-size: 2rem; 
+  font-weight: bold; 
 }
 .everyone {
   background: linear-gradient(
@@ -342,9 +340,9 @@ img {
   );
   background-clip: text;
   color: transparent;
-  margin: 0; /* Removes default margin */
-  font-size: 2rem; /* Adjust size as needed */
-  font-weight: bold; /* Make it bold */
+  margin: 0; 
+  font-size: 2rem; 
+  font-weight: bold; 
 }
 .mission-text {
   flex: 1;

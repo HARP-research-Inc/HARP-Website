@@ -54,7 +54,8 @@ const routes = [
     path: "/research-project",
     name:"ResearchProject",
     component: ResearchProject,
-  }
+  },
+ 
 ];
 
 const router = createRouter({
