@@ -1,5 +1,8 @@
 <template>
-    <router-link class="blue-button">
+    <router-link  
+    v-if="to" 
+    :to="to" 
+    class="blue-button">
       {{ label }}
     </router-link>
   </template>
@@ -11,7 +14,11 @@
       label: {
         type: String,
         default: "Default Text" 
-      }
+      },
+      to: {
+        type: String,
+        default: '#', 
+      },
     }
   };
   </script>

@@ -33,7 +33,7 @@
     margin: 0;
     text-align: left;
     border-radius: 2rem;
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
 }
 .contributors h3{
     font-weight: bold;

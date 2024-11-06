@@ -5,7 +5,7 @@
                 <h1>Research Paper Title Important</h1>
                 <h3>Insert descriptionof product. Explore the full range of our innovative work and see how we're shaping the future of technoloInsert
                     descriptionof product. Explore the full range of our innovative work and see how we're shaping the future of technolo</h3>
-                <GeneralButton label="Contributors" class="small-button"/>
+                    <GeneralButton label="Contributors" to="#contributors" class="small-button"/>
             </div>
             <div class="research-text">
                 <h2>Header title extend a little longer</h2>
@@ -93,7 +93,9 @@
                       consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel
                       illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
             </div>
-            <ResearchContributors/>
+            <section >
+                <ResearchContributors id="contributors"/>
+            </section>
         </div>
         <Footer/>
     </div>

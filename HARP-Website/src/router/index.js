@@ -62,12 +62,15 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition; // for back/forward navigation
-    } else {
-      return { top: 0 }; // scroll to the top for all navigation
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth', // Enables smooth scrolling
+      };
     }
+    return { top: 0 };
   },
 });
+
 
 export default router;

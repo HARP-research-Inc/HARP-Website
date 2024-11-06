@@ -7,16 +7,14 @@
         
         
         <div class="openSource">
-            <h2 class="openSource-header">Open Source</h2>
             <div class="openSource-carousel">
-                <Carousel :items="ProjectCards" />
+                <Carousel :items="ProjectCards" title="Open Source"/>
             </div>
         </div>
 
         <div class="research">
-            <h2 class="research-header">Research Papers</h2>
             <div class="research-carousel">
-                <Carousel :items="ResearchCards" />
+                <Carousel :items="ResearchCards" title="Research" />
             </div>
         </div>
 

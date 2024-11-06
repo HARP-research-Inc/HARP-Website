@@ -1,8 +1,11 @@
 <template>
   <div class="carousel-container">
-    <div class="scroll-buttons">
-      <button class="scroll-button" @click="scrollCarousel(-1)">❮</button>
-      <button class="scroll-button" @click="scrollCarousel(1)">❯</button>
+    <div class="header-row">
+      <h2 class="carousel-header">{{ title }}</h2>
+      <div class="scroll-buttons">
+        <button class="scroll-button" @click="scrollCarousel(-1)">❮</button>
+        <button class="scroll-button" @click="scrollCarousel(1)">❯</button>
+      </div>
     </div>
     <div class="carousel" :style="{ transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)` }">
       <div class="carousel-item" v-for="(item, index) in items" :key="index">
@@ -21,6 +24,10 @@ const props = defineProps({
     type: Array,
     required: true
   },
+  title:{
+    type: String,
+    required: true
+  }
 });
 
 const currentIndex = ref(0);
@@ -44,7 +51,7 @@ function scrollCarousel(direction) {
   max-width: 85%;
   overflow: hidden;
   margin: 0 auto;
-  padding-top: 3rem;
+  margin-bottom: 8rem;
 }
 
 .carousel {
@@ -52,21 +59,28 @@ function scrollCarousel(direction) {
   transition: transform 0.5s ease;
 }
 
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
 .carousel-item {
   min-width: calc(100% / 5); 
   box-sizing: border-box;
   padding: 10px;
 }
+.carousel-header{
+  color: white;
+  font-weight: bold;
+  margin: 0;
+}
 
 .scroll-buttons {
-  position: absolute;
-  top: 20px;
-  right: 0;
   display: flex;
-  flex-direction: row;
   gap: 10px;
-  z-index: 10;
-  transform: translateY(-50%);
 }
 
 .scroll-button {
