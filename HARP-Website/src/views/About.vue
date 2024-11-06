@@ -184,7 +184,7 @@ const TeamMembers = [
   {
     id: 10,
     name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    role: "Researcher",
     founder: false,
     semester: "Spring 2025",
     github: "https://github.com/dashboard",
@@ -193,7 +193,7 @@ const TeamMembers = [
   {
     id: 11,
     name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    role: "Intern",
     founder: false,
     semester: "Fall 2024",
     github: "https://github.com/dashboard",
@@ -202,13 +202,25 @@ const TeamMembers = [
   {
     id: 12,
     name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    role: "Developer",
     founder: false,
     semester: "Fall 2024",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
 ];
+
+const selectedRole = ref('all');
+
+function filterMembers(role) {
+  selectedRole.value = role;
+}
+
+const filteredMembers = computed(() => {
+  if (selectedRole.value === 'all') return TeamMembers.value;
+  return TeamMembers.value.filter(member => member.role === selectedRole.value);
+});
+
 </script>
 
 <style lang="css" scoped>

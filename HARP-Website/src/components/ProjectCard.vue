@@ -1,10 +1,10 @@
 <template>
-    <div class= "project"> 
+    <router-link :to="project.link" class= "project"> 
         <div class= "project-box">
             <h4 class="project-name">{{ project.name }}</h4> 
         </div>
         
-    </div>
+    </router-link>
 </template>
 
 <script setup>

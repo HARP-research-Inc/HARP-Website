@@ -29,6 +29,7 @@
             </div>
         </div>
         <StayInTheLoop/>
+        <Footer/>
     </div>
 </template>
 
@@ -38,9 +39,10 @@ import { ref, nextTick} from 'vue';
 import Header from '@/components/Header.vue';
 import ProjectCard from '@/components/ProjectCard.vue';
 import StayInTheLoop from '@/components/StayInTheLoop.vue';
+import Footer from '@/components/Footer.vue';
 
 const ProjectCards = [
-    {id: 1, name: "Vox Intuit(2024)"},
+    {id: 1, name: "Vox Intuit(2024)", link: "/open-source-project"},
     {id: 2, name: "Vox Intuit(2024)"},
     {id: 3, name: "Vox Intuit(2024)"},
     {id: 4, name: "Vox Intuit(2024)"},
@@ -48,7 +50,7 @@ const ProjectCards = [
     {id: 6, name: "Vox Intuit(2024)"},
 ]
 const ResearchCards = [
-    {id: 1, name: "Vox Intuit(2024)"},
+    {id: 1, name: "Vox Intuit(2024)", link: "/research-project"},
     {id: 2, name: "Vox Intuit(2024)"},
     {id: 3, name: "Vox Intuit(2024)"},
     {id: 4, name: "Vox Intuit(2024)"},
