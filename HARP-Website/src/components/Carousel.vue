@@ -24,7 +24,7 @@ const props = defineProps({
 });
 
 const currentIndex = ref(0);
-const itemsToShow = 5; // Number of items to display at a time
+const itemsToShow = 5; 
 
 function scrollCarousel(direction) {
   const totalItems = props.items.length;
@@ -53,14 +53,14 @@ function scrollCarousel(direction) {
 }
 
 .carousel-item {
-  min-width: calc(100% / 5); /* Show 5 items at a time */
+  min-width: calc(100% / 5); 
   box-sizing: border-box;
   padding: 10px;
 }
 
 .scroll-buttons {
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 0;
   display: flex;
   flex-direction: row;

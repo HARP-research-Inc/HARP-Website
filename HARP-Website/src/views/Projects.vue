@@ -14,12 +14,12 @@
         </div>
 
         <div class="research">
-            <h2 class="research-header">Open Source</h2>
+            <h2 class="research-header">Research Papers</h2>
             <div class="research-carousel">
                 <Carousel :items="ResearchCards" />
             </div>
         </div>
-        
+
         <StayInTheLoop/>
         <Footer/>
     </div>
