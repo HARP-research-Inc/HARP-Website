@@ -7,8 +7,12 @@
             </div>
             <div class="card back">
                 <div class= "member-box"></div>
-                 <a class="logo" href="{{ member.github }}"><img src="../assets/linkedin.png" alt="linkedin Logo"></a>
-                 <a class="logo" href="{{ member.linkedin }}"><img src="../assets/github.png" alt="github logo" ></a>
+                <a class="logo" :href="member.github" target="_blank" rel="noopener">
+                    <img src="../assets/github.png" alt="GitHub Logo">
+                </a>
+                <a class="logo" :href="member.linkedin" target="_blank" rel="noopener">
+                    <img src="../assets/linkedin.png" alt="LinkedIn Logo">
+                </a>
            </div>
         </div>
         <h4 class="member-name">{{ member.name }}</h4> 
