@@ -24,6 +24,7 @@ const props = defineProps({
         margin-top: 3%;
         display: flex;
         flex-direction: column;
+        text-decoration: none;
     }
     .project-box{
         width: 15rem;
@@ -37,5 +38,6 @@ const props = defineProps({
     }
     .project-name{
         color: white;
+        
     }
 </style>

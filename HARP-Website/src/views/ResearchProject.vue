@@ -5,7 +5,7 @@
                 <h1>Research Paper Title Important</h1>
                 <h3>Insert descriptionof product. Explore the full range of our innovative work and see how we're shaping the future of technoloInsert
                     descriptionof product. Explore the full range of our innovative work and see how we're shaping the future of technolo</h3>
-                    <GeneralButton label="Contributors" to="#contributors" class="small-button"/>
+                    <GradientButton label="Contributors" to="#contributors" class="small-button"/>
             </div>
             <div class="research-text">
                 <h2>Header title extend a little longer</h2>
@@ -102,7 +102,7 @@
 </template>
 
 <script setup>
-import GeneralButton from '@/components/GeneralButton.vue';
+import GradientButton from '@/components/GradientButton.vue';
 import ResearchContributors from '@/components/ResearchContributors.vue';
 import Footer from '@/components/Footer.vue';
 

@@ -4,7 +4,7 @@
             <h1>Open Source Project</h1>
             <h3>Insert descriptionof product. Explore the full range of our innovative work and see
                  how we're shaping the future of technolohe future of technolohe future of technolo</h3>
-            <GeneralButton label="Try Now" class="small-button"/>
+            <GradientButton label="Try Now" class="small-button"/>
         </div>
         <OpenSourceBlockRightImage/>
         <OpenSourceBlockLeftImage/>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import GeneralButton from '@/components/GeneralButton.vue';
+import GradientButton from '@/components/GradientButton.vue';
 import OpenSourceBlockLeftImage from '@/components/OpenSourceBlockLeftImage.vue';
 import OpenSourceBlockRightImage from '@/components/OpenSourceBlockRightImage.vue';
 import Footer from '@/components/Footer.vue';

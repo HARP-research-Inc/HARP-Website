@@ -84,7 +84,7 @@ function scrollCarousel(direction) {
 }
 
 .scroll-button {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: transparent;
   color: #fff;
   border: none;
   padding: 10px;
