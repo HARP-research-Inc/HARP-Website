@@ -1,5 +1,5 @@
 <script>
-import { initHeader, addListeners, initAnimation } from "./animation.js";
+import { initHeader, addListeners, initAnimation } from "./animation2.js";
 import GetStarted from "./GetStarted.vue";
 import Trynow from "./TryNow.vue";
 
@@ -28,7 +28,7 @@ export default {
       </div>
     </div>
 
-    <canvas id="demo-canvas"></canvas>
+    <canvas id="demo-canva"></canvas>
   </div>
 </template>
 
@@ -78,7 +78,7 @@ export default {
   font-weight: 500;
 }
 
-#demo-canvas {
+#demo-canva {
   background: #161616;
   width: 100%;
   clip-path: inset(0 0 25% 0);
