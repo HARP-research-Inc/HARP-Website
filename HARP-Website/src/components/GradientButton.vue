@@ -25,7 +25,8 @@
   
   <style scoped>
   .blue-button {
-    background-color: #124188;
+    background: rgb(18,65,136);
+    background: linear-gradient(90deg, rgba(18,65,136,1) 0%, rgba(34,97,166,1) 49%, rgba(67,164,229,1) 100%);
     color: white;
     border: none;
     padding: 0.75em 1rem;
