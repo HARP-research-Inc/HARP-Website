@@ -1,5 +1,5 @@
 <script>
-import GetStarted from "./GetStarted.vue";
+import GetStarted from "../components/GetStarted.vue";
 
 export default {
   components: { GetStarted },
