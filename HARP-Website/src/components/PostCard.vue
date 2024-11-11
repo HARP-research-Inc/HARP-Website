@@ -5,22 +5,13 @@
       <p class="post-date">{{ date }} • {{ readTime }}</p>
       <h3 class="post-title">{{ title }}</h3>
       <p class="post-intro">{{ intro }}</p>
-      <div class="socials">
-        <a href="#"><LinkedInIcon /></a> <a href="#"><GithubIcon /></a>
-      </div>
+      <button class="linkedin-btn">in</button>
     </div>
   </div>
 </template>
 
 <script>
-import GithubIcon from "../assets/GithubIcon.vue";
-import LinkedInIcon from "../assets/LinkedInIcon.vue";
-
 export default {
-  components: {
-    GithubIcon,
-    LinkedInIcon,
-  },
   props: {
     imageUrl: String,
     date: String,
@@ -32,11 +23,6 @@ export default {
 </script>
 
 <style scoped>
-.socials {
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-}
 .post-card {
   display: flex;
   align-items: center;
