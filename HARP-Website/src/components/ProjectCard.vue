@@ -1,10 +1,10 @@
 <template>
-    <router-link :to="project.link" class= "project"> 
+    <div class= "project"> 
         <div class= "project-box">
             <h4 class="project-name">{{ project.name }}</h4> 
         </div>
         
-    </router-link>
+    </div>
 </template>
 
 <script setup>
@@ -24,7 +24,6 @@ const props = defineProps({
         margin-top: 3%;
         display: flex;
         flex-direction: column;
-        text-decoration: none;
     }
     .project-box{
         width: 15rem;
@@ -38,6 +37,5 @@ const props = defineProps({
     }
     .project-name{
         color: white;
-        
     }
 </style>

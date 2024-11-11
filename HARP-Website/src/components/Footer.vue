@@ -101,7 +101,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 85%;
+  max-width: 75em;
   margin: 0 auto;
   padding: 0 1.5em;
 }

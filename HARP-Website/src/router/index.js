@@ -6,8 +6,6 @@ import Projects from "@/views/Projects.vue";
 import Articles from "@/views/Articles.vue";
 import Contact from "@/views/Contact.vue";
 import Login from "@/views/Login.vue";
-import OpenSourceProject from "@/views/OpenSourceProject.vue";
-import ResearchProject from "@/views/ResearchProject.vue";
 
 const routes = [
   {
@@ -45,32 +43,18 @@ const routes = [
     name: "Login",
     component: Login,
   },
-  {
-    path: "/open-source-project",
-    name: "OpenSourceProject",
-    component: OpenSourceProject,
-  },
-  {
-    path: "/research-project",
-    name:"ResearchProject",
-    component: ResearchProject,
-  },
- 
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth', // Enables smooth scrolling
-      };
+    if (savedPosition) {
+      return savedPosition; // for back/forward navigation
+    } else {
+      return { top: 0 }; // scroll to the top for all navigation
     }
-    return { top: 0 };
   },
 });
-
 
 export default router;

@@ -42,7 +42,7 @@ nav {
   z-index: 1000;
   text-decoration: none;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.5em;
 }
 .nav-left,
 .nav-right {
