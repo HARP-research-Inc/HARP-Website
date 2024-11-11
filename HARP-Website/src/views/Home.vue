@@ -119,7 +119,6 @@
 
 .founderphotos img {
   width: 11em;
-  /* height: 10em; */
   border-radius: 50%;
   position: relative;
   z-index: 1;
@@ -230,6 +229,7 @@
   position: relative;
   width: 40em;
   height: 20em;
+  margin-bottom: 30rem;
 }
 
 .images img {

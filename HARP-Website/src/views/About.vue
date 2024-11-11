@@ -58,6 +58,12 @@
         />
       </div>
       <h2 class="team-membersHeader">Spring 2025</h2>
+      <div class="team-buttons">
+        <GeneralButton label="View All"/>
+        <GeneralButton label="Developers"/>
+        <GeneralButton label="Interns"/>
+        <GeneralButton label="Reseachers"/>
+      </div>
       <div class="team-membersCards">
         <TeamMember
           v-for="member in TeamMembers.filter((member) => !member.founder)"
@@ -81,7 +87,9 @@
           software  tools for the FDA's Summer Food Service Program, we began
           developing the Simplified Semantic System Syn
         </p>
-        <Button>Careers</Button>
+        <div class="button-wrapper">
+          <CareersButton label="Careers"/>
+        </div>
       </div>
     </div>
   </div>
@@ -90,7 +98,10 @@
 <script setup>
 import TeamMember from "@/components/TeamMemberCard.vue";
 import Header from "../components/Header.vue";
-// import Button from "..//components/Button.vue";
+import GeneralButton from "@/components/GeneralButton.vue";
+import CareersButton from "@/components/CareersButton.vue";
+
+
 
 const TeamMembers = [
   {
@@ -250,6 +261,11 @@ const TeamMembers = [
   flex: 1 1 22%;
   gap: 2%;
 }
+.team-buttons{
+  margin-top: 1rem;
+  display: flex;
+  gap: 9%;
+}
 .values {
   display: flex;
   justify-content: space-between;
@@ -396,5 +412,10 @@ img {
 #valuetext {
   width: 100%;
   font-size: 1.25rem;
+}
+.button-wrapper{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 </style>

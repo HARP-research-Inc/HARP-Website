@@ -84,5 +84,9 @@ const props = defineProps({
     .member-card:hover {
         transform: rotateY(-180deg);
     }
+    .member-name{
+        font-weight: bold ;
+        font-size: 1.1rem;
+    }
  
 </style>
