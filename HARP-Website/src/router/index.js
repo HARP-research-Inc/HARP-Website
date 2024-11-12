@@ -62,11 +62,10 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth', // Enables smooth scrolling
-      };
+    if (savedPosition) {
+      return savedPosition; 
+    } else {
+      return { top: 0 }; 
     }
     return { top: 0 };
   },
