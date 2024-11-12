@@ -48,6 +48,30 @@
             </div>
         </div>
 
+        <div v-if="showModalB" class="modal-overlay">
+            <div class="modal-content">
+                <h2>Join us on our journey!</h2>
+                <form @submit.prevent="handlePartnerSubmit">
+                    <div>
+                        <label for="partner-name">Name</label>
+                        <input type="text" id="partner-name" v-model="partnerForm.name" required />
+                    </div>
+                    <div>
+                        <label for="partner-email">Email</label>
+                        <input type="email" id="partner-email" v-model="partnerForm.email" required />
+                    </div>
+                    <div>
+                        <label for="partner-message">Message</label>
+                        <textarea id="partner-message" v-model="partnerForm.message" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit">Submit</button>
+                        <button type="button" @click="showModalB = false">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     <Footer/>
     </div>
 </template>
@@ -60,6 +84,7 @@ import doubleIcon from '@/assets/doubleIcon.png';
 import { ref } from 'vue';
 
 const showModal = ref(false);
+const showModalB = ref(false);
 
 // Form data
 const form = ref({
@@ -68,11 +93,23 @@ const form = ref({
   message: ''
 });
 
+const partnerForm = ref({
+  name: '',
+  email: '',
+  message: ''
+});
+
+
 // Handle form submission
 const handleSubmit = () => {
-  // Submit the form (you can add the actual submit logic here)
+
   alert('Form submitted!');
-  showModal.value = false; // Close the modal after submitting
+  showModal.value = false;
+};
+
+const handlePartnerSubmit = () => {
+  alert('Partner form submitted!');
+  showModalB.value = false;
 };
 
 </script>
@@ -118,27 +155,32 @@ const handleSubmit = () => {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
         background: linear-gradient(301deg, rgba(21,139,194,1) 0%, rgba(103,136,200,1) 100%);
         transition: all 0.3s ease;
+        color: white;
+    }
+    .modal-content h2{
+        display: flex;
+        justify-content: center;
     }
     .modal-content form div {
         margin-bottom: 1rem;
     }
     .modal-content label {
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
     }
     .modal-content input {
         width: 100%;
         padding: 0.5rem;
         margin-bottom: 0.5rem;
         border: 1px solid #ddd;
-        border-radius: 4px;
+        border-radius: 1rem;
     }
     .modal-content textarea {
         width: 100%;
         padding: 0.5rem;
         margin-bottom: 0.5rem;
         border: 1px solid #ddd;
-        border-radius: 4px;
+        border-radius: 1rem;
         height: 8rem;
     }
 
