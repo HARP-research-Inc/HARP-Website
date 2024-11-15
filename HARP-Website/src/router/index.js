@@ -50,9 +50,9 @@ const router = createRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      return savedPosition; // for back/forward navigation
+      return savedPosition; 
     } else {
-      return { top: 0 }; // scroll to the top for all navigation
+      return { top: 0 }; 
     }
   },
 });
