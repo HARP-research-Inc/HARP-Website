@@ -31,7 +31,7 @@ const props = defineProps({
 });
 
 const currentIndex = ref(0);
-const itemsToShow = 5; 
+const itemsToShow = 5; // Number of items to display at a time
 
 function scrollCarousel(direction) {
   const totalItems = props.items.length;
@@ -51,7 +51,7 @@ function scrollCarousel(direction) {
   max-width: 85%;
   overflow: hidden;
   margin: 0 auto;
-  margin-bottom: 8rem;
+  margin-bottom: 6rem;
 }
 
 .carousel {
@@ -59,6 +59,22 @@ function scrollCarousel(direction) {
   transition: transform 0.5s ease;
 }
 
+.carousel-item {
+  min-width: calc(100% / 5); /* Show 5 items at a time */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.scroll-buttons {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  z-index: 10;
+  transform: translateY(-50%);
+}
 .header-row {
   display: flex;
   justify-content: space-between;
@@ -66,7 +82,6 @@ function scrollCarousel(direction) {
   margin-bottom: 2rem;
   padding: 0 1rem;
 }
-
 .carousel-item {
   min-width: calc(100% / 5); 
   box-sizing: border-box;
@@ -76,11 +91,6 @@ function scrollCarousel(direction) {
   color: white;
   font-weight: bold;
   margin: 0;
-}
-
-.scroll-buttons {
-  display: flex;
-  gap: 10px;
 }
 
 .scroll-button {
