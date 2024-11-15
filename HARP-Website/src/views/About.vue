@@ -92,6 +92,7 @@
         </div>
       </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
@@ -100,7 +101,7 @@ import TeamMember from "@/components/TeamMemberCard.vue";
 import Header from "../components/Header.vue";
 import GeneralButton from "@/components/GeneralButton.vue";
 import CareersButton from "@/components/CareersButton.vue";
-
+import Footer from "@/components/Footer.vue";
 
 
 const TeamMembers = [
