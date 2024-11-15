@@ -9,7 +9,7 @@
 
 <script setup>
 import GradientButton from './GradientButton.vue';
-import { computed, defineProps, defineEmits } from 'vue';
+import { computed, defineEmits } from 'vue';
 const props = defineProps({
   icon: {
     type: String, 

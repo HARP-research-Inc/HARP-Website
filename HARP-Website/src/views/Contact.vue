@@ -25,52 +25,67 @@
     </div>
 
     <div v-if="showModal" class="modal-overlay">
+        <div class="modal-content">
+        <!-- Close button -->
+        <button class="close-icon" @click="showModal = false">×</button>
+
+        <h2>Got Questions?</h2>
+        <form @submit.prevent="handleSubmit">
+            <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" v-model="form.name" required />
+            </div>
+            <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" v-model="form.email" required />
+            </div>
+            <div>
+            <label for="message">Message</label>
+            <textarea id="message" v-model="form.message" required></textarea>
+            </div>
+            <div>
+            <!-- Gradient submit button -->
+            <GradientButton
+                label="Submit"
+                :gradientStart="'#158bc2'"
+                :gradientEnd="'#6788c8'"
+                type="submit"
+            />
+            </div>
+        </form>
+        </div>
+    </div>
+
+        <div v-if="showModalB" class="modal-overlay">
             <div class="modal-content">
-                <h2>Got Questions?</h2>
-                <form @submit.prevent="handleSubmit">
-                    <div>
-                        <label for="name">Name</label>
-                        <input type="text" id="name" v-model="form.name" required />
-                    </div>
-                    <div>
-                        <label for="email">Email</label>
-                        <input type="email" id="email" v-model="form.email" required />
-                    </div>
-                    <div>
-                        <label for="message">Message</label>
-                        <textarea id="message" v-model="form.message" required></textarea>
-                    </div>
-                    <div>
-                        <button type="submit">Submit</button>
-                        <button type="button" @click="showModal = false">Close</button>
-                    </div>
+                <button class="close-icon" @click="showModalB = false">×</button>
+
+                <h2>Join us on our journey!</h2>
+                <form @submit.prevent="handlePartnerSubmit">
+                <div>
+                    <label for="partner-name">Name</label>
+                    <input type="text" id="partner-name" v-model="partnerForm.name" required />
+                </div>
+                <div>
+                    <label for="partner-email">Email</label>
+                    <input type="email" id="partner-email" v-model="partnerForm.email" required />
+                </div>
+                <div>
+                    <label for="partner-message">Message</label>
+                    <textarea id="partner-message" v-model="partnerForm.message" required></textarea>
+                </div>
+                <div>
+                    <GradientButton
+                    label="Submit"
+                    :gradientStart="'#1F1CD0'"
+                    :gradientEnd="'#AAB7D2'"
+                    type="submit"
+                    />
+                </div>
                 </form>
             </div>
         </div>
 
-        <div v-if="showModalB" class="modal-overlay">
-            <div class="modal-content">
-                <h2>Join us on our journey!</h2>
-                <form @submit.prevent="handlePartnerSubmit">
-                    <div>
-                        <label for="partner-name">Name</label>
-                        <input type="text" id="partner-name" v-model="partnerForm.name" required />
-                    </div>
-                    <div>
-                        <label for="partner-email">Email</label>
-                        <input type="email" id="partner-email" v-model="partnerForm.email" required />
-                    </div>
-                    <div>
-                        <label for="partner-message">Message</label>
-                        <textarea id="partner-message" v-model="partnerForm.message" required></textarea>
-                    </div>
-                    <div>
-                        <button type="submit">Submit</button>
-                        <button type="button" @click="showModalB = false">Close</button>
-                    </div>
-                </form>
-            </div>
-        </div>
 
     <Footer/>
     </div>
@@ -78,6 +93,7 @@
 
 <script setup>
 import ContactCard from '@/components/ContactCard.vue';
+import GradientButton from '@/components/GradientButton.vue';
 import Footer from '@/components/Footer.vue';
 import singleIcon from '@/assets/singleIcon.png';
 import doubleIcon from '@/assets/doubleIcon.png';
@@ -195,6 +211,26 @@ const handlePartnerSubmit = () => {
     }
     .modal-content button[type="button"] {
         background: #ccc;
+    }
+
+    .close-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+    }
+
+    .close-icon:hover {
+        color: #ccc;
+    }
+
+    .modal-content {
+        position: relative;
     }
 
 </style>
