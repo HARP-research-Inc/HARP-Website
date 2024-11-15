@@ -6,6 +6,8 @@ import Projects from "@/views/Projects.vue";
 import Articles from "@/views/Articles.vue";
 import Contact from "@/views/Contact.vue";
 import Login from "@/views/Login.vue";
+import OpenSourceProject from "@/views/OpenSourceProject.vue";
+import ResearchProject from "@/views/ResearchProject.vue";
 
 const routes = [
   {
@@ -43,6 +45,17 @@ const routes = [
     name: "Login",
     component: Login,
   },
+  {
+    path: "/open-source-project",
+    name: "OpenSourceProject",
+    component: OpenSourceProject,
+  },
+  {
+    path: "/research-project",
+    name:"ResearchProject",
+    component: ResearchProject,
+  },
+ 
 ];
 
 const router = createRouter({
@@ -54,7 +67,9 @@ const router = createRouter({
     } else {
       return { top: 0 }; 
     }
+    return { top: 0 };
   },
 });
+
 
 export default router;
