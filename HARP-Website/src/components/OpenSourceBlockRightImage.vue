@@ -25,51 +25,111 @@
   </div>
 </template>
 
-<script setup >
-
+<script setup>
 </script>
 
 <style lang="css" scoped>
 .mission {
-color: white;
-display: flex;
-justify-content: center; 
-align-items: center; 
-margin: 4rem 8rem;
-flex-wrap: wrap;
-margin-bottom: 8rem;
+  color: white;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 4rem 8rem;
+  flex-wrap: wrap;
+  margin-bottom: 8rem;
 }
+
 .everyone {
-background: linear-gradient(
-  270deg,
-  rgba(255, 255, 255, 1) 0%,
-  rgba(88, 0, 251, 1) 90%
-);
-background-clip: text;
-color: transparent;
-margin: 0; 
-font-size: 2rem; 
-font-weight: bold;
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(88, 0, 251, 1) 90%
+  );
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  font-size: 2rem; 
+  font-weight: bold;
 }
 
 .mission-text {
-flex: 1;
-margin-right: 10rem;
-text-align: left;
+  flex: 1;
+  margin-right: 10rem;
+  text-align: left;
 }
+
 .mission-text h2 {
-margin-bottom: 2rem;
-font-weight: bold;
-font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
 }
+
 .mission-text h6 {
-font-size: 0.9rem;
+  font-size: 0.9rem;
+  margin-bottom: 3rem;
 }
 
 .mission-img {
-flex: 1;
+  flex: 1;
 }
-img{
+
+img {
   border-radius: 10%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .mission {
+    margin: 4rem;
+  }
+  .mission-img {
+    margin-right: 5rem;
+  }
+  .mission-text h2 {
+    font-size: 1.8rem;
+  }
+  .mission-text h6 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mission {
+    flex-direction: column;
+    margin: 2rem;
+    align-items: center;
+  }
+  .mission-img {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+  .mission-text {
+    text-align: center; /* Center the text */
+    margin-right: 0; /* Remove extra margin */
+  }
+  .mission-text h2 {
+    font-size: 1.5rem;
+  }
+  .mission-text h6 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-text h2 {
+    font-size: 1.25rem;
+  }
+  .mission-text h6 {
+    font-size: 0.9rem;
+  }
+  .everyone {
+    font-size: 1.5rem;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 </style>

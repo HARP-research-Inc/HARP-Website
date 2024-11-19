@@ -149,30 +149,141 @@ import Footer from '@/components/Footer.vue';
   font-weight: normal;
   margin-bottom: 3rem;
 }
-.research-text{
-    margin: 0 8rem;
-    margin-bottom: 4rem;
-    text-align: left;
+
+.research-text {
+  margin: 0 8rem;
+  margin-bottom: 4rem;
+  text-align: left;
 }
-.research-text h2{
-    font-weight: bold;
-    margin-bottom: 1rem;
+
+.research-text h2 {
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
-.research-text p{
-    margin-bottom: 1rem;
+
+.research-text p {
+  margin-bottom: 1rem;
 }
-img{
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+
+img {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
-.double-graph{
-    display: flex;
-    flex-direction: row;
-    gap: 7rem;
+
+.double-graph {
+  display: flex;
+  flex-direction: row;
+  gap: 7rem;
 }
 
 .small-button {
   width: 10rem;
 }
 
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .research {
+    padding: 2rem;
+  }
+
+  .research-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .research-header h3 {
+    font-size: 0.9rem;
+    max-width: 80vw;
+  }
+
+  .research-text {
+    margin: 0 4rem;
+  }
+
+  .double-graph {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .small-button {
+    width: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .research {
+    padding: 2rem;
+  }
+
+  .research-header {
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+  }
+
+  .research-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .research-header h3 {
+    font-size: 0.9rem;
+    max-width: 90vw;
+  }
+
+  .research-text {
+    margin: 0 2rem;
+    text-align: center; /* Center text on small screens */
+  }
+
+  .research-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .research-text p {
+    font-size: 0.9rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .double-graph {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .small-button {
+    width: 8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .research-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .research-header h3 {
+    font-size: 0.8rem;
+    max-width: 90vw;
+  }
+
+  .research-text {
+    margin: 0 1rem;
+  }
+
+  .research-text h2 {
+    font-size: 1.25rem;
+  }
+
+  .research-text p {
+    font-size: 0.8rem;
+  }
+
+  .double-graph {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .small-button {
+    width: 7rem;
+  }
+}
 </style>
