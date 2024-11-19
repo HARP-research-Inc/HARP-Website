@@ -115,17 +115,48 @@ const partnerForm = ref({
   message: ''
 });
 
+const handleSubmit = async () => {
+  try {
+    const response = await fetch('http://localhost:5000/submit-form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form.value),
+    });
 
-// Handle form submission
-const handleSubmit = () => {
-
-  alert('Form submitted!');
-  showModal.value = false;
+    if (response.ok) {
+      alert('Form submitted and saved!');
+      showModal.value = false;
+    } else {
+      alert('Failed to save form data.');
+    }
+  } catch (error) {
+    console.error('Error saving form data:', error);
+    alert('Failed to save form data.');
+  }
 };
 
-const handlePartnerSubmit = () => {
-  alert('Partner form submitted!');
-  showModalB.value = false;
+const handlePartnerSubmit = async () => {
+  try {
+    const response = await fetch('http://localhost:5000/submit-form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(partnerForm.value),
+    });
+
+    if (response.ok) {
+      alert('Partner form submitted and saved!');
+      showModalB.value = false;
+    } else {
+      alert('Failed to save partner form data.');
+    }
+  } catch (error) {
+    console.error('Error saving partner form data:', error);
+    alert('Failed to save partner form data.');
+  }
 };
 
 </script>
