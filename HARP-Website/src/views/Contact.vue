@@ -162,23 +162,26 @@ const handlePartnerSubmit = async () => {
 </script>
 
 <style lang="css" scoped>
-    h1{
+    h1 {
         padding-top: 10rem;
         color: white;
         font-weight: bold;
     }
-    .contact{
+    .contact {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-height: 100vh; 
+        min-height: 100vh;
         text-align: center;
+        padding: 2rem; 
     }
-    .cards{
+    .cards {
         display: flex;
         justify-content: space-between;
-        
+        flex-wrap: wrap; 
+        gap: 1rem;
+        margin-top: 1rem; 
     }
 
     .modal-overlay {
@@ -262,6 +265,66 @@ const handlePartnerSubmit = async () => {
 
     .modal-content {
         position: relative;
+    }
+     /* Media queries for smaller screens */
+     @media (max-width: 768px) {
+        .cards {
+            flex-direction: column; /* Stack the cards vertically */
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 90vw; /* Make the modal width responsive */
+            padding: 1.5rem;
+        }
+
+        .modal-content input, 
+        .modal-content textarea {
+            padding: 1rem; /* Increase input padding for better touch experience */
+            font-size: 1rem; /* Adjust font size */
+        }
+
+        .modal-content button {
+            padding: 0.8rem 1.2rem; /* Adjust button padding */
+            font-size: 1rem; /* Adjust font size */
+        }
+
+        .close-icon {
+            font-size: 1.2rem; /* Smaller close icon */
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.5rem; /* Make the heading smaller on mobile */
+            padding-top: 5rem; /* Adjust top padding */
+        }
+
+        .cards {
+            gap: 1.5rem; /* Reduce gap between cards on mobile */
+        }
+
+        .modal-content {
+            width: 95vw; /* Full width modal on very small screens */
+            padding: 1rem;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            padding: 1.2rem; /* Increase input padding */
+            font-size: 0.9rem; /* Adjust font size */
+        }
+
+        .modal-content button {
+            padding: 0.7rem 1rem; /* Adjust button padding */
+            font-size: 0.9rem; /* Adjust font size */
+        }
+
+        .close-icon {
+            font-size: 1rem; /* Smaller close icon */
+        }
     }
 
 </style>

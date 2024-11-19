@@ -215,7 +215,6 @@ const TeamMembers = [
 <style lang="css" scoped>
 .team {
   margin: 4rem 8rem;
-
   color: white;
 }
 .team h1 {
@@ -319,9 +318,9 @@ img {
 .gradient {
   background-clip: text;
   color: transparent;
-  margin: 0; /* Removes default margin */
-  font-size: 2rem; /* Adjust size as needed */
-  font-weight: bold; /* Make it bold */
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
 }
 .everyone {
   background: linear-gradient(
@@ -331,9 +330,9 @@ img {
   );
   background-clip: text;
   color: transparent;
-  margin: 0; /* Removes default margin */
-  font-size: 2rem; /* Adjust size as needed */
-  font-weight: bold; /* Make it bold */
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
 }
 .mission-text {
   flex: 1;
@@ -385,5 +384,76 @@ img {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .team {
+    margin: 4rem 4rem;
+  }
+  .values,
+  .mission {
+    margin: 4rem;
+  }
+  .values-img {
+    margin-right: 4rem;
+  }
+  .values-img img {
+    width: 18rem;
+  }
+  .mission-text,
+  .mission-img {
+    margin-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .values,
+  .mission {
+    margin: 2rem;
+  }
+  .values-img {
+    display: block;
+    margin: 0 auto;
+  }
+  .values-img img {
+    width: 100%;
+    max-width: 22rem;
+  }
+  .team-foundersCards,
+  .team-membersCards {
+    justify-content: center;
+    gap: 1rem;
+    flex: 1 1 100%;
+  }
+  .team-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .join-text {
+    padding: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-text h2,
+  .mission-text h2 {
+    font-size: 1.5rem;
+  }
+  .values-text h6,
+  .mission-text h6 {
+    font-size: 1rem;
+  }
+  .gradient-text h2 {
+    font-size: 1.5rem;
+  }
+  .join-text p {
+    font-size: 0.9rem;
+  }
+  .join-pic-box1,
+  .join-pic-box2 {
+    width: 50vw;
+    height: 15rem;
+  }
 }
 </style>
