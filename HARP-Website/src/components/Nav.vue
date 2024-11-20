@@ -3,6 +3,16 @@ import GetStarted from "../components/GetStarted.vue";
 
 export default {
   components: { GetStarted },
+  data() {
+    return {
+      showProductsDropdown: false,
+    };
+  },
+  methods: {
+    toggleProductsDropdown() {
+      this.showProductsDropdown = !this.showProductsDropdown;
+    },
+  },
 };
 </script>
 
@@ -10,22 +20,36 @@ export default {
   <div>
     <nav>
       <div class="nav-left">
-        <router-link class="navLink" to="/"
-          ><img
+        <router-link class="navLink" to="/">
+          <img
             src="../assets/assets/HARP Logo Shirt Res.svg"
             alt="HARP Logo"
             class="logo"
-        /></router-link>
+          />
+        </router-link>
         <router-link class="navLink" to="/about">About</router-link>
-        <router-link class="navLink" to="/products">Products</router-link>
+        <div class="navLink products" @click="toggleProductsDropdown">
+          Products
+          <div v-if="showProductsDropdown" class="dropdown">
+            <router-link class="dropdown-link" to="/products"
+              >ViewPoint</router-link
+            >
+            <router-link class="dropdown-link" to="/products/product2"
+              >Product 2</router-link
+            >
+            <router-link class="dropdown-link" to="/products/product3"
+              >Product 3</router-link
+            >
+          </div>
+        </div>
         <router-link class="navLink" to="/projects">Projects</router-link>
         <router-link class="navLink" to="/articles">Articles</router-link>
       </div>
       <div class="nav-right">
         <router-link class="navLink" to="/contact">Contact Us</router-link>
-        <router-link class="navLink" to="/login"
-          ><get-started></get-started
-        ></router-link>
+        <router-link class="navLink" to="/login">
+          <get-started></get-started>
+        </router-link>
       </div>
     </nav>
   </div>
@@ -53,9 +77,45 @@ nav {
 .navLink {
   text-decoration: none;
   color: rgb(255, 255, 255);
+  position: relative;
+  cursor: pointer;
 }
 .logo {
   width: 5em;
   margin: 1em;
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background-color: #222;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translate(-50%, 10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-size: 1em;
+  z-index: 1000;
+}
+.products:hover .dropdown {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.dropdown-link {
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 1em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px;
+}
+
+.dropdown-link:hover {
+  background-color: rgba(16, 71, 190, 0.1);
+  color: rgba(16, 71, 190);
 }
 </style>
