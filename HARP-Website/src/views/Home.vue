@@ -27,9 +27,18 @@ export default {
       <div class="harp">
         <h1 id="intro">HARP Research Inc.</h1>
         <div class="founderphotos">
-          <img src="../assets/team.webp" alt="Founder 1" />
-          <img src="../assets/team.webp" alt="Founder 2" />
-          <img src="../assets/team.webp" alt="Founder 3" />
+          <img
+            src="../assets/TeamMember/HARP Research Chisari Harper.webp"
+            alt="Founder 1"
+          />
+          <img
+            src="../assets/TeamMember/HARP research Scott Kevin1.webp"
+            alt="Founder 2"
+          />
+          <img
+            src="../assets/TeamMember/Shimoni Yuval about.webp"
+            alt="Founder 3"
+          />
         </div>
         <div class="founderinfo">FOUNDERS OF <br />HARP RESEARCH INC.</div>
       </div>

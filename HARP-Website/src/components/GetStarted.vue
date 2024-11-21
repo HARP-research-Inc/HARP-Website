@@ -1,10 +1,15 @@
 <template>
-  <button class="get-started-btn">Get Started</button>
+  <button class="get-started-btn" @click="redirectToLogin">Get Started</button>
 </template>
 
 <script>
 export default {
   name: "GetStarted",
+  methods: {
+    redirectToLogin() {
+      this.$router.push("/login");
+    },
+  },
 };
 </script>
 
