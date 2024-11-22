@@ -1,60 +1,56 @@
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
+const bodyParser = require('body-parser');
 const cors = require('cors');
+const { Pool } = require('pg');
+
 const app = express();
-const PORT = 5000;
+const port = 5000;
 
-app.use(cors());
-app.use(express.json());
-
-app.post('/submit-form', (req, res) => {
-  const newData = req.body; // New data to append
-  console.log('Received data:', newData);
-
-  // Path to the JSON file
-  const filePath = path.resolve(__dirname, 'formData.json');
-
-  // Check if the file exists, and initialize if needed
-  if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, JSON.stringify([], null, 2));
-  }
-
-  // Read the existing file
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading file:', err);
-      return res.status(500).send({ message: 'Failed to read data.' });
-    }
-
-    let jsonData = [];
-    try {
-      console.log('Raw file content:', data); // Debug log
-      jsonData = JSON.parse(data);
-      if (!Array.isArray(jsonData)) {
-        throw new Error('Data is not an array');
-      }
-    } catch (parseErr) {
-      console.error('Error parsing JSON or data not an array:', parseErr);
-      jsonData = []; // Reset to empty array
-    }
-
-    // Append new data
-    jsonData.push(newData);
-
-    // Write the updated data back to the file
-    fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), 'utf8', (writeErr) => {
-      if (writeErr) {
-        console.error('Error writing file:', writeErr);
-        return res.status(500).send({ message: 'Failed to save data.' });
-      }
-
-      console.log('Data saved successfully:', jsonData);
-      res.status(200).send({ message: 'Data saved successfully!' });
-    });
-  });
+// PostgreSQL connection
+const pool = new Pool({
+  user: 'postgres', // Replace with your PostgreSQL username
+  host: 'localhost', // Replace with your host if not local
+  database: 'form_data',
+  password: '0000', // Replace with your PostgreSQL password
+  port: 5432, // Default PostgreSQL port
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+// Route to handle "Got Questions" form
+app.post('/submit-form', async (req, res) => {
+  const { name, email, message } = req.body;
+
+  try {
+    await pool.query(
+      'INSERT INTO questions_form (name, email, message) VALUES ($1, $2, $3)',
+      [name, email, message]
+    );
+    res.status(200).send({ message: 'Form submitted successfully!' });
+  } catch (error) {
+    console.error('Error inserting form data:', error);
+    res.status(500).send({ error: 'Failed to save form data.' });
+  }
+});
+
+// Route to handle "Partner with Us" form
+app.post('/submit-partner-form', async (req, res) => {
+  const { name, email, message } = req.body;
+
+  try {
+    await pool.query(
+      'INSERT INTO partner_form (name, email, message) VALUES ($1, $2, $3)',
+      [name, email, message]
+    );
+    res.status(200).send({ message: 'Partner form submitted successfully!' });
+  } catch (error) {
+    console.error('Error inserting partner form data:', error);
+    res.status(500).send({ error: 'Failed to save partner form data.' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });

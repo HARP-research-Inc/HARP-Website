@@ -117,47 +117,51 @@ const partnerForm = ref({
 
 const handleSubmit = async () => {
   try {
-    const response = await fetch('http://localhost:5000/submit-form', {
-      method: 'POST',
+    const response = await fetch("http://localhost:5000/submit-form", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(form.value),
     });
 
     if (response.ok) {
-      alert('Form submitted and saved!');
+      alert("Form submitted successfully!");
       showModal.value = false;
+      form.value = { name: "", email: "", message: "" }; // Reset form
     } else {
-      alert('Failed to save form data.');
+      throw new Error("Failed to submit form");
     }
   } catch (error) {
-    console.error('Error saving form data:', error);
-    alert('Failed to save form data.');
+    console.error("Error submitting form:", error);
+    alert("Failed to submit form.");
   }
 };
 
 const handlePartnerSubmit = async () => {
   try {
-    const response = await fetch('http://localhost:5000/submit-form', {
-      method: 'POST',
+    const response = await fetch("http://localhost:5000/submit-partner-form", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(partnerForm.value),
     });
 
     if (response.ok) {
-      alert('Partner form submitted and saved!');
+      alert("Partner form submitted successfully!");
       showModalB.value = false;
+      partnerForm.value = { name: "", email: "", message: "" }; // Reset form
     } else {
-      alert('Failed to save partner form data.');
+      throw new Error("Failed to submit form");
     }
   } catch (error) {
-    console.error('Error saving partner form data:', error);
-    alert('Failed to save partner form data.');
+    console.error("Error submitting partner form:", error);
+    alert("Failed to submit partner form.");
   }
 };
+
+
 
 </script>
 
