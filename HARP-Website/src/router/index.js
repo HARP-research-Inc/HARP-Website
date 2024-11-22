@@ -8,6 +8,7 @@ import Contact from "@/views/Contact.vue";
 import Login from "@/views/Login.vue";
 import OpenSourceProject from "@/views/OpenSourceProject.vue";
 import ResearchProject from "@/views/ResearchProject.vue";
+import AASReroute from "@/views/AASReroute.vue";
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: "/research-project",
     name:"ResearchProject",
     component: ResearchProject,
+  },
+  {
+    path: "/AASreroute",
+    name:"AASreroute",
+    component: AASReroute,
   },
  
 ];
