@@ -17,7 +17,7 @@
       <p class="signup-text">
         Don't have an account yet? <a href="#" class="signup-link">Sign Up.</a>
       </p>
-      <button class="join-btn">
+      <button class="join-btn" @click="redirectToAAS" >
         <img
           src="../assets/assets/AAS Logo.svg"
           alt="AAS Logo"
@@ -28,6 +28,15 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    redirectToAAS() {
+      this.$router.push("/AASReroute"); 
+    },
+  },
+};
+</script>
 
 <style lang="css" scoped>
 .page-container {
