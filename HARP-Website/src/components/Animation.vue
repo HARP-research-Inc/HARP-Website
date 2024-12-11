@@ -23,10 +23,10 @@ export default {
       <h3 id="heheh">
         Pioneering Hybrid Symbolic-Synthetic AI for Next-Gen Task Planning
       </h3>
-      <div class="action-items">
+      <!-- <div class="action-items">
         <get-started></get-started>
         <a href="" id="Careers">Careers</a>
-      </div>
+      </div> -->
     </div>
 
     <canvas id="demo-canvas"></canvas>
