@@ -57,7 +57,7 @@
           :member="member"
         />
       </div>
-      <h2 class="team-membersHeader">Spring 2025</h2>
+      <h2 class="team-membersHeader">Team Members</h2>
       <div class="team-buttons">
         <GeneralButtonNoLink label="View All" @click="filterMembers('all')"/>
         <GeneralButtonNoLink label="Developers" @click="filterMembers('Developer')"/>
@@ -103,6 +103,9 @@ import Header from "../components/Header.vue";
 import GeneralButtonNoLink from "@/components/GeneralButtonNoLink.vue";
 import CareersButton from "@/components/CareersButton.vue";
 import Footer from "@/components/Footer.vue";
+import HarperImg from "@/assets/TeamMember/HARP Research Chisari Harper Background Removed.png"
+import KevinImg from "@/assets/TeamMember/HARP research Scott Kevin1 Background Removed.png"
+import YuvalImg from "@/assets/TeamMember/Shimoni Yuval about Background Removed.png"
 
 
 const TeamMembers = [
@@ -111,7 +114,7 @@ const TeamMembers = [
     name: "Harper Chisari",
     role: "Cheif Executive Officer",
     founder: true,
-    image: "",
+    image: HarperImg,
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/in/harper-chisari-117169164/",
   },
@@ -120,7 +123,7 @@ const TeamMembers = [
     name: "Kevin Scott",
     role: "VP, Special Finance",
     founder: true,
-    image: "",
+    image: KevinImg,
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
@@ -129,85 +132,85 @@ const TeamMembers = [
     name: "Yuval Shimoni",
     role: "VP, Business Development",
     founder: true,
-    image: "",
+    image: YuvalImg,
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
   {
     id: 4,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: true,
-    image: "",
+    name: "Marco Pretell",
+    role: "Researcher",
+    founder: false,
+    image: YuvalImg,
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
   {
     id: 5,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    name: "David Wang",
+    role: "Developer",
     founder: false,
-    image: "",
+    image: YuvalImg,
     semester: "Spring 2025",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
   {
     id: 6,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    name: "Garrett Gee",
+    role: "Intern",
     founder: false,
-    image: "",
+    image: YuvalImg,
     semester: "Fall 2024",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
   {
     id: 7,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    name: "Shane Stoll",
+    role: "Software Engineering Collaborator",
     founder: false,
-    image: "",
+    image: YuvalImg,
     semester: "Spring 2025",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
   {
     id: 8,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    name: "Daniel He",
+    role: "Developer",
     founder: false,
-    image: "",
+    image: YuvalImg,
     semester: "Spring 2025",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
   {
     id: 9,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    name: "Joshua Pile",
+    role: "Intern",
     founder: false,
-    image: "",
+    image: YuvalImg,
     semester: "Spring 2025",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
   {
     id: 10,
-    name: "Harper Chisari",
-    role: "Researcher",
+    name: "Dana Solitaire",
+    role: "VP, Software Engineering",
     founder: false,
-    image: "",
+    image: YuvalImg,
     semester: "Spring 2025",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
   {
     id: 11,
-    name: "Harper Chisari",
-    role: "Intern",
+    name: "Jonathan Kloepfer",
+    role: "Head of Special Projects",
     founder: false,
-    image: "",
+    image: YuvalImg,
     semester: "Fall 2024",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
@@ -217,7 +220,7 @@ const TeamMembers = [
     name: "Harper Chisari",
     role: "Developer",
     founder: false,
-    image: "",
+    image: YuvalImg,
     semester: "Fall 2024",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
@@ -251,7 +254,13 @@ filterMembers("all");
 .team h1 {
   text-align: center;
 }
-.team-foundersCards,
+.team-foundersCards{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  flex: 1 1 22%;
+  gap: 8%;
+}
 .team-membersCards {
   display: flex;
   justify-content: space-between;

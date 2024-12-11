@@ -2,7 +2,7 @@
     <div class= "member"> 
         <div class="member-card">
             <div class="card front">
-                <img src="../assets/profile.png" alt="profile picture ">
+                <img :src="member.image" alt="profile picture" >
                 <div class= "member-box"></div>
             </div>
             <div class="card back">
