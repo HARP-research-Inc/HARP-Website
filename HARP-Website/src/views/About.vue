@@ -59,14 +59,14 @@
       </div>
       <h2 class="team-membersHeader">Spring 2025</h2>
       <div class="team-buttons">
-        <GeneralButton label="View All"/>
-        <GeneralButton label="Developers"/>
-        <GeneralButton label="Interns"/>
-        <GeneralButton label="Reseachers"/>
+        <GeneralButtonNoLink label="View All" @click="filterMembers('all')"/>
+        <GeneralButtonNoLink label="Developers" @click="filterMembers('Developer')"/>
+        <GeneralButtonNoLink label="Interns" @click="filterMembers('Intern')"/>
+        <GeneralButtonNoLink label="Reseachers" @click="filterMembers('Researcher')"/>
       </div>
       <div class="team-membersCards">
         <TeamMember
-          v-for="member in TeamMembers.filter((member) => !member.founder)"
+          v-for="member in filteredMembers.filter((member) => !member.founder)"
           :key="member.id"
           :member="member"
         />
@@ -97,9 +97,10 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import TeamMember from "@/components/TeamMemberCard.vue";
 import Header from "../components/Header.vue";
-import GeneralButton from "@/components/GeneralButton.vue";
+import GeneralButtonNoLink from "@/components/GeneralButtonNoLink.vue";
 import CareersButton from "@/components/CareersButton.vue";
 import Footer from "@/components/Footer.vue";
 
@@ -185,7 +186,7 @@ const TeamMembers = [
   {
     id: 10,
     name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    role: "Researcher",
     founder: false,
     semester: "Spring 2025",
     github: "https://github.com/dashboard",
@@ -194,7 +195,7 @@ const TeamMembers = [
   {
     id: 11,
     name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    role: "Intern",
     founder: false,
     semester: "Fall 2024",
     github: "https://github.com/dashboard",
@@ -203,13 +204,30 @@ const TeamMembers = [
   {
     id: 12,
     name: "Harper Chisari",
-    role: "Cheif Executive Officer",
+    role: "Developer",
     founder: false,
     semester: "Fall 2024",
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
 ];
+
+const filteredMembers = ref([]);
+
+const filterMembers = (role) => {
+  console.log("button clickeed");
+  if (role === "all") {
+    filteredMembers.value = TeamMembers.filter((member) => !member.founder);
+  } else {
+    filteredMembers.value = TeamMembers.filter(
+      (member) => !member.founder && member.role === role
+    );
+  }
+  console.log("Filtered members:", filteredMembers.value);
+};
+
+filterMembers("all");
+
 </script>
 
 <style lang="css" scoped>
