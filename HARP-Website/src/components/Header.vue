@@ -48,5 +48,6 @@ const props = defineProps({
 .header h3 {
   margin: 2rem;
   z-index: 3;
+  text-align: center;
 }
 </style>

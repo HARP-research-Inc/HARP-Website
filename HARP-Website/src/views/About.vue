@@ -215,16 +215,16 @@ const TeamMembers = [
     github: "https://github.com/dashboard",
     linkedin: "https://www.linkedin.com/feed/",
   },
-  {
-    id: 12,
-    name: "Harper Chisari",
-    role: "Developer",
-    founder: false,
-    image: YuvalImg,
-    semester: "Fall 2024",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
+  // {
+  //   id: 12,
+  //   name: "Harper Chisari",
+  //   role: "Developer",
+  //   founder: false,
+  //   image: YuvalImg,
+  //   semester: "Fall 2024",
+  //   github: "https://github.com/dashboard",
+  //   linkedin: "https://www.linkedin.com/feed/",
+  // },
 ];
 
 const filteredMembers = ref([]);
@@ -425,4 +425,129 @@ img {
   justify-content: center;
   margin-top: 2rem;
 }
+
+@media screen and (max-width: 768px) {
+  .team {
+    margin: 2rem 4rem;
+  }
+  .team-foundersCards, .team-membersCards {
+    flex-direction: column;
+    gap: 5%;
+    align-items: center;
+  }
+  .team-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .team-buttons{
+    margin-bottom: 1rem;
+  }
+  .values {
+    margin: 4rem 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  .values-img {
+    margin-right: 0;
+    margin-bottom: 12rem;
+  }
+  .values-img img {
+    width: 18rem;
+  }
+  .mission {
+    flex-direction: column;
+    margin: 2rem 2rem;
+    padding: 1rem;
+  }
+  .mission-img img{
+    width: 100%;
+  }
+  .mission-text {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .join-pic-box1, .join-pic-box2 {
+    width: 80%;
+    height: 12rem;
+  }
+  .join-text {
+    padding: 4rem;
+  }
+}
+
+/* For phones (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .team {
+    margin: 1rem 2rem;
+  }
+  .team h1 {
+    margin-bottom: .5rem;
+  }
+  .team-foundersCards, .team-membersCards {
+    gap: 3%;
+    margin-bottom: 2rem;
+  }
+  .team-buttons{
+    margin-bottom: 1rem;
+  }
+  .values {
+    margin: 2rem 1rem;
+  }
+  .values-img img {
+    width: 15rem;
+    margin-bottom: 8rem;
+  }
+  .values-text h2 {
+    font-size: 1.5rem;
+  }
+  .values-text h6 {
+    font-size: 0.8rem;
+  }
+  .mission {
+    margin: 1rem 1rem;
+    padding: 1rem;
+  }
+  .mission-img img{
+    width: 100%;
+  }
+  .mission-text h2 {
+    font-size: 1.5rem;
+  }
+  .mission-text h6 {
+    font-size: 0.8rem;
+  }
+  .join-pic-box1, .join-pic-box2 {
+    width: 100%;
+    height: 12rem;
+  }
+  .join-text {
+    padding: 2rem;
+  }
+  .join-text h2 {
+    font-size: 1.5rem;
+  }
+  .join-text p {
+    font-size: 0.9rem;
+  }
+  #valuetext {
+    font-size: 1rem;
+  }
+}
+
+/* For large screens (min-width: 1200px) */
+/* @media screen and (min-width: 1200px) {
+  .team {
+    margin: 6rem 12rem;
+  }
+  .values {
+    margin: 10rem 10rem;
+  }
+  .mission {
+    margin: 6rem 10rem;
+  }
+} */
+
+
 </style>
