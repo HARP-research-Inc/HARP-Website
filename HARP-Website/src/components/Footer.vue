@@ -82,14 +82,17 @@ export default {
   align-items: center;
   margin: -2em 5em 0 1em;
 }
+
 #followtext {
   color: white;
   font-size: 1em;
 }
+
 #mail {
   text-decoration: none;
   color: white;
 }
+
 .footer-container {
   background-color: #000;
   color: #fff;
@@ -136,11 +139,13 @@ export default {
 .footer-column h3 {
   font-size: 1.2em;
   margin-bottom: 0.5em;
+  text-align: center; 
 }
 
 .footer-column ul {
   list-style: none;
   padding: 0;
+  text-align: center;
 }
 
 .footer-column ul li {
@@ -158,16 +163,20 @@ export default {
 
 .footer-column p {
   margin: 0.5em 0;
+  text-align: center; 
 }
 
 .social-links {
   display: flex;
   align-items: start;
   flex-direction: column;
+  align-items: center; 
 }
+
 #socials a {
   margin: 0.5em;
 }
+
 .social-links span {
   margin-right: 1em;
 }
@@ -181,4 +190,50 @@ export default {
   height: 24px;
   margin-right: 0.5em;
 }
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
+  }
+
+  .footer-logo {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+  }
+
+  .footer-column {
+    margin-right: 0;
+    margin-bottom: 1.5em;
+    width: 100%; 
+    text-align: center; 
+  }
+
+  .vertical-line {
+    display: none; 
+  }
+
+  .social-links {
+    align-items: center;
+    margin-top: 1.5em;
+  }
+
+  .footer-logo img {
+    width: 8em;
+  }
+
+  #followtext {
+    font-size: 1.2em;
+  }
+}
+
 </style>
+
