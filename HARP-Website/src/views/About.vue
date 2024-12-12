@@ -87,9 +87,9 @@
           software  tools for the FDA's Summer Food Service Program, we began
           developing the Simplified Semantic System Syn
         </p>
-        <div class="button-wrapper">
+        <!-- <div class="button-wrapper">
           <CareersButton label="Careers"/>
-        </div>
+        </div> -->
       </div>
     </div>
     <Footer/>

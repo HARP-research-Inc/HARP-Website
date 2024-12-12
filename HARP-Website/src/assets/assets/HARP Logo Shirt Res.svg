@@ -44,7 +44,7 @@
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-size:1.41111px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       style="font-size:1.41111px;line-height:1.25;font-family:Nasalization;word-spacing:0px;stroke-width:0.264583"
        x="23.345568"
        y="144.98825"
        id="text8736"><tspan
@@ -55,7 +55,7 @@
          y="144.98825" /></text>
     <text
        xml:space="preserve"
-       style="font-size:79.375px;line-height:1.25;font-family:sans-serif;word-spacing:0px;white-space:pre;inline-size:232.441;fill:#80aeff;fill-opacity:1;stroke-width:0.396874"
+       style="font-size:79.375px;line-height:1.25;font-family:Nasalization;word-spacing:0px;white-space:pre;inline-size:232.441;fill:#80aeff;fill-opacity:1;stroke-width:0.396874"
        x="10.861189"
        y="69.666069"
        id="text2300"
@@ -74,13 +74,13 @@
 </tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:50.8px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       style="font-size:50.8px;line-height:1.25;font-family:Nasalization;word-spacing:0px;stroke-width:0.264583"
        x="28.252542"
        y="112.63175"
        id="text9038"><tspan
          sodipodi:role="line"
          id="tspan9036"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:Arial;-inkscape-font-specification:Arial;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:Nasalization;-inkscape-font-specification:Arial;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
          x="28.252542"
          y="112.63175">research</tspan></text>
   </g>
