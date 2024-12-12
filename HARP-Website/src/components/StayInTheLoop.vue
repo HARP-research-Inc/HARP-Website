@@ -90,6 +90,7 @@ export default {
   border-radius: 2em;
   border: solid white;
   width: 80%;
+  justify-content: center; 
 }
 
 .subscribe-form input {
@@ -100,6 +101,7 @@ export default {
   padding: 0.5em;
   font-size: 1em;
   flex: 1;
+  height: 2.5em; 
 }
 
 .subscribe-form input::placeholder {
@@ -115,5 +117,62 @@ export default {
   cursor: pointer;
   color: black;
   margin-left: 1em;
+  height: 2.5em; 
 }
+
+@media (max-width: 768px) {
+  .stay-in-the-loop {
+    flex-direction: column; 
+    padding: 3em 2em; 
+    margin: 3% 5%; 
+  }
+
+  .image-section {
+    flex: none;
+    width: 100%;
+    margin-bottom: 2em;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin: 0 auto; 
+  }
+
+  .content-section {
+    flex: none;
+    padding-left: 0;
+    align-items: center; 
+    text-align: center; 
+  }
+
+  #FirstText {
+    font-size: 2em; 
+    margin: 0 0 1em 0; 
+  }
+
+  #SecondaryText {
+    font-size: 1.5em; 
+    margin: 0 0 1.5em 0; 
+  }
+
+  .subscribe-form {
+    width: 100%;
+    margin-top: 1em; 
+  }
+
+  .subscribe-form input {
+    font-size: 1.1em; 
+    height: 2.5em; 
+  }
+
+  .subscribe-form button {
+    font-size: 1.1em; 
+    padding: 0.5em 1em; 
+    height: 2.5em;
+  }
+}
+
 </style>
+
