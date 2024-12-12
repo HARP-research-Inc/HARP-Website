@@ -535,19 +535,6 @@ img {
     font-size: 1rem;
   }
 }
-
-/* For large screens (min-width: 1200px) */
-/* @media screen and (min-width: 1200px) {
-  .team {
-    margin: 6rem 12rem;
-  }
-  .values {
-    margin: 10rem 10rem;
-  }
-  .mission {
-    margin: 6rem 10rem;
-  }
-} */
-
+      
 
 </style>

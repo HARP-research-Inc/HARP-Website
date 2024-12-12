@@ -118,4 +118,42 @@ nav {
   background-color: rgba(16, 71, 190, 0.1);
   color: rgba(16, 71, 190);
 }
+
+/* Tablets */
+@media (max-width: 768px) {
+  nav {
+
+    padding: 1em 2em;
+    font-size: 1.2em;
+  }
+  .nav-left,
+  .nav-right {
+ 
+    gap: 20px;
+  }
+  .logo {
+    width: 3.5em;
+    margin: 0.5em 0;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  nav {
+    padding: 1em;
+    font-size: 1em;
+  }
+  .nav-left,
+  .nav-right {
+    gap: 15px;
+  }
+  .logo {
+    width: 3em;
+  }
+  .dropdown {
+    left: 0;
+    right: 0;
+    transform: translate(0, 10px);
+  }
+}
 </style>
