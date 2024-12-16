@@ -1,11 +1,11 @@
 <script>
-import Animation2 from "../components/Animation2.vue";
-import AboutUsButton from "../components/AboutUsButton.vue";
-import ProjectsButton from "../components/ProjectsButton.vue";
-import Cube from "../components/Cube.vue";
-import ProductsButton from "@/components/ProductsButton.vue";
-import StayInTheLoop from "@/components/StayInTheLoop.vue";
-import Footer from "../components/Footer.vue";
+import Animation2 from "../components/Products/Animation2.vue";
+import AboutUsButton from "../components/Buttons/AboutUsButton.vue";
+import ProjectsButton from "../components/Buttons/ProjectsButton.vue";
+import Cube from "../components/Home/Cube.vue";
+import ProductsButton from "@/components/Buttons/ProductsButton.vue";
+import StayInTheLoop from "@/components/General/StayInTheLoop.vue";
+import Footer from "../components/General/Footer.vue";
 
 export default {
   components: {

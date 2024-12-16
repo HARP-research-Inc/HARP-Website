@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Harper Chisari",
+    "role": "Chief Executive Officer",
+    "founder": true,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari/HARP Research Chisari Harper Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Admin",
+    "type": "Admin"
+  },
+  {
+    "id": 2,
+    "name": "Kevin Scott",
+    "role": "Chief Technical Officer",
+    "founder": true,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/HARP research Scott Kevin1 Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Admin",
+    "type": "Admin"
+  },
+  {
+    "id": 3,
+    "name": "Yuval Shimoni",
+    "role": "Vice President",
+    "founder": true,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/YuvalShimoni/Shimoni Yuval about Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Admin",
+    "type": "Admin"
+  },
+  {
+    "id": 4,
+    "name": "William Chen",
+    "role": "Full Stack Developer Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/WilliamChen/WilliamChen Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2024",
+    "type": "Developer"
+  },
+  {
+    "id": 5,
+    "name": "Ashley Chan",
+    "role": "UI/UX Designer Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/AshleyChan/AshleyChan Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2025",
+    "type": "Developer"
+  },
+  {
+    "id": 6,
+    "name": "Harper Chisari",
+    "role": "Chief Executive Officer",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/HarperChisari/HarperChisari Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2024",
+    "type": "Developer"
+  },
+  {
+    "id": 7,
+    "name": "Chris Lee",
+    "role": "Machine Learning Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Researchers/ChrisLee/ChrisLee Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2024",
+    "type": "Researcher"
+  },
+  {
+    "id": 8,
+    "name": "Dana Smith",
+    "role": "Data Science Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Researchers/DanaSmith/DanaSmith Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Spring 2025",
+    "type": "Researcher"
+  },
+  {
+    "id": 9,
+    "name": "Alex Johnson",
+    "role": "Backend Developer Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/AlexJohnson/AlexJohnson Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Spring 2025",
+    "type": "Developer"
+  },
+  {
+    "id": 10,
+    "name": "Sophia Brown",
+    "role": "Frontend Developer Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/SophiaBrown/SophiaBrown Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Spring 2025",
+    "type": "Developer"
+  }
+]

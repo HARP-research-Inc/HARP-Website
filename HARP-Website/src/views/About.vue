@@ -6,8 +6,14 @@
     />
     <div class="values">
       <div class="values-img">
-        <img src="../assets/team.webp" alt="team photo" />
-        <img src="../assets/team.webp" alt="team photo" />
+        <img
+          src="../assets/HARPResearchLockUps/Photos/team.webp"
+          alt="team photo"
+        />
+        <img
+          src="../assets/HARPResearchLockUps/Photos/team.webp"
+          alt="team photo"
+        />
       </div>
       <div class="values-text">
         <h5>Our Values</h5>
@@ -17,7 +23,6 @@
           <h2 class="gradient two">Innovative.</h2>
           <h2 class="gradient three">Polymorphic.</h2>
         </div>
-
         <h6 id="valuetext">
           Join a team where diverse talents from various fields, including
           leading researchers and core innovators, come together to push the
@@ -42,9 +47,11 @@
           allowing anyone to create anything.
         </h6>
       </div>
-
       <div class="mission-img">
-        <img src="../assets/team.webp" alt="team photo" />
+        <img
+          src="../assets/HARPResearchLockUps/Photos/team.webp"
+          alt="team photo"
+        />
       </div>
     </div>
     <div class="team">
@@ -57,28 +64,25 @@
           :member="member"
         />
       </div>
-      <h2 class="team-membersHeader">Spring 2025</h2>
+      <h2 class="team-membersHeader">Team Members</h2>
       <div class="team-buttons">
-        <GeneralButton label="View All"/>
-        <GeneralButton label="Developers"/>
-        <GeneralButton label="Interns"/>
-        <GeneralButton label="Reseachers"/>
+        <GeneralButton label="View All" @click="updateFilter('all')" />
+        <GeneralButton label="Developers" @click="updateFilter('Developer')" />
+        <GeneralButton
+          label="Researchers"
+          @click="updateFilter('Researcher')"
+        />
       </div>
       <div class="team-membersCards">
         <TeamMember
-          v-for="member in TeamMembers.filter((member) => !member.founder)"
+          v-for="member in filteredTeamMembers"
           :key="member.id"
           :member="member"
         />
       </div>
     </div>
+
     <div class="join">
-      <div class="join-pic">
-        <div class="join-pic-box1"></div>
-        <div class="join-pic-box2"></div>
-        <div class="join-pic-box1"></div>
-        <div class="join-pic-box2"></div>
-      </div>
       <div class="join-text">
         <h2>Join our team</h2>
         <p>
@@ -88,128 +92,35 @@
           developing the Simplified Semantic System Syn
         </p>
         <div class="button-wrapper">
-          <CareersButton label="Careers"/>
+          <CareersButton label="Careers" />
         </div>
       </div>
     </div>
-    <Footer/>
+    <Footer />
   </div>
 </template>
-
 <script setup>
-import TeamMember from "@/components/TeamMemberCard.vue";
-import Header from "../components/Header.vue";
-import GeneralButton from "@/components/GeneralButton.vue";
-import CareersButton from "@/components/CareersButton.vue";
-import Footer from "@/components/Footer.vue";
+import { ref, computed } from "vue";
+import TeamMember from "@/components/About/TeamMemberCard.vue";
+import Header from "../components/General/Header.vue";
+import GeneralButton from "@/components/About/GeneralButton.vue";
+import CareersButton from "@/components/About/CareersButton.vue";
+import Footer from "@/components/General/Footer.vue";
+import TeamMembers from "@/components/About/teamMembers.json";
 
+const selectedFilter = ref("all");
+const filteredTeamMembers = computed(() => {
+  if (selectedFilter.value === "all") {
+    return TeamMembers.filter((member) => !member.founder);
+  }
+  return TeamMembers.filter(
+    (member) => !member.founder && member.type === selectedFilter.value
+  );
+});
 
-const TeamMembers = [
-  {
-    id: 1,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: true,
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 2,
-    name: "Kevin Scott",
-    role: "Chief Technical Officer",
-    founder: true,
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 3,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: true,
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 4,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: true,
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 5,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: false,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 6,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: false,
-    semester: "Fall 2024",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 7,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: false,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 8,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: false,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 9,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: false,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 10,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: false,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 11,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: false,
-    semester: "Fall 2024",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 12,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: false,
-    semester: "Fall 2024",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-];
+function updateFilter(filter) {
+  selectedFilter.value = filter;
+}
 </script>
 
 <style lang="css" scoped>
@@ -229,7 +140,7 @@ const TeamMembers = [
   flex: 1 1 22%;
   gap: 2%;
 }
-.team-buttons{
+.team-buttons {
   margin-top: 1rem;
   display: flex;
   gap: 9%;
@@ -381,7 +292,7 @@ img {
   width: 100%;
   font-size: 1.25rem;
 }
-.button-wrapper{
+.button-wrapper {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
