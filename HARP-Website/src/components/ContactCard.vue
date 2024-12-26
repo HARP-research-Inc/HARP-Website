@@ -79,4 +79,32 @@ const cardStyle = computed(() => {
     .button{
         width: 80%;
     }
+
+@media screen and (max-width: 1000px) {
+  .card{
+     width: 15rem;
+     height: 21rem;
+    }
+  img{
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .card{
+     width: 10rem;
+     height: 15rem;
+    }
+  img{
+    width: 5rem;
+    height: 5rem;
+  }
+  h4{
+    display: none;
+  }
+  h2{
+    font-size: 1rem;
+  }
+}
+
 </style>

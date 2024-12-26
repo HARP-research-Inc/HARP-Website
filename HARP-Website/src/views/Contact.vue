@@ -26,7 +26,6 @@
 
     <div v-if="showModal" class="modal-overlay">
         <div class="modal-content">
-        <!-- Close button -->
         <button class="close-icon" @click="showModal = false">×</button>
 
         <h2>Got Questions?</h2>
@@ -44,7 +43,6 @@
             <textarea id="message" v-model="form.message" required></textarea>
             </div>
             <div>
-            <!-- Gradient submit button -->
             <GradientButton
                 label="Submit"
                 :gradientStart="'#158bc2'"
@@ -232,5 +230,33 @@ const handlePartnerSubmit = () => {
     .modal-content {
         position: relative;
     }
+
+@media screen and (max-width:1000px){
+    .card{
+        margin: 2rem;
+    }
+    h1{
+        margin: 0;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+    .modal-content {
+        width: 80%;
+    }
+    
+}
+
+@media screen and (max-width:600px){
+    .card{
+        margin: 1rem;
+    }
+    h1{
+        margin: 0;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+   
+    
+}
 
 </style>
