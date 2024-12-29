@@ -33,7 +33,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .canvas-container {
   position: relative;
 }
@@ -82,5 +82,48 @@ export default {
   background: #161616;
   width: 100%;
   clip-path: inset(0 0 15% 0);
+}
+
+@media screen and (max-width: 1000px){
+  h1{
+    transform: translateY(-40px);
+    font-size: 2.9rem;
+  }
+  h3{
+    transform: translateY(-40px);
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px){
+
+  h1{
+    transform: translateY(-40px);
+    font-size: 2.3rem;
+  }
+  h3{
+    font-size: 1.3rem;
+  }
+  #heh {
+    line-height: 2em;
+  }
+  #heheh{
+    transform: translateY(-40px);
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 500px){
+
+h1{
+  transform: translateY(-70px);
+  font-size: 2.3rem;
+}
+#heh {
+  line-height: 2em;
+}
+
+#heheh{
+  transform: translateY(-70px);
+  font-size: 1rem;
+}
 }
 </style>
