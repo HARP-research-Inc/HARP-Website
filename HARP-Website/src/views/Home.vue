@@ -142,7 +142,7 @@ export default {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  margin: 3em;
+  margin: -8em 0 0 3em;
 }
 #intro,
 .founderinfo {
@@ -209,7 +209,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20em 3em 5em 5em;
+  margin: 10em 3em 5em 5em;
   gap: 1em;
 }
 .harpinfo2 {
@@ -277,36 +277,23 @@ export default {
   gap: 4em;
 }
 .images {
-  position: relative;
-  width: 40em;
-  height: 20em;
-  margin-bottom: 30rem;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20rem;
+  justify-content: space-evenly;
 }
 
 .images img {
   width: 50em;
   height: 30em;
   border-radius: 2em;
-  object-fit: cover;
-  position: absolute;
-  margin: 5% 50% 50% 50%;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; 
 }
 
-.images img:nth-child(1) {
-  top: 10em;
-}
-
-.images img:nth-child(2) {
-  left: 20em;
-}
-.images img:nth-child(1):hover {
+.images img:nth-child(1):hover, .images img:nth-child(2):hover{
   transform: scale(1.2);
   z-index: 10;
 }
 
-.images img:nth-child(2):hover {
-  transform: scale(1.2);
-  z-index: 10;
-}
+
 </style>

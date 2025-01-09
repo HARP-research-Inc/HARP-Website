@@ -3,13 +3,15 @@
     <div class="image-section">
       <img
         src="../../assets/HARPResearchLockUps/Photos/team.webp"
-        alt=""
+        alt="team image"
         class="image-placeholder"
       />
     </div>
-    <div class="content-section">
-      <h1 id="FirstText">Stay in the Loop.</h1>
-      <span id="SecondaryText">Join our community of 1000+</span>
+    <div class="content-section" ref="contentSection">
+      <h1 id="FirstText" :class="firstTextVisible ? 'slide-in-right' : ''">Stay in the Loop.</h1>
+      <span id="SecondaryText" :class="secondaryTextVisible ? 'slide-in-left' : ''">
+        Join our community of 1000+
+      </span>
       <div class="subscribe-form">
         <input type="email" placeholder="Enter your email..." />
         <button>Subscribe</button>
@@ -21,6 +23,32 @@
 <script>
 export default {
   name: "StayInTheLoop",
+  data() {
+    return {
+      firstTextVisible: false,
+      secondaryTextVisible: false
+    };
+  },
+  mounted() {
+    this.initObserver();
+  },
+  methods: {
+    initObserver() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // When element is in view, add classes for animation
+            this.firstTextVisible = true;
+            this.secondaryTextVisible = true;
+          }
+        });
+      }, {
+        threshold: 0.5 // Trigger when 50% of the element is in view
+      });
+
+      observer.observe(this.$refs.contentSection);
+    }
+  }
 };
 </script>
 
@@ -29,12 +57,18 @@ export default {
   color: white;
   font-size: 3em;
   margin: -2% 0% 3% 10%;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
+
 #SecondaryText {
   color: white;
   font-size: 2em;
-  margin: -3% 0% 3% 15%;
+  margin: -2% 0% 3% 15%;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
+
 .stay-in-the-loop {
   display: flex;
   align-items: center;
@@ -119,5 +153,35 @@ export default {
   cursor: pointer;
   color: black;
   margin-left: 1em;
+}
+
+.slide-in-right {
+  animation: slide-in-right 1s forwards;
+}
+
+.slide-in-left {
+  animation: slide-in-left 1s forwards;
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 </style>

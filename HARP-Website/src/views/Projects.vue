@@ -24,18 +24,17 @@
 
 <script setup>
 import Header from "@/components/General/Header.vue";
-import ProjectCard from "@/components/Projects/ProjectCard.vue";
 import StayInTheLoop from "@/components/General/StayInTheLoop.vue";
 import Footer from "@/components/General/Footer.vue";
 import Carousel from "@/components/Projects/Carousel.vue";
 
 const ProjectCards = [
-  { id: 1, name: "Vox Intuit(2024)", link: "/open-source-project" },
-  { id: 2, name: "Vox Intuit(2024)", link: "/open-source-project" },
-  { id: 3, name: "Vox Intuit(2024)", link: "/open-source-project" },
-  { id: 4, name: "Vox Intuit(2024)", link: "/open-source-project" },
-  { id: 5, name: "Vox Intuit(2024)", link: "/open-source-project" },
-  { id: 6, name: "Vox Intuit(2024)", link: "/open-source-project" },
+  { id: 1, name: "Vox-Intuitus", link: "/open-source-project" },
+  { id: 2, name: "GenGraph", link: "/open-source-project" },
+  { id: 3, name: "Xavier-One", link: "/open-source-project" },
+  { id: 4, name: "IntelliFabric", link: "/open-source-project" },
+  { id: 5, name: "DSP-OS 2", link: "/open-source-project" },
+  { id: 7, name: "Ad Apt", link: "/open-source-project" },
 ];
 const ResearchCards = [
   { id: 1, name: "Vox Intuit(2024)", link: "/research-project" },

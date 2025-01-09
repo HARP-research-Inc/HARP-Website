@@ -28,7 +28,7 @@ const props = defineProps({
     }
     .project-box{
         width: 15rem;
-        height: 23rem;
+        height: 15rem;
         border-radius: 10%;
         background: linear-gradient(to bottom, #54204d 0%,#7db9e8 100%);
         display: flex;

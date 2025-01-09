@@ -49,7 +49,7 @@ export default {
           imageUrl: image,
           date: "July 11, 2023",
           readTime: "3 min",
-          title: "HEHHEH",
+          title: "The Future of AI Isn't Large: It's Polymorphic",
           intro:
             "As our digital world continues to grow exponentially, Artificial Intelligence (AI) has been at the forefront, with the maxim: bigger is better. Enormous computational power and massive datasets have driven many AI breakthroughs...",
         },
@@ -57,7 +57,7 @@ export default {
           imageUrl: image,
           date: "July 11, 2023",
           readTime: "3 min",
-          title: "HEHE\nHAHA",
+          title: "The Future of AI Isn't Large: It's Polymorphic",
           intro:
             "As our digital world continues to grow exponentially, Artificial Intelligence (AI) has been at the forefront, with the maxim: bigger is better. Enormous computational power and massive datasets have driven many AI breakthroughs...",
         },
@@ -65,7 +65,7 @@ export default {
           imageUrl: image,
           date: "July 11, 2023",
           readTime: "3 min",
-          title: "HEHE\nHAHA",
+          title: "The Future of AI Isn't Large: It's Polymorphic",
           intro:
             "As our digital world continues to grow exponentially, Artificial Intelligence (AI) has been at the forefront, with the maxim: bigger is better. Enormous computational power and massive datasets have driven many AI breakthroughs...",
         },

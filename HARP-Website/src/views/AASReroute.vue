@@ -21,6 +21,7 @@
         />
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -28,6 +29,7 @@
 import ContactCard from "@/components/Contact/ContactCard.vue";
 import singleIcon from "@/assets/HARPResearchLockUps/Icons/SingleIcon.png";
 import doubleIcon from "@/assets/HARPResearchLockUps/Icons/doubleIcon.png";
+import Footer from "@/components/General/Footer.vue";
 </script>
 
 <style lang="css" scoped>

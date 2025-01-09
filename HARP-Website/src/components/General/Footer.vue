@@ -9,8 +9,7 @@
             class="logo"
         /></router-link>
         <p>
-          Semantic System Synthesis Framework, or S4, our proprietary
-          polymorphic AI language, built from. Insert cool words.
+          HARP Research accelerates innovation by delivering cutting-edge solutions that drive progress and create real-world impact. Driving Innovation, Delivering Impact.
         </p>
       </div>
       <div class="vertical-line"></div>

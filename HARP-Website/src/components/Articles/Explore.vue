@@ -128,7 +128,7 @@ export default {
         // Add additional articles here
       ],
       filteredArticles: [],
-      articlesToShow: 3, // Number of articles to show initially and incrementally
+      articlesToShow: 2, // Number of articles to show initially and incrementally
     };
   },
   computed: {

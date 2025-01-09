@@ -56,7 +56,7 @@
     </div>
     <div class="team">
       <h1 class="team-header">Meet the team</h1>
-      <h2 class="team-foundersHeader">Founders</h2>
+      <h2 class="team-foundersHeader">Founders & Management</h2>
       <div class="team-foundersCards">
         <TeamMember
           v-for="member in TeamMembers.filter((member) => member.founder)"
@@ -135,7 +135,7 @@ function updateFilter(filter) {
 .team-foundersCards,
 .team-membersCards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-start;
   flex-wrap: wrap;
   flex: 1 1 22%;
   gap: 2%;
@@ -143,7 +143,7 @@ function updateFilter(filter) {
 .team-buttons {
   margin-top: 1rem;
   display: flex;
-  gap: 9%;
+  gap: 2%;
 }
 .values {
   display: flex;
@@ -195,6 +195,7 @@ img {
   text-align: left;
   padding: 1rem;
   flex: 1;
+  
 }
 .values-text h2 {
   font-weight: bold;
@@ -290,7 +291,7 @@ img {
 }
 #valuetext {
   width: 100%;
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 .button-wrapper {
   display: flex;

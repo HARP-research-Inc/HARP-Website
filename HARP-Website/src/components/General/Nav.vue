@@ -6,19 +6,31 @@ export default {
   data() {
     return {
       showProductsDropdown: false,
+      isScrolled: false, 
     };
   },
   methods: {
     toggleProductsDropdown() {
       this.showProductsDropdown = !this.showProductsDropdown;
     },
+    handleScroll() {
+      this.isScrolled = window.scrollY >100;
+    },
+  },
+  mounted() {
+    // Add scroll event listener when component is mounted
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    // Clean up the event listener when component is destroyed
+    window.removeEventListener('scroll', this.handleScroll);
   },
 };
 </script>
 
 <template>
   <div>
-    <nav>
+    <nav :class="{'scrolled': isScrolled}">
       <div class="nav-left">
         <router-link class="navLink" to="/">
           <img
@@ -31,14 +43,8 @@ export default {
         <div class="navLink products" @click="toggleProductsDropdown">
           Products
           <div v-if="showProductsDropdown" class="dropdown">
-            <router-link class="dropdown-link" to="/products"
+            <router-link class="dropdown-link" to="/viewpoint"
               >ViewPoint</router-link
-            >
-            <router-link class="dropdown-link" to="/products/product2"
-              >Product 2</router-link
-            >
-            <router-link class="dropdown-link" to="/products/product3"
-              >Product 3</router-link
             >
           </div>
         </div>
@@ -61,13 +67,19 @@ nav {
   position: fixed;
   display: flex;
   justify-content: space-between;
-  padding: 2% 5% 0% 5%;
+  padding: 1% 5% 0% 5%;
   background-color: transparent;
   z-index: 1000;
   text-decoration: none;
   align-items: center;
   font-size: 1.5em;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
+
+nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .nav-left,
 .nav-right {
   display: flex;

@@ -1,13 +1,13 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
-import Product from "@/views/Products.vue";
+import ViewPoint from "@/components/ViewPoint/ViewPoint.vue";
 import Projects from "@/views/Projects.vue";
 import Articles from "@/views/Articles.vue";
 import Contact from "@/views/Contact.vue";
 import Login from "@/views/Login.vue";
-import OpenSourceProject from "@/views/OpenSourceProject.vue";
-import ResearchProject from "@/views/ResearchProject.vue";
+import OpenSourceProject from "@/components/Projects/OpenSourceProject/OpenSourceProject.vue";
+import ResearchProject from "@/components/Projects/ResearchProject/ResearchProject.vue";
 import AASReroute from "@/views/AASReroute.vue";
 
 const routes = [
@@ -22,9 +22,9 @@ const routes = [
     component: About,
   },
   {
-    path: "/products",
-    name: "Product",
-    component: Product,
+    path: "/viewpoint",
+    name: "ViewPoint",
+    component: ViewPoint,
   },
   {
     path: "/Projects",

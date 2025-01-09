@@ -81,6 +81,6 @@ export default {
 #demo-canvas {
   background: #161616;
   width: 100%;
-  clip-path: inset(0 0 15% 0);
+  clip-path: inset(0 0 30% 0);
 }
 </style>

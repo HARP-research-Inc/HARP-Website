@@ -4,7 +4,7 @@
     "name": "Harper Chisari",
     "role": "Chief Executive Officer",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari/HARP Research Chisari Harper Background Removed.png",
+    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari/HarperChisari.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Admin",
@@ -35,52 +35,31 @@
   {
     "id": 4,
     "name": "William Chen",
-    "role": "Full Stack Developer Intern",
-    "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/WilliamChen/WilliamChen Background Removed.png",
+    "role": "Full Stack Developer",
+    "founder": true,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/WilliamChen/WilliamChen.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Admin",
+    "type": "Admin"
+  },
+  
+  {
+    "id": 5,
+    "name": "Garrett Gee",
+    "role": "Full Stack Developer",
+    "founder": true,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/GarrettGee/Garrett Gee about Background Removed.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Fall 2024",
-    "type": "Developer"
-  },
-  {
-    "id": 5,
-    "name": "Ashley Chan",
-    "role": "UI/UX Designer Intern",
-    "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/AshleyChan/AshleyChan Background Removed.png",
-    "github": "https://github.com/dashboard",
-    "linkedin": "https://www.linkedin.com/feed/",
-    "semester": "Fall 2025",
-    "type": "Developer"
+    "type": "Project Manager"
   },
   {
     "id": 6,
-    "name": "Harper Chisari",
-    "role": "Chief Executive Officer",
-    "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/HarperChisari/HarperChisari Background Removed.png",
-    "github": "https://github.com/dashboard",
-    "linkedin": "https://www.linkedin.com/feed/",
-    "semester": "Fall 2024",
-    "type": "Developer"
-  },
-  {
-    "id": 7,
-    "name": "Chris Lee",
-    "role": "Machine Learning Intern",
-    "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Researchers/ChrisLee/ChrisLee Background Removed.png",
-    "github": "https://github.com/dashboard",
-    "linkedin": "https://www.linkedin.com/feed/",
-    "semester": "Fall 2024",
-    "type": "Researcher"
-  },
-  {
-    "id": 8,
     "name": "Dana Smith",
-    "role": "Data Science Intern",
-    "founder": false,
+    "role": "Vice President",
+    "founder": true,
     "image": "src/assets/HARPResearchLockUps/TeamMember/Researchers/DanaSmith/DanaSmith Background Removed.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
@@ -88,25 +67,104 @@
     "type": "Researcher"
   },
   {
-    "id": 9,
-    "name": "Alex Johnson",
-    "role": "Backend Developer Intern",
-    "founder": false,
+    "id": 7,
+    "name": "Derek Rubottom",
+    "role": "Full Stack Developer",
+    "founder": true,
     "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/AlexJohnson/AlexJohnson Background Removed.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Admin",
+    "type": "Developer"
+  },
+  {
+    "id": 8
+    ,
+    "name": "Shane Stoll",
+    "role": "Full Stack Collaborator",
+    "founder": true,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/Shane Stoll Background Removed.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Spring 2025",
+    "type": "Developer"
+  },{
+    "id": 9,
+    "name": "Aoyan Sarkar",
+    "role": "Full Stack Developer Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/AoyanSarkar.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2024",
     "type": "Developer"
   },
   {
     "id": 10,
-    "name": "Sophia Brown",
-    "role": "Frontend Developer Intern",
+    "name": "Ashley Chan",
+    "role": "UI/UX Designer Intern",
     "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/SophiaBrown/SophiaBrown Background Removed.png",
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/AshleyChan.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
-    "semester": "Spring 2025",
+    "semester": "Fall 2025",
+    "type": "Developer"
+  },
+  {
+    "id": 11,
+    "name": "Caleb Dodson",
+    "role": "Full Stack Developer Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/CalebDodson.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2024",
+    "type": "Developer"
+  },
+  {
+    "id": 11,
+    "name": "Linus Zwaka",
+    "role": "Researcher Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/LinusZwaka.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2024",
+    "type": "Researcher"
+  },
+  {
+    "id": 11,
+    "name": "Luke Summa",
+    "role": "Full Stack Developer Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/LukeSumma.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2024",
+    "type": "Developer"
+  },
+  {
+    "id": 11,
+    "name": "Matthew Tavares",
+    "role": "Researcher Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2024",
+    "type": "Researcher"
+  },
+  {
+    "id": 11,
+    "name": "Michael Ortega",
+    "role": "Full Stack Developer Intern",
+    "founder": false,
+    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/MichaelOrtega.png",
+    "github": "https://github.com/dashboard",
+    "linkedin": "https://www.linkedin.com/feed/",
+    "semester": "Fall 2024",
     "type": "Developer"
   }
+
+
 ]
