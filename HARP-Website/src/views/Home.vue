@@ -1,11 +1,11 @@
 <script>
-import Animation from "../components/Animation.vue";
-import AboutUsButton from "../components/AboutUsButton.vue";
-import ProjectsButton from "../components/ProjectsButton.vue";
-import Cube from "../components/Cube.vue";
-import ProductsButton from "@/components/ProductsButton.vue";
-import StayInTheLoop from "@/components/StayInTheLoop.vue";
-import Footer from "../components/Footer.vue";
+import Animation from "../components/Home/Animation.vue";
+import AboutUsButton from "../components/Buttons/AboutUsButton.vue";
+import ProjectsButton from "../components/Buttons/ProjectsButton.vue";
+import Cube from "../components/Home/Cube.vue";
+import ProductsButton from "@/components/Buttons/ProductsButton.vue";
+import StayInTheLoop from "@/components/General/StayInTheLoop.vue";
+import Footer from "../components/General/Footer.vue";
 
 export default {
   components: {
@@ -28,15 +28,15 @@ export default {
         <h1 id="intro">HARP Research Inc.</h1>
         <div class="founderphotos">
           <img
-            src="../assets/TeamMember/HARP Research Chisari Harper.webp"
+            src="../assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari/HARP Research Chisari Harper.webp"
             alt="Founder 1"
           />
           <img
-            src="../assets/TeamMember/HARP research Scott Kevin1.webp"
+            src="../assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/HARP research Scott Kevin1.webp"
             alt="Founder 2"
           />
           <img
-            src="../assets/TeamMember/Shimoni Yuval about.webp"
+            src="../assets/HARPResearchLockUps/TeamMember/ManagementTeam/YuvalShimoni/Shimoni Yuval about.webp"
             alt="Founder 3"
           />
         </div>
@@ -68,7 +68,11 @@ export default {
           <ProjectsButton />
         </div>
         <div>
-          <img src="../assets/HARP Research Chip.webp" alt="" id="chipimg" />
+          <img
+            src="../assets/HARPResearchLockUps/Photos/HARP Research Chip.webp"
+            alt=""
+            id="chipimg"
+          />
         </div>
       </div>
     </div>
@@ -87,8 +91,8 @@ export default {
     </div>
 
     <div class="images">
-      <img src="../assets/Example1.webp" alt="img" />
-      <img src="../assets/Example2.webp" alt="img" />
+      <img src="../assets/HARPResearchLockUps/Photos/Example1.webp" alt="img" />
+      <img src="../assets/HARPResearchLockUps/Photos/Example2.webp" alt="img" />
     </div>
 
     <StayInTheLoop></StayInTheLoop>
@@ -138,7 +142,7 @@ export default {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  margin: 3em;
+  margin: -8em 0 0 3em;
 }
 #intro,
 .founderinfo {
@@ -205,7 +209,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20em 3em 5em 5em;
+  margin: 10em 3em 5em 5em;
   gap: 1em;
 }
 .harpinfo2 {
@@ -273,36 +277,23 @@ export default {
   gap: 4em;
 }
 .images {
-  position: relative;
-  width: 40em;
-  height: 20em;
-  margin-bottom: 30rem;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20rem;
+  justify-content: space-evenly;
 }
 
 .images img {
   width: 50em;
   height: 30em;
   border-radius: 2em;
-  object-fit: cover;
-  position: absolute;
-  margin: 5% 50% 50% 50%;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; 
 }
 
-.images img:nth-child(1) {
-  top: 10em;
-}
-
-.images img:nth-child(2) {
-  left: 20em;
-}
-.images img:nth-child(1):hover {
+.images img:nth-child(1):hover, .images img:nth-child(2):hover{
   transform: scale(1.2);
   z-index: 10;
 }
 
-.images img:nth-child(2):hover {
-  transform: scale(1.2);
-  z-index: 10;
-}
+
 </style>

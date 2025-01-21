@@ -17,9 +17,9 @@
       <p class="signup-text">
         Don't have an account yet? <a href="#" class="signup-link">Sign Up.</a>
       </p>
-      <button class="join-btn" @click="redirectToAAS" >
+      <button class="join-btn" @click="redirectToAAS">
         <img
-          src="../assets/assets/AAS Logo.svg"
+          src="../assets/HARPResearchLockUps/AAS/AAS Logo.svg"
           alt="AAS Logo"
           class="aas-logo"
         />
@@ -32,7 +32,7 @@
 export default {
   methods: {
     redirectToAAS() {
-      this.$router.push("/AASReroute"); 
+      this.$router.push("/AASReroute");
     },
   },
 };
@@ -78,7 +78,8 @@ export default {
 }
 
 .apple {
-  background: url("../assets/apple-logo-transparent.png") no-repeat center;
+  background: url("../assets/SocialMediaIcons/apple-logo-transparent.png")
+    no-repeat center;
   background-size: 50%;
   background-color: #ffffff; /* White background for contrast */
   border: 1px solid #ddd; /* Light border for definition */
@@ -95,7 +96,8 @@ export default {
 }
 
 .microsoft {
-  background: url("../assets/Microsoft_Logo_512px.png") no-repeat center;
+  background: url("../assets/SocialMediaIcons/Microsoft_Logo_512px.png")
+    no-repeat center;
   background-size: 50%;
   background-color: #f3f3f3; /* Light gray background for Microsoft */
   border: 1px solid #ddd;
@@ -112,7 +114,8 @@ export default {
 }
 
 .google {
-  background: url("../assets/Google_Icons-09-512.webp") no-repeat center;
+  background: url("../assets/SocialMediaIcons/Google_Icons-09-512.webp")
+    no-repeat center;
   background-size: 50%;
   background-color: #ffffff; /* White background for Google */
   border: 1px solid #ddd;

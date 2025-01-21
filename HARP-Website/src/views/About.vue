@@ -6,8 +6,14 @@
     />
     <div class="values">
       <div class="values-img">
-        <img src="../assets/team.webp" alt="team photo" />
-        <img src="../assets/team.webp" alt="team photo" />
+        <img
+          src="../assets/HARPResearchLockUps/Photos/team.webp"
+          alt="team photo"
+        />
+        <img
+          src="../assets/HARPResearchLockUps/Photos/team.webp"
+          alt="team photo"
+        />
       </div>
       <div class="values-text">
         <h5>Our Values</h5>
@@ -17,7 +23,6 @@
           <h2 class="gradient two">Innovative.</h2>
           <h2 class="gradient three">Polymorphic.</h2>
         </div>
-
         <h6 id="valuetext">
           Join a team where diverse talents from various fields, including
           leading researchers and core innovators, come together to push the
@@ -42,14 +47,16 @@
           allowing anyone to create anything.
         </h6>
       </div>
-
       <div class="mission-img">
-        <img src="../assets/team.webp" alt="team photo" />
+        <img
+          src="../assets/HARPResearchLockUps/Photos/team.webp"
+          alt="team photo"
+        />
       </div>
     </div>
     <div class="team">
       <h1 class="team-header">Meet the team</h1>
-      <h2 class="team-foundersHeader">Founders</h2>
+      <h2 class="team-foundersHeader">Founders & Management</h2>
       <div class="team-foundersCards">
         <TeamMember
           v-for="member in TeamMembers.filter((member) => member.founder)"
@@ -59,26 +66,23 @@
       </div>
       <h2 class="team-membersHeader">Team Members</h2>
       <div class="team-buttons">
-        <GeneralButtonNoLink label="View All" @click="filterMembers('all')"/>
-        <GeneralButtonNoLink label="Developers" @click="filterMembers('Developer')"/>
-        <GeneralButtonNoLink label="Interns" @click="filterMembers('Intern')"/>
-        <GeneralButtonNoLink label="Reseachers" @click="filterMembers('Researcher')"/>
+        <GeneralButton label="View All" @click="updateFilter('all')" />
+        <GeneralButton label="Developers" @click="updateFilter('Developer')" />
+        <GeneralButton
+          label="Researchers"
+          @click="updateFilter('Researcher')"
+        />
       </div>
       <div class="team-membersCards">
         <TeamMember
-          v-for="member in filteredMembers.filter((member) => !member.founder)"
+          v-for="member in filteredTeamMembers"
           :key="member.id"
           :member="member"
         />
       </div>
     </div>
+
     <div class="join">
-      <div class="join-pic">
-        <div class="join-pic-box1"></div>
-        <div class="join-pic-box2"></div>
-        <div class="join-pic-box1"></div>
-        <div class="join-pic-box2"></div>
-      </div>
       <div class="join-text">
         <h2>Join our team</h2>
         <p>
@@ -87,162 +91,36 @@
           software  tools for the FDA's Summer Food Service Program, we began
           developing the Simplified Semantic System Syn
         </p>
-        <!-- <div class="button-wrapper">
-          <CareersButton label="Careers"/>
-        </div> -->
+        <div class="button-wrapper">
+          <CareersButton label="Careers" />
+        </div>
       </div>
     </div>
-    <Footer/>
+    <Footer />
   </div>
 </template>
-
 <script setup>
-import { ref } from "vue";
-import TeamMember from "@/components/TeamMemberCard.vue";
-import Header from "../components/Header.vue";
-import GeneralButtonNoLink from "@/components/GeneralButtonNoLink.vue";
-import CareersButton from "@/components/CareersButton.vue";
-import Footer from "@/components/Footer.vue";
-import HarperImg from "@/assets/TeamMember/HARP Research Chisari Harper Background Removed.png"
-import KevinImg from "@/assets/TeamMember/HARP research Scott Kevin1 Background Removed.png"
-import YuvalImg from "@/assets/TeamMember/Shimoni Yuval about Background Removed.png"
+import { ref, computed } from "vue";
+import TeamMember from "@/components/About/TeamMemberCard.vue";
+import Header from "../components/General/Header.vue";
+import GeneralButton from "@/components/About/GeneralButton.vue";
+import CareersButton from "@/components/About/CareersButton.vue";
+import Footer from "@/components/General/Footer.vue";
+import TeamMembers from "@/components/About/teamMembers.json";
 
-
-const TeamMembers = [
-  {
-    id: 1,
-    name: "Harper Chisari",
-    role: "Cheif Executive Officer",
-    founder: true,
-    image: HarperImg,
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/in/harper-chisari-117169164/",
-  },
-  {
-    id: 2,
-    name: "Kevin Scott",
-    role: "VP, Special Finance",
-    founder: true,
-    image: KevinImg,
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 3,
-    name: "Yuval Shimoni",
-    role: "VP, Business Development",
-    founder: true,
-    image: YuvalImg,
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 4,
-    name: "Marco Pretell",
-    role: "Researcher",
-    founder: false,
-    image: YuvalImg,
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 5,
-    name: "David Wang",
-    role: "Developer",
-    founder: false,
-    image: YuvalImg,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 6,
-    name: "Garrett Gee",
-    role: "Intern",
-    founder: false,
-    image: YuvalImg,
-    semester: "Fall 2024",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 7,
-    name: "Shane Stoll",
-    role: "Software Engineering Collaborator",
-    founder: false,
-    image: YuvalImg,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 8,
-    name: "Daniel He",
-    role: "Developer",
-    founder: false,
-    image: YuvalImg,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 9,
-    name: "Joshua Pile",
-    role: "Intern",
-    founder: false,
-    image: YuvalImg,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 10,
-    name: "Dana Solitaire",
-    role: "VP, Software Engineering",
-    founder: false,
-    image: YuvalImg,
-    semester: "Spring 2025",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
-    id: 11,
-    name: "Jonathan Kloepfer",
-    role: "Head of Special Projects",
-    founder: false,
-    image: YuvalImg,
-    semester: "Fall 2024",
-    github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  // {
-  //   id: 12,
-  //   name: "Harper Chisari",
-  //   role: "Developer",
-  //   founder: false,
-  //   image: YuvalImg,
-  //   semester: "Fall 2024",
-  //   github: "https://github.com/dashboard",
-  //   linkedin: "https://www.linkedin.com/feed/",
-  // },
-];
-
-const filteredMembers = ref([]);
-
-const filterMembers = (role) => {
-  console.log("button clickeed");
-  if (role === "all") {
-    filteredMembers.value = TeamMembers.filter((member) => !member.founder);
-  } else {
-    filteredMembers.value = TeamMembers.filter(
-      (member) => !member.founder && member.role === role
-    );
+const selectedFilter = ref("all");
+const filteredTeamMembers = computed(() => {
+  if (selectedFilter.value === "all") {
+    return TeamMembers.filter((member) => !member.founder);
   }
-  console.log("Filtered members:", filteredMembers.value);
-};
+  return TeamMembers.filter(
+    (member) => !member.founder && member.type === selectedFilter.value
+  );
+});
 
-filterMembers("all");
-
+function updateFilter(filter) {
+  selectedFilter.value = filter;
+}
 </script>
 
 <style lang="css" scoped>
@@ -254,24 +132,18 @@ filterMembers("all");
 .team h1 {
   text-align: center;
 }
-.team-foundersCards{
-  display: flex;
-  justify-content: left;
-  flex-wrap: wrap;
-  flex: 1 1 22%;
-  gap: 8%;
-}
+.team-foundersCards,
 .team-membersCards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-start;
   flex-wrap: wrap;
   flex: 1 1 22%;
   gap: 2%;
 }
-.team-buttons{
+.team-buttons {
   margin-top: 1rem;
   display: flex;
-  gap: 9%;
+  gap: 2%;
 }
 .values {
   display: flex;
@@ -323,6 +195,7 @@ img {
   text-align: left;
   padding: 1rem;
   flex: 1;
+  
 }
 .values-text h2 {
   font-weight: bold;
@@ -418,123 +291,11 @@ img {
 }
 #valuetext {
   width: 100%;
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
-.button-wrapper{
+.button-wrapper {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
-
-@media screen and (max-width: 768px) {
-  .team {
-    margin: 2rem 4rem;
-  }
-  .team-foundersCards, .team-membersCards {
-    flex-direction: column;
-    gap: 5%;
-    align-items: center;
-  }
-  .team-buttons {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
-  .team-buttons{
-    margin-bottom: 1rem;
-  }
-  .values {
-    margin: 4rem 2rem;
-    flex-direction: column;
-    align-items: center;
-  }
-  .values-img {
-    margin-right: 0;
-    margin-bottom: 12rem;
-  }
-  .values-img img {
-    width: 18rem;
-  }
-  .mission {
-    flex-direction: column;
-    margin: 2rem 2rem;
-    padding: 1rem;
-  }
-  .mission-img img{
-    width: 100%;
-  }
-  .mission-text {
-    margin-right: 0;
-    margin-bottom: 2rem;
-  }
-
-  .join-pic-box1, .join-pic-box2 {
-    width: 80%;
-    height: 12rem;
-  }
-  .join-text {
-    padding: 4rem;
-  }
-}
-
-/* For phones (max-width: 480px) */
-@media screen and (max-width: 480px) {
-  .team {
-    margin: 1rem 2rem;
-  }
-  .team h1 {
-    margin-bottom: .5rem;
-  }
-  .team-foundersCards, .team-membersCards {
-    gap: 3%;
-    margin-bottom: 2rem;
-  }
-  .team-buttons{
-    margin-bottom: 1rem;
-  }
-  .values {
-    margin: 2rem 1rem;
-  }
-  .values-img img {
-    width: 15rem;
-    margin-bottom: 8rem;
-  }
-  .values-text h2 {
-    font-size: 1.5rem;
-  }
-  .values-text h6 {
-    font-size: 0.8rem;
-  }
-  .mission {
-    margin: 1rem 1rem;
-    padding: 1rem;
-  }
-  .mission-img img{
-    width: 100%;
-  }
-  .mission-text h2 {
-    font-size: 1.5rem;
-  }
-  .mission-text h6 {
-    font-size: 0.8rem;
-  }
-  .join-pic-box1, .join-pic-box2 {
-    width: 100%;
-    height: 12rem;
-  }
-  .join-text {
-    padding: 2rem;
-  }
-  .join-text h2 {
-    font-size: 1.5rem;
-  }
-  .join-text p {
-    font-size: 0.9rem;
-  }
-  #valuetext {
-    font-size: 1rem;
-  }
-}
-      
-
 </style>
