@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import image from "../../assets/HARPResearchLockUps/Photos/vision.webp";
+import image from "../../../../assets/HARPResearchLockUps/Photos/vision.webp";
 
 export default {
   data() {
