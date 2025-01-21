@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import Explore from "../components/Explore.vue";
-import StayInTheLoop from "../components/StayInTheLoop.vue";
-import TopStories from "@/components/TopStories.vue";
-import Footer from "@/components/Footer.vue";
+import Explore from "../components/Articles/Explore.vue";
+import StayInTheLoop from "../components/General/StayInTheLoop.vue";
+import TopStories from "@/components/Articles/TopStories.vue";
+import Footer from "@/components/General/Footer.vue";
 
 export default {
   components: { Explore, StayInTheLoop, TopStories, Footer },

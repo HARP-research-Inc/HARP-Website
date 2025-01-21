@@ -8,14 +8,14 @@ const port = 5000;
 
 // PostgreSQL connection
 const pool = new Pool({
-  user: 'postgres', // Replace with your PostgreSQL username
-  host: 'localhost', // Replace with your host if not local
+  user: 'postgres', 
+  host: 'localhost', 
   database: 'form_data',
-  password: '0000', // Replace with your PostgreSQL password
-  port: 5432, // Default PostgreSQL port
+  password: '0000',
+  port: 5432,
 });
 
-// Middleware
+
 app.use(cors());
 app.use(bodyParser.json());
 
