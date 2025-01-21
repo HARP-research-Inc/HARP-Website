@@ -6,13 +6,13 @@
         <div class="introduction">
           <img src="\src\assets\HARPResearchLockUps\LogoLockups\HARP Logo Square Blue TRANS.png" alt="Logo" class="logo">
           <div class="product-name">
-            <h1>Viewpoint</h1>
+            <h1>ViewPoint</h1>
             <h3>for Outlook</h3>
           </div>
         </div>
       
         <div class="text-block">
-          <h1>Smart Emails Made Simple</h1>
+          <h1>Smart email management made simple.</h1>
           <button class="blue-button"> Try Now</button>
         </div> 
         
