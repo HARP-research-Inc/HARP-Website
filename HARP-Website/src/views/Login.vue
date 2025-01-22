@@ -3,20 +3,27 @@
     <div class="login-container">
       <h1 class="login-title">Login</h1>
       <div class="social-buttons">
-        <button class="social-btn apple"></button>
-        <button class="social-btn microsoft"></button>
-        <button class="social-btn google"></button>
+        <button class="social-btn apple" aria-label="Sign in with Apple"></button>
+        <button class="social-btn microsoft" aria-label="Sign in with Microsoft"></button>
+        <button class="social-btn google" aria-label="Sign in with Google"></button>
       </div>
       <p class="or-text">or</p>
-      <form class="login-form">
-        <input type="email" placeholder="Email Address" class="input-field" />
-        <input type="password" placeholder="Password" class="input-field" />
+      <form class="login-form" @submit="handleLogin">
+        <label for="email" class="sr-only">Email Address</label>
+        <input id="email" type="email" v-model="email" placeholder="Email Address" class="input-field" />
+        
+        <label for="password" class="sr-only">Password</label>
+        <input id="password" type="password" v-model="password" placeholder="Password" class="input-field" />
+        
         <a href="#" class="forgot-password">Forgot password?</a>
         <button type="submit" class="sign-in-btn">Sign In</button>
       </form>
+
       <p class="signup-text">
         Don't have an account yet? <a href="#" class="signup-link">Sign Up.</a>
       </p>
+      <p v-if="responseMessage" class="response-message">{{ responseMessage }}</p>
+
       <button class="join-btn" @click="redirectToAAS">
         <img
           src="../assets/HARPResearchLockUps/AAS/AAS Logo.svg"
@@ -29,16 +36,63 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
-  methods: {
-    redirectToAAS() {
-      this.$router.push("/AASReroute");
-    },
+  data() {
+    return {
+      email: '',
+      password: '',
+      responseMessage: '',
+    };
   },
+  methods: {
+  async handleLogin(event) {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:5000/login', {
+        email: this.email,
+        password: this.password,
+      });
+
+      // Handle successful login
+      this.responseMessage = response.data.message;
+      alert('Login successful!');
+      console.log('User Info:', response.data.user);
+      this.$router.push('/'); // Redirect to the dashboard or home page
+    } catch (error) {
+      // Handle login failure
+      this.responseMessage = error.response?.data?.error || 'Login failed.';
+      console.error('Login error:', error);
+    }
+  },
+},
+
+
 };
 </script>
 
+
+
 <style lang="css" scoped>
+.response-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .page-container {
   display: flex;
   justify-content: center;

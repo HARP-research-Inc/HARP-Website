@@ -19,10 +19,7 @@
       </div>
 
       <div class="mission-img">
-        <img
-          src="../../assets/HARPResearchLockUps/Graphs/nodeGraph.png"
-          alt="node graph"
-        />
+        <img src="../../../assets/HARPResearchLockUps/Graphs/nodeGraph.png" alt="node graph" />
       </div>
     </div>
   </div>

@@ -2,10 +2,7 @@
   <div>
     <div class="mission">
       <div class="mission-img">
-        <img
-          src="../../assets/HARPResearchLockUps/Graphs/nodeGraph.png"
-          alt="node graph"
-        />
+        <img src="../../../assets/HARPResearchLockUps/Graphs/nodeGraph.png" alt="node graph" />
       </div>
       <div class="mission-text">
         <h5>Our Story and Mission</h5>
