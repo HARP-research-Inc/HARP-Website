@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ClipBoardIcon from "../About/ClipBoardIcon.vue";
+import ClipBoardIcon from "../About/Front End/ClipBoardIcon.vue";
 
 export default {
   components: {

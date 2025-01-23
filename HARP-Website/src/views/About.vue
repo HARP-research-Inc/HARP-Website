@@ -39,10 +39,10 @@
         </h2>
         <h6 id="valuetext">
           After years of developing our virtual lithography technology, we
-          refocused our efforts on AI. After testing our framework developing
-          software tools for the FDA's Summer Food Service Program, we began
+          refocused our efforts on AI. After testing our framework developing
+          software tools for the FDA's Summer Food Service Program, we began
           developing the Simplified Semantic System Synthesis Framework, or S4,
-          our proprietary polymorphic AI language, built from the ground up for
+          our proprietary polymorphic AI language, built from the ground up for
           planning. From here, HARP research hopes to expand its capabilities,
           allowing anyone to create anything.
         </h6>
@@ -59,7 +59,7 @@
       <h2 class="team-foundersHeader">Founders & Management</h2>
       <div class="team-foundersCards">
         <TeamMember
-          v-for="member in TeamMembers.filter((member) => member.founder)"
+          v-for="member in teamMembers.filter((member) => member.founder)"
           :key="member.id"
           :member="member"
         />
@@ -87,9 +87,12 @@
         <h2>Join our team</h2>
         <p>
           After years of developing our virtual lithography technology, we
-          refocused our efforts on AI. After testing our framework developing
-          software  tools for the FDA's Summer Food Service Program, we began
-          developing the Simplified Semantic System Syn
+          refocused our efforts on AI. After testing our framework developing
+          software tools for the FDA's Summer Food Service Program, we began
+          developing the Simplified Semantic System Synthesis Framework, or S4,
+          our proprietary polymorphic AI language, built from the ground up for
+          planning. From here, HARP research hopes to expand its capabilities,
+          allowing anyone to create anything.
         </p>
         <div class="button-wrapper">
           <CareersButton label="Careers" />
@@ -99,28 +102,49 @@
     <Footer />
   </div>
 </template>
+
 <script setup>
-import { ref, computed } from "vue";
-import TeamMember from "@/components/About/TeamMemberCard.vue";
+import { ref, computed, onMounted } from "vue";
+import TeamMember from "@/components/About/Frontend/TeamMemberCard.vue";
 import Header from "../components/General/Header.vue";
-import GeneralButton from "@/components/About/GeneralButton.vue";
-import CareersButton from "@/components/About/CareersButton.vue";
+import GeneralButton from "@/components/About/Frontend/GeneralButton.vue";
+import CareersButton from "@/components/About/Frontend/CareersButton.vue";
 import Footer from "@/components/General/Footer.vue";
-import TeamMembers from "@/components/About/teamMembers.json";
+import axios from 'axios';
 
 const selectedFilter = ref("all");
+const teamMembers = ref([]);
+
 const filteredTeamMembers = computed(() => {
   if (selectedFilter.value === "all") {
-    return TeamMembers.filter((member) => !member.founder);
+    return teamMembers.value.filter((member) => !member.founder);
   }
-  return TeamMembers.filter(
-    (member) => !member.founder && member.type === selectedFilter.value
+  return teamMembers.value.filter(
+    (member) => !member.founder && member.member_type === selectedFilter.value
   );
 });
 
 function updateFilter(filter) {
   selectedFilter.value = filter;
+  fetchTeamMembers(); // Fetch team members based on the selected filter
 }
+
+async function fetchTeamMembers() {
+  try {
+    let url = 'http://localhost:3000/api/team-members';
+    if (selectedFilter.value === 'Developer') {
+      url = 'http://localhost:3000/api/team-members/developers';
+    }
+    const response = await axios.get(url);
+    teamMembers.value = response.data;
+  } catch (error) {
+    console.error('Error fetching team members:', error);
+  }
+}
+
+onMounted(() => {
+  fetchTeamMembers(); // Fetch all team members when the component is mounted
+});
 </script>
 
 <style lang="css" scoped>
