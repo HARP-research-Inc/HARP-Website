@@ -20,8 +20,15 @@
 
 -- Insert team members data
 -- INSERT INTO team_members (name, role, founder, management, image_path, github_url, linkedin_url, semester, member_type) VALUES
-    ------------------------------- FOUNDERS AND MANAGEMENT TEAM -------------------------------
-    -- ('Harper Chisari', 'CEO, Vice President of Core Research', true, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari/HarperChisari.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin')
+    ----------------------------- FOUNDERS AND MANAGEMENT TEAM -------------------------------
+    -- ('Yuval Shimoni', 'Vice President of Business Development', true, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/YuvalShimoni/YuvalShimoni.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Kevin Scott', 'Vice President of Customer Success', true, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/KevinScott.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Dana Solitaire', 'Vice President of Custom Solutions Department', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/DanaSolitaire/DanaSolitaire.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Garrett Gee', 'Vice President of General Solutions Department', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/GarrettGee/GarrettGee.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Shane Stoll', 'Vice President of Talent Development', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/ShaneStoll.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Kemuel Nunez', 'Marketing Manager', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/ShaneStoll.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Derek Rubottom', 'Project Manager, DSP-OS 2', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/ShaneStoll.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('William Chen', 'Project Manager, Web Projects', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/WilliamChen/WilliamChen.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin')
 
 
     ------------------------------- TEAM MEMBERS -------------------------------
@@ -29,16 +36,15 @@
 
 -- Update the role and semester for a specific team member
 -- UPDATE team_members
--- SET role = 'Senior Developer', semester = 'Spring 2025'
--- WHERE name = 'Michael Ortega';
+-- SET founder = true 
+-- WHERE founder = false AND management = true;
 
 -- Update a URL for a specific team member
 -- UPDATE team_members
 -- SET role = 'CEO, Vice President of Core Research'
 -- WHERE name = 'Harper Chisari';
 
-
-
+-- ALTER TABLE team_members DROP COLUMN management;    
 
 
     ------------------------------- INFORMATION ARCHIVE (SORTED BY POSITION) -------------------------------
