@@ -1,12 +1,14 @@
 // api.js - Create this file to handle API calls
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api'; // Adjust URL based on your backend
+const API_URL = 'http://localhost:3000'; // Adjust URL based on your backend
 
 export const articleAPI = {
     async getArticles() {
         try {
-            const response = await axios.get(`${API_URL}/articles`);
+            console.log('Sending request to:', `${API_URL}/articles`);
+            const response = await axios.get(`http://localhost:3000/articles`);
+            console.log("Get complete");
             return response.data;
         } catch (error) {
             console.error('Error fetching articles:', error);

@@ -1,63 +1,89 @@
-const express = require('express');
-const { Pool } = require('pg');
-const cors = require('cors');
+import express from 'express';
+import pkg from 'pg';
+const { Pool } = pkg;
+import cors from 'cors';
+import 'dotenv/config'
+
+//console.log('Database URL:', process.env.DATABASE_URL);
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Database connection configuration
 const pool = new Pool({
-    user: 'your_username',
-    host: 'localhost',
-    database: 'articles_db',
-    password: 'your_password',
-    port: 5432,
-});
-
-// GET all articles
-app.get('/api/articles', async (req, res) => {
-    try {
-        const { rows } = await pool.query('SELECT * FROM articles ORDER BY date DESC');
-        res.json(rows);
-    } catch (error) {
-        console.error('Error fetching articles:', error);
-        res.status(500).json({ error: 'Failed to fetch articles' });
+    connectionString: 'postgresql://Articles_owner:npg_Na3VpiL2RBCG@ep-square-king-a80hiral.eastus2.azure.neon.tech/Articles?sslmode=require',
+    ssl: {
+        rejectUnauthorized: false // Required for Neon
     }
 });
 
-// Search articles
-app.get('/api/articles/search', async (req, res) => {
+pool.on('error', (err) => {
+    console.error('Unexpected error on idle client', err);
+    process.exit(-1);
+});
+
+pool.query('SELECT NOW()', (err, res) => {
+    console.log("Processing Query");
+    if (err) {
+        console.error('Database connection error:', err.message);
+        console.error('Error code:', err.code);
+    } else {
+        console.log('Database connected successfully at:', res.rows[0].now);
+    }
+});
+
+app.get('/articles', async (req, res) => {
+    console.log('Received GET request to /articles');
+    try {
+        console.log('Attempting to query database');
+        const { rows } = await pool.query('SELECT * FROM articles ORDER BY date DESC');
+        console.log(`Query successful. Retrieved ${rows.length} articles`);
+        res.json(rows);
+    } catch (error) {
+        console.error('Detailed error in /articles route:', error);
+        res.status(500).json({
+            error: 'Database error',
+            details: error.message
+        });
+    }
+});
+
+app.get('/articles/search', async (req, res) => {
     try {
         const { query } = req.query;
         const { rows } = await pool.query(
             `SELECT * FROM articles 
-       WHERE search_vector @@ plainto_tsquery($1)
+       WHERE title ILIKE $1 OR intro ILIKE $1
        ORDER BY date DESC`,
-            [query]
+            [`%${query}%`]
         );
         res.json(rows);
     } catch (error) {
-        console.error('Error searching articles:', error);
+        console.error('Error:', error);
         res.status(500).json({ error: 'Search failed' });
     }
 });
 
-// Add a new article
-app.post('/api/articles', async (req, res) => {
+app.get('/api/test', async (req, res) => {
     try {
-        const { title, intro, date, read_time, image_url, link } = req.body;
-        const { rows } = await pool.query(
-            `INSERT INTO articles (title, intro, date, read_time, image_url, link) 
-       VALUES ($1, $2, $3, $4, $5, $6) 
-       RETURNING *`,
-            [title, intro, date, read_time, image_url, link]
-        );
-        res.json(rows[0]);
+        const { rows } = await pool.query('SELECT COUNT(*) FROM articles');
+        res.json({
+            success: true,
+            message: 'Database connected successfully',
+            articleCount: rows[0].count
+        });
     } catch (error) {
-        console.error('Error adding article:', error);
-        res.status(500).json({ error: 'Failed to add article' });
+        console.error('Test endpoint error:', error);
+        res.status(500).json({
+            success: false,
+            error: error.message,
+            hint: 'Check if your articles table exists'
+        });
     }
+});
+
+app.get('/', (req, res) => {
+    res.json({ message: 'Backend is running' });
 });
 
 const PORT = process.env.PORT || 3000;

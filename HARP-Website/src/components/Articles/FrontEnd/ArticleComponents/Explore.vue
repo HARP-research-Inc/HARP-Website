@@ -31,7 +31,7 @@
 
 <script>
 import PostCard from "./PostCard.vue";
-import { articleAPI } from '../api';
+import { articleAPI } from '../ArticlesAPI/ArticlesAPI.js';
 
 export default {
   components: { PostCard },
