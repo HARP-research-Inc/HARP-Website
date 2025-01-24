@@ -1,8 +1,10 @@
 <template>
   <div class="post-card" @click="navigateToArticle">
-    <img :src="imageUrl" 
-    alt="Post image" 
-    class="post-image" />
+    <img 
+      :src="resolvedImageUrl" 
+      alt="Article image" 
+      class="post-image"  
+    />
     <div class="post-info">
       <p class="post-date">{{ date }} • {{ readTime }}</p>
       <h3 class="post-title">{{ title }}</h3>
@@ -12,25 +14,28 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    "Article ID": Number, 
-    imageUrl: String,
-    date: String,
-    readTime: String,
-    title: String,
-    intro: String,
-    link: String,
-  },
-  methods: {
-    navigateToArticle() {
-      if (this.link) {
-        window.open(this.link, '_blank');
-      }
-    }
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  "Article ID": Number, 
+  image_url: String,
+  date: String,
+  readTime: String,
+  title: String,
+  intro: String,
+  link: String,
+})
+
+const resolvedImageUrl = computed(() => {
+  return new URL(`../../../../assets/HARPResearchLockUps/Photos/${props.image_url.split('/').pop()}`, import.meta.url).href
+})
+
+const navigateToArticle = () => {
+  if (props.link) {
+    window.open(props.link, '_blank')
   }
-};
+}
 </script>
 
 <style scoped>
@@ -42,10 +47,17 @@ export default {
   padding: 0 4em 1em 4em;
   width: 100%;
   margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.post-card {
-  cursor: pointer;
+.post-card:hover {
+  transform: scale(1.03); /* Slight scale up on hover */
+}
+
+.post-card:hover .post-title {
+  font-size: 2.1em; /* Slightly larger title on hover */
+  transition: font-size 0.3s ease;
 }
 
 .post-image {
