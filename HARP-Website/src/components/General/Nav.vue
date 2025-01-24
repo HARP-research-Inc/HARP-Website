@@ -48,8 +48,8 @@ export default {
             >
           </div>
         </div>
-        <router-link class="navLink" to="/projects">Projects</router-link>
-        <router-link class="navLink" to="/articles">Articles</router-link>
+        <!-- <router-link class="navLink" to="/projects">Projects</router-link>
+        <router-link class="navLink" to="/articles">Articles</router-link> -->
       </div>
       <div class="nav-right">
         <router-link class="navLink" to="/contact">Contact Us</router-link>
@@ -62,18 +62,21 @@ export default {
 </template>
 
 <style lang="css" scoped>
+/* Base nav styles */
 nav {
-  width: 100%;
+  width: 100%; 
   position: fixed;
   display: flex;
   justify-content: space-between;
-  padding: 1% 5% 0% 5%;
+  padding: 1% 5%;
   background-color: transparent;
   z-index: 1000;
   text-decoration: none;
   align-items: center;
   font-size: 1.5em;
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  box-sizing: border-box; /* Include padding in width calculations */
+  transition: background-color 0.3s ease; /* Smooth background-color transition */
+  /* overflow: hidden;  */
 }
 
 nav.scrolled {
@@ -84,18 +87,21 @@ nav.scrolled {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 20px; /* Reduced gap for smaller screens */
 }
+
 .navLink {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  position: relative;
+  font-size: 1em; 
   cursor: pointer;
 }
+
 .logo {
-  width: 5em;
-  margin: 1em;
+  width: 5em; 
+  margin: 0.5em;
 }
+
 .dropdown {
   position: absolute;
   top: 100%;
@@ -109,9 +115,10 @@ nav.scrolled {
   opacity: 0;
   transform: translate(-50%, 10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  font-size: 1em;
+  font-size: 0.9em; /* Adjust dropdown font size */
   z-index: 1000;
 }
+
 .products:hover .dropdown {
   opacity: 1;
   transform: translate(-50%, 0);
@@ -120,8 +127,8 @@ nav.scrolled {
 .dropdown-link {
   color: white;
   text-decoration: none;
-  padding: 12px 20px;
-  font-size: 1em;
+  padding: 10px 15px;
+  font-size: 0.9em; 
   transition: background-color 0.3s ease, color 0.3s ease;
   border-radius: 4px;
 }
@@ -130,4 +137,51 @@ nav.scrolled {
   background-color: rgba(16, 71, 190, 0.1);
   color: rgba(16, 71, 190);
 }
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    padding: 1.5% 5%;
+    font-size: .75em;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-left,
+  .nav-right {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .logo {
+    width: 3em; 
+  }
+
+  .dropdown-link {
+    font-size: 0.9em; 
+  }
+  .dropdown{
+    top: 70%;
+    left: 23%;
+  }
+}
+
+/* Larger screens (769px and up) */
+@media (min-width: 769px) {
+  nav {
+    padding: 1% 5%;
+    font-size: 1.5em;
+  }
+
+  .nav-left,
+  .nav-right {
+    gap: 30px;
+  }
+
+  .logo {
+    width: 5em;
+  }
+}
 </style>
+

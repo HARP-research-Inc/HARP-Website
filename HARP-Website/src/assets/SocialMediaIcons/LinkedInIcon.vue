@@ -39,4 +39,12 @@ export default {
 .linkedin-icon a {
   text-decoration: none;
 }
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .linkedin-icon svg {
+    width: 20px;
+    height: 20px;
+  
+  }
+}
 </style>

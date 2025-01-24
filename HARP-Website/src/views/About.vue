@@ -4,6 +4,7 @@
       title="About"
       subtitle="We deliver next-gen AI solutions that drive innovation and unlock new possibilities"
     />
+    <div class="info-container">
     <div class="values">
       <div class="values-img">
         <img
@@ -17,16 +18,17 @@
       </div>
       <div class="values-text">
         <h5>Our Values</h5>
-        <h2>Meet Harp Research</h2>
+        <h2>Meet HARP Research Inc.</h2>
         <div class="gradient-text">
           <h2 class="gradient one">Pioneers.</h2>
           <h2 class="gradient two">Innovative.</h2>
           <h2 class="gradient three">Polymorphic.</h2>
         </div>
         <h6 id="valuetext">
-          Join a team where diverse talents from various fields, including
-          leading researchers and core innovators, come together to push the
-          boundaries of what's possible.
+          Join a dynamic and collaborative team where diverse talents from a wide range of fields converge
+          to shape the future. From leading researchers and core innovators to visionaries in technology and beyond, 
+          we bring together expertise and passion to push the boundaries of what’s possible, driving innovation and 
+          creating meaningful impact on a global scale.
         </h6>
       </div>
     </div>
@@ -34,7 +36,7 @@
       <div class="mission-text">
         <h5>Our Story and Mission</h5>
         <h2>
-          Accessible automation tools creating value for <br />
+          Automation tools created for <br/>
           <span class="everyone">everyone</span>
         </h2>
         <h6 id="valuetext">
@@ -47,12 +49,11 @@
           allowing anyone to create anything.
         </h6>
       </div>
-      <div class="mission-img">
-        <img
+        <img class="mission-img"
           src="../assets/HARPResearchLockUps/Photos/team.webp"
           alt="team photo"
         />
-      </div>
+    </div>
     </div>
     <div class="team">
       <h1 class="team-header">Meet the team</h1>
@@ -124,9 +125,14 @@ function updateFilter(filter) {
 </script>
 
 <style lang="css" scoped>
+.info-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:  0 3em 0 3em;
+}
 .team {
   margin: 4rem 8rem;
-
   color: white;
 }
 .team h1 {
@@ -149,15 +155,15 @@ function updateFilter(filter) {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 8rem 8rem;
+  margin: 6em 9rem;
   flex-wrap: wrap;
-  margin-bottom: 15rem;
+ 
 }
 .mission {
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin: 4rem 8rem;
   flex-wrap: wrap;
   margin-bottom: 8rem;
@@ -193,8 +199,9 @@ img {
 .values-text {
   color: white;
   text-align: left;
-  padding: 1rem;
+  padding:1em;
   flex: 1;
+  width: 50%;
   
 }
 .values-text h2 {
@@ -249,7 +256,6 @@ img {
 }
 .mission-text {
   flex: 1;
-  margin-right: 10rem;
 }
 .mission-text h2 {
   margin-bottom: 2rem;
@@ -261,7 +267,7 @@ img {
 }
 
 .mission-img {
-  flex: 1;
+  width: 30%;
 }
 .join-pic {
   display: flex;
@@ -290,12 +296,64 @@ img {
   margin-bottom: 3rem;
 }
 #valuetext {
-  width: 100%;
-  font-size: 2rem;
+  width: 80%;
+  font-size: 1.5rem;
 }
 .button-wrapper {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .values, .mission{
+   margin: 2em 3em;
+  }
+  .values-text h2, .mission-text h2{
+    font-size: 1em;
+  }
+  .values-text{
+    padding: 1em;
+  }
+  #valuetext{
+    width: 80%;
+    font-size: .65em;
+  }
+  .values-img {
+    margin-right: 5rem;
+  }
+  .values-img img {
+    width: 10rem;
+  }
+
+  .values-img img:first-child {
+  position: relative;
+  z-index: 1;
+  margin-right: -100px;
+}
+  .values-img img:last-child {
+  position: relative;
+  z-index: 2;
+  transform: translateY(70px);
+}
+  .everyone {
+    font-size: 1em;
+  }
+  .mission-text{
+    font-size: 1em;
+  }
+  .mission-img{
+    width: 40%;
+    flex: 0;
+  }
+  .team {
+    margin: 1rem 4rem;
+    font-size: .75em;
+  }
+  .team-foundersCards,
+  .team-membersCards {
+    gap: 4%;
+  }
+
+
 }
 </style>

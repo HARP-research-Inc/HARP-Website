@@ -184,4 +184,36 @@ export default {
     opacity: 1;
   }
 }
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .stay-in-the-loop {
+    padding: 2em;
+    margin: 5% 7% 5% 7%;
+  }
+  .image-placeholder {
+    width: 10rem;
+    height: 10rem;
+  }
+    #FirstText {
+    font-size: 1.5em;
+    margin: -2% 0% 3% 10%;
+  }
+
+  #SecondaryText {
+    font-size: 1em;
+    margin: -2% 0% 3% 15%;
+  }
+  .subscribe-form {
+    padding: 0.2em .4em;
+    width: 80%;
+  }
+  .subscribe-form input {
+    padding: 0.75em;
+    font-size: .75em;
+  }
+  .subscribe-form button {
+    font-size: .5em;
+  }
+}
 </style>

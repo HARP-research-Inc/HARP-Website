@@ -4,7 +4,7 @@
       <div class="viewpoint_background"></div>
       <div class="displaymain">
         <div class="introduction">
-          <img src="\src\assets\HARPResearchLockUps\LogoLockups\HARP Logo Square Blue TRANS.png" alt="Logo" class="logo">
+          <img src="../../assets/HARPResearchLockUps/LogoLockups/viewpoint_logo.svg" alt="Logo" class="logo">
           <div class="product-name">
             <h1>ViewPoint</h1>
             <h3>for Outlook</h3>
@@ -16,9 +16,8 @@
           <button class="blue-button"> Try Now</button>
         </div> 
         
-        <div class="product">
-          <img src="../../assets/HARPResearchLockUps/Photos/Example1.webp" alt="" class="">
-        </div>
+        <Cascade />
+       
         
         <div class="info">
           <div class="description-block">
@@ -87,11 +86,13 @@
 <script>
 import StayInTheLoop from "@/components/General/StayInTheLoop.vue";
 import Footer from "../General/Footer.vue";
+import Cascade from "./Cascade.vue";
 
 export default {
   components: {
     StayInTheLoop,
     Footer,
+    Cascade,
   }
 }
 </script>

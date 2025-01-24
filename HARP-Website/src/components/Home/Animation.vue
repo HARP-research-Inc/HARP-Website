@@ -25,7 +25,7 @@ export default {
       </h3>
       <div class="action-items">
         <get-started></get-started>
-        <a href="" id="Careers">Careers</a>
+        
       </div>
     </div>
 
@@ -36,17 +36,12 @@ export default {
 <style>
 .canvas-container {
   position: relative;
+  width: 100%;
 }
 .action-items {
   margin-top: 1em;
   display: flex;
   align-items: center;
-}
-#Careers {
-  margin-left: 1em;
-  font-size: 0.75em;
-  text-decoration: none;
-  color: white;
 }
 #heh {
   position: absolute;
@@ -75,7 +70,7 @@ export default {
 
   background-clip: text;
   color: transparent;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 #demo-canvas {
@@ -83,4 +78,25 @@ export default {
   width: 100%;
   clip-path: inset(0 0 30% 0);
 }
+@media (min-width: 320px) and (max-width: 768px) {
+  .canvas-container {
+    position: relative;
+    width: 100%;
+  }
+  #heh {
+    left: 31%;
+    color: white;
+    font-size: .75rem;
+    width: 50%;
+    line-height: 2.5em;
+  }
+  #heheh {
+    margin-top: 1em;
+    font-size: .75rem;
+    line-height: 1.5em;
+    width: 100%;
+  }
+}
+
+
 </style>

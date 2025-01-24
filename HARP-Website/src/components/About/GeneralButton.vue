@@ -65,4 +65,11 @@ export default {
 .blue-button svg {
   margin-left: 8px;
 }
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .blue-button{
+    padding: 0.5em 0.75rem;
+    width: 75%;
+  }
+}
 </style>

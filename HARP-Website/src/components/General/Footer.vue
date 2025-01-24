@@ -180,4 +180,15 @@ export default {
   height: 24px;
   margin-right: 0.5em;
 }
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .footer-container {
+    font-size: .5em;
+  }
+  #socials a {
+    width: 20px;
+    height: 20px;
+    
+  }
+}
 </style>

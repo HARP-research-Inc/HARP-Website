@@ -110,4 +110,23 @@ const props = defineProps({
   font-weight: bold;
   font-size: 1.1rem;
 }
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .member-card {
+  width: 3rem;
+  height: 3rem;
+  }
+  .front img {
+  width: 3rem;
+  }
+  .member-name {
+    font-weight: bold;
+    font-size: .5rem;
+  }
+  .member-role {
+    font-size: .35rem;
+  }
+
+}
 </style>

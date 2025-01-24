@@ -114,6 +114,7 @@ export default {
   margin-left: 0.2em;
   background-clip: text;
   color: transparent;
+  font-weight: bold;
 }
 .gradient-text {
   color: linear-gradient(
@@ -124,6 +125,7 @@ export default {
   );
   font-size: 1.6em;
   margin-left: 0.2em;
+  font-weight: bold;
 }
 #chipimg {
   width: 40em;
@@ -150,7 +152,7 @@ export default {
   font-weight: 400;
 }
 #intro {
-  margin: -3em 0 2em 6rem;
+  margin: -4em 0 2em 6rem;
   font-size: 3em;
 }
 .founderinfo {
@@ -194,13 +196,14 @@ export default {
   flex-direction: column;
   align-items: flex-end;
   width: 50%;
-  margin: -7em 6rem 0 0;
+  margin: -7em 7rem 0 0;
   gap: 1.5em;
 }
 .harpinfo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-end;
   gap: 5em;
   color: white;
   text-align: right;
@@ -265,8 +268,7 @@ export default {
 }
 .harpproductsinfo {
   color: white;
-  text-align: center;
-
+  text-align: right;
   font-size: 2em;
 }
 .productsinfo {
@@ -294,6 +296,43 @@ export default {
   transform: scale(1.2);
   z-index: 10;
 }
+@media (min-width: 320px) and (max-width: 768px) {
+  .harpstart,.harpprojects,.harpproducts  {  
+    margin: 0;
+    font-size: .5em;
+  } 
+  #intro {
+    margin:-4em 0em 2em 4rem;
+  }
+  .founderphotos {
+    margin: -6em 0 2em 3rem;
+  }
+  .founderinfo{
+    margin: 0em 0 2em 4rem;
+  }
+  .harpinfo{
+    gap: 2em;
+    margin: -15em 3rem 0 0 ;
+  }
+  .harpright {
+    width: 60%;
+    margin: 0em 0rem 1em 0;
+    gap: 1.5em;
+  }
+  #intro2 {
+    margin:0em 0em 2em 4rem;
+  }
+  .images {
+    margin-top: 5em;
+    margin-bottom: 5rem;
+    justify-content: space-evenly;
+  }
 
+  .images img {
+    width: 20em;
+    height: 10em;
+    border-radius: 2em; 
+  }
+}
 
 </style>

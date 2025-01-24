@@ -43,10 +43,34 @@ const props = defineProps({
 }
 .header h1 {
   font-weight: bold;
+  font-size: 2rem;
   z-index: 3;
 }
 .header h3 {
   margin: 2rem;
+  font-size: 1.5rem;
   z-index: 3;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+.header {
+  height: 20rem;  
+  background-size: cover;
+}
+.header::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.header h1 {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.header h3 {
+  margin: 2rem;
+  font-size: .75rem;
+}
+
 }
 </style>

@@ -41,4 +41,11 @@ export default {
 .github-icon svg:hover {
   transform: scale(1.1); /* Slight scale on hover */
 }
+@media (min-width: 320px) and (max-width: 768px) {
+  .github-icon svg {
+    width: 20px;
+    height: 20px;
+  
+  }
+}
 </style>
