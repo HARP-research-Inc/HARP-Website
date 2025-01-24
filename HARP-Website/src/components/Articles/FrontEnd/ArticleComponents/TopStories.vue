@@ -1,7 +1,11 @@
 <template>
   <section class="top-stories">
     <div class="carousel">
-      <div class="story" v-if="articles.length > 0">
+      <div 
+        class="story" 
+        v-if="articles.length > 0"
+        @click="navigateToArticle(articles[currentStoryIndex])"
+      >
         <div class="story-info">
           <p class="story-date">
             {{ formatDate(articles[currentStoryIndex].date) }} •
@@ -52,6 +56,11 @@ export default {
     formatDate(dateString) {
       const date = new Date(dateString);
       return date.toISOString().split('T')[0];
+    },
+    navigateToArticle(article) {
+      if (article.link) {
+        window.open(article.link, '_blank')
+      }
     },
     async fetchArticles() {
       this.loading = true;
@@ -116,10 +125,20 @@ export default {
   align-items: center;
   flex-shrink: 0;
   width: 100%;
-  transition: opacity 0.5s ease;
+  transition: transform 0.3s ease, opacity 0.5s ease;
   padding: 2em;
   border-radius: 2em;
   justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.story:hover {
+  transform: scale(1.03);
+}
+
+.story:hover .story-title {
+  font-size: 2.1em;
+  transition: font-size 0.3s ease;
 }
 
 .story.active {
@@ -137,7 +156,7 @@ export default {
 .story-info {
   color: white;
   text-align: left;
-  max-width: 600px; /* Limits the width of the text */
+  max-width: 600px;
   padding: 2em;
 }
 
@@ -150,16 +169,13 @@ export default {
   font-size: 1.8em;
   font-weight: bold;
   margin: 0.2em 0;
+  width: 75%;
 }
 
 .story-intro {
   font-size: 1em;
   color: #c4c7d1;
 }
-
-/* .dots {
-  margin-top: 1rem;
-} */
 
 .dots span {
   font-size: 1rem;
