@@ -13,11 +13,13 @@
 <script>
 export default {
   props: {
+    "Article ID": Number, 
     imageUrl: String,
     date: String,
     readTime: String,
     title: String,
     intro: String,
+    link: String,
   },
 };
 </script>

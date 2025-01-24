@@ -64,24 +64,6 @@ app.get('/articles/search', async (req, res) => {
     }
 });
 
-app.get('/api/test', async (req, res) => {
-    try {
-        const { rows } = await pool.query('SELECT COUNT(*) FROM articles');
-        res.json({
-            success: true,
-            message: 'Database connected successfully',
-            articleCount: rows[0].count
-        });
-    } catch (error) {
-        console.error('Test endpoint error:', error);
-        res.status(500).json({
-            success: false,
-            error: error.message,
-            hint: 'Check if your articles table exists'
-        });
-    }
-});
-
 app.get('/', (req, res) => {
     res.json({ message: 'Backend is running' });
 });

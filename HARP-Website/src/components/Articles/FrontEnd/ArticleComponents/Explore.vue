@@ -17,7 +17,7 @@
     <div class="posts">
       <PostCard
         v-for="(post, index) in displayedArticles"
-        :key="post.id"
+        :key="post['Article ID']"
         v-bind="post"
       />
     </div>
@@ -55,19 +55,20 @@ export default {
   },
   methods: {
     async fetchArticles() {
-      this.loading = true;
-      this.error = null;
-      try {
-        const articles = await articleAPI.getArticles();
-        this.articles = articles;
-        this.filteredArticles = articles;
-      } catch (error) {
-        this.error = 'Failed to fetch articles. Please try again later.';
-        console.error('Error:', error);
-      } finally {
-        this.loading = false;
-      }
-    },
+  this.loading = true;
+  this.error = null;
+  try {
+    const articles = await articleAPI.getArticles();
+    console.log('Fetched articles:', articles); // Add this line
+    this.articles = articles;
+    this.filteredArticles = articles;
+  } catch (error) {
+    this.error = 'Failed to fetch articles. Please try again later.';
+    console.error('Error:', error);
+  } finally {
+    this.loading = false;
+  }
+},
     async filterArticles() {
       this.loading = true;
       this.error = null;
