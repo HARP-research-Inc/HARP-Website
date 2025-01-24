@@ -81,7 +81,7 @@ export default {
       this.stopCarousel();
       this.carouselInterval = setInterval(() => {
         this.currentStoryIndex = (this.currentStoryIndex + 1) % this.articles.length;
-      }, 10000);
+      }, 5000);
     },
     stopCarousel() {
       if (this.carouselInterval) {
