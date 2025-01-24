@@ -48,6 +48,21 @@ app.get('/articles', async (req, res) => {
     }
 });
 
+app.get('/topStories', async (req, res) => {
+    console.log('Received GET request to /articles/top');
+    try {
+        console.log('Attempting to query database for top stories');
+        const { rows } = await pool.query('SELECT * FROM articles WHERE "TopStory" = true ORDER BY date DESC LIMIT 4');
+        console.log(`Query successful. Retrieved ${rows.length} top stories`);
+        res.json(rows);
+    } catch (error) {
+        console.error('Detailed error in /articles/top route:', error);
+        res.status(500).json({
+            error: 'Database error',
+            details: error.message
+        });
+    }
+});
 app.get('/articles/search', async (req, res) => {
     try {
         const { query } = req.query;

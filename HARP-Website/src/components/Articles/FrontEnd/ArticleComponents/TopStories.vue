@@ -66,12 +66,12 @@ export default {
       this.loading = true;
       this.error = null;
       try {
-        const articles = await articleAPI.getArticles();
-        console.log('Fetched articles:', articles);
+        const articles = await articleAPI.getTopStories();
+        console.log('Fetched Top Stories:', articles);
         this.articles = articles;
         this.filteredArticles = articles;
       } catch (error) {
-        this.error = 'Failed to fetch articles. Please try again later.';
+        this.error = 'Failed to fetch top stories. Please try again later.';
         console.error('Error:', error);
       } finally {
         this.loading = false;

@@ -16,6 +16,18 @@ export const articleAPI = {
         }
     },
 
+    async getTopStories() {
+        try {
+            console.log('Sending request for Top Stories to:', `${API_URL}/articles/top`);
+            const response = await axios.get(`http://localhost:3000/articles/top`);
+            console.log("Get TopStories Completed");
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching Top Stories:', error);
+            throw error;
+        }
+    },
+
     async searchArticles(query) {
         try {
             const response = await axios.get(`${API_URL}/articles/search`, {
