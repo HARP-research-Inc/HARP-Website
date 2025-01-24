@@ -1,90 +1,78 @@
 <template>
   <section class="top-stories">
     <div class="carousel">
-      <div class="story">
+      <div class="story" v-if="articles.length > 0">
         <div class="story-info">
           <p class="story-date">
-            {{ stories[currentStoryIndex].date }} •
-            {{ stories[currentStoryIndex].readTime }} read
+            {{ formatDate(articles[currentStoryIndex].date) }} •
+            {{ articles[currentStoryIndex].read_time }} 
           </p>
-          <h2 class="story-title">{{ stories[currentStoryIndex].title }}</h2>
-          <p class="story-intro">{{ stories[currentStoryIndex].intro }}</p>
+          <h2 class="story-title">{{ articles[currentStoryIndex].title }}</h2>
+          <p class="story-intro">{{ articles[currentStoryIndex].intro }}</p>
         </div>
         <img
-          :src="stories[currentStoryIndex].imageUrl"
+          :src="resolveImageUrl(articles[currentStoryIndex].image_url)" 
           alt="Story image"
           class="story-image"
         />
       </div>
+      <div v-else>Loading...</div>
     </div>
-    <div class="dots">
+    <div class="dots" v-if="articles.length > 0">
       <span
-        v-for="(story, index) in stories"
+        v-for="(article, index) in articles"
         :key="index"
         :class="{ active: index === currentStoryIndex }"
         @click="changeStory(index)"
-        >•</span
-      >
+        >•
+      </span>
     </div>
   </section>
 </template>
 
 <script>
-import image from "../../../../assets/HARPResearchLockUps/Photos/vision.webp";
+import { articleAPI } from '../ArticlesAPI/ArticlesAPI.js';
 
 export default {
   data() {
     return {
+      articles: [],
+      filteredArticles: [],
+      articlesToShow: 3,
+      loading: false,
+      error: null,
       currentStoryIndex: 0,
-      stories: [
-        {
-          imageUrl: image,
-          date: "July 11, 2023",
-          readTime: "3 min",
-          title: "The Future of AI Isn't Large: It's Polymorphic",
-          intro:
-            "As our digital world continues to grow exponentially, Artificial Intelligence (AI) has been at the forefront, with the maxim: bigger is better. Enormous computational power and massive datasets have driven many AI breakthroughs...",
-        },
-        {
-          imageUrl: image,
-          date: "July 11, 2023",
-          readTime: "3 min",
-          title: "The Future of AI Isn't Large: It's Polymorphic",
-          intro:
-            "As our digital world continues to grow exponentially, Artificial Intelligence (AI) has been at the forefront, with the maxim: bigger is better. Enormous computational power and massive datasets have driven many AI breakthroughs...",
-        },
-        {
-          imageUrl: image,
-          date: "July 11, 2023",
-          readTime: "3 min",
-          title: "The Future of AI Isn't Large: It's Polymorphic",
-          intro:
-            "As our digital world continues to grow exponentially, Artificial Intelligence (AI) has been at the forefront, with the maxim: bigger is better. Enormous computational power and massive datasets have driven many AI breakthroughs...",
-        },
-        {
-          imageUrl: image,
-          date: "July 11, 2023",
-          readTime: "3 min",
-          title: "The Future of AI Isn't Large: It's Polymorphic",
-          intro:
-            "As our digital world continues to grow exponentially, Artificial Intelligence (AI) has been at the forefront, with the maxim: bigger is better. Enormous computational power and massive datasets have driven many AI breakthroughs...",
-        },
-      ],
       carouselInterval: null
     };
   },
-  mounted() {
-    this.startCarousel();
-  },
-  beforeUnmount() {
-    this.stopCarousel();
-  },
   methods: {
+    resolveImageUrl(imageUrl) {
+      return new URL(`../../../../assets/HARPResearchLockUps/Photos/${imageUrl.split('/').pop()}`, import.meta.url).href
+    },
+    formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toISOString().split('T')[0];
+    },
+    async fetchArticles() {
+      this.loading = true;
+      this.error = null;
+      try {
+        const articles = await articleAPI.getArticles();
+        console.log('Fetched articles:', articles);
+        this.articles = articles;
+        this.filteredArticles = articles;
+      } catch (error) {
+        this.error = 'Failed to fetch articles. Please try again later.';
+        console.error('Error:', error);
+      } finally {
+        this.loading = false;
+      }
+    },
     startCarousel() {
-      this.stopCarousel(); // Clear any existing interval
+      this.stopCarousel();
       this.carouselInterval = setInterval(() => {
-        this.currentStoryIndex = (this.currentStoryIndex + 1) % this.stories.length;
-      }, 10000); // 10 seconds
+        this.currentStoryIndex = (this.currentStoryIndex + 1) % this.articles.length;
+      }, 10000);
     },
     stopCarousel() {
       if (this.carouselInterval) {
@@ -93,8 +81,18 @@ export default {
     },
     changeStory(index) {
       this.currentStoryIndex = index;
-      this.startCarousel(); // Reset the timer
+      this.startCarousel();
     }
+  },
+  mounted() {
+    this.fetchArticles().then(() => {
+      if (this.articles.length > 0) {
+        this.startCarousel();
+      }
+    });
+  },
+  beforeUnmount() {
+    this.stopCarousel();
   }
 };
 </script>
