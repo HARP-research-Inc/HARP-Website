@@ -53,7 +53,7 @@ const props = defineProps({
 }
 @media (min-width: 320px) and (max-width: 768px) {
 .header {
-  height: 20rem;  
+  height: 15rem;  
   background-size: cover;
 }
 .header::before {

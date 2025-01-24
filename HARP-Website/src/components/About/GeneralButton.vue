@@ -68,8 +68,7 @@ export default {
 
 @media (min-width: 320px) and (max-width: 768px) {
   .blue-button{
-    padding: 0.5em 0.75rem;
-    width: 75%;
+    font-size: .75em;
   }
 }
 </style>

@@ -114,11 +114,11 @@ const props = defineProps({
 
 @media (min-width: 320px) and (max-width: 768px) {
   .member-card {
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   }
   .front img {
-  width: 3rem;
+  width: 5rem;
   }
   .member-name {
     font-weight: bold;

@@ -83,7 +83,7 @@
       </div>
     </div>
 
-    <div class="join">
+    <!-- <div class="join">
       <div class="join-text">
         <h2>Join our team</h2>
         <p>
@@ -96,7 +96,7 @@
           <CareersButton label="Careers" />
         </div>
       </div>
-    </div>
+    </div> -->
     <Footer />
   </div>
 </template>
@@ -352,6 +352,9 @@ img {
   .team-foundersCards,
   .team-membersCards {
     gap: 4%;
+  }
+  .team-header{
+    font-size: 1.5em;
   }
 
 
