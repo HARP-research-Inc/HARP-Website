@@ -6,7 +6,7 @@
       class="post-image"  
     />
     <div class="post-info">
-      <p class="post-date">{{ formatDate(date) }} • {{ readTime }}</p>
+      <p class="post-date">{{ formatDate(date) }} • {{ read_time }}</p>
       <h3 class="post-title">{{ title }}</h3>
       <p class="post-intro">{{ intro }}</p>
       <button class="linkedin-btn">in</button>
@@ -21,7 +21,7 @@ const props = defineProps({
   "Article ID": Number, 
   image_url: String,
   date: String,
-  readTime: String,
+  read_time: String,
   title: String,
   intro: String,
   link: String,
