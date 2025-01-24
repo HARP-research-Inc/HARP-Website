@@ -6,7 +6,7 @@
       class="post-image"  
     />
     <div class="post-info">
-      <p class="post-date">{{ date }} • {{ readTime }}</p>
+      <p class="post-date">{{ formatDate(date) }} • {{ readTime }}</p>
       <h3 class="post-title">{{ title }}</h3>
       <p class="post-intro">{{ intro }}</p>
       <button class="linkedin-btn">in</button>
@@ -30,6 +30,11 @@ const props = defineProps({
 const resolvedImageUrl = computed(() => {
   return new URL(`../../../../assets/HARPResearchLockUps/Photos/${props.image_url.split('/').pop()}`, import.meta.url).href
 })
+
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toISOString().split('T')[0];
+}
 
 const navigateToArticle = () => {
   if (props.link) {
