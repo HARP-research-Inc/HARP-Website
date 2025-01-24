@@ -28,16 +28,7 @@ app.get("/api/team-members", async (req, res) => {
 });
 
 
-// API Endpoint to fetch developers from the team_members table
-app.getDevelopers("/api/team-members/developers", async (req, res) => {
-  try {
-    const result = await pool.query("SELECT * FROM team_members WHERE member_type = 'Developer'");
-    res.json(result.rows);
-  } catch (error) {
-    console.error('Error fetching developers:', error);
-    res.status(500).json({ error: error.message });
-  }
-});
+
 
 // Start the server
 app.listen(3000, () => {

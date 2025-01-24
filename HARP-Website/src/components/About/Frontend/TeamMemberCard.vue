@@ -3,7 +3,7 @@
     <div class="member-card">
       <div class="card front">
         <img
-          :src="`${member.image}`"
+          :src="`${member.image_path}`"
           :alt="`${member.name}'s profile image`"
           id=""
         />
@@ -14,23 +14,23 @@
         <div class="member-box"></div>
         <a
           class="logo"
-          :href="member.github"
+          :href="member.github_url"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img
-            src="../../assets/SocialMediaIcons/github.png"
+            src="../../../assets/SocialMediaIcons/github.png"
             alt="GitHub Logo"
           />
         </a>
         <a
           class="logo"
-          :href="member.linkedin"
+          :href="member.linkedin_url"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img
-            src="../../assets/SocialMediaIcons/linkedin.png"
+            src="../../../assets/SocialMediaIcons/linkedin.png"
             alt="LinkedIn Logo"
           />
         </a>
