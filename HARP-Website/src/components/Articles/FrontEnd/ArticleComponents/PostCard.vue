@@ -1,6 +1,8 @@
 <template>
-  <div class="post-card">
-    <img :src="imageUrl" alt="Post image" class="post-image" />
+  <div class="post-card" @click="navigateToArticle">
+    <img :src="imageUrl" 
+    alt="Post image" 
+    class="post-image" />
     <div class="post-info">
       <p class="post-date">{{ date }} • {{ readTime }}</p>
       <h3 class="post-title">{{ title }}</h3>
@@ -21,6 +23,13 @@ export default {
     intro: String,
     link: String,
   },
+  methods: {
+    navigateToArticle() {
+      if (this.link) {
+        window.open(this.link, '_blank');
+      }
+    }
+  }
 };
 </script>
 
@@ -33,6 +42,10 @@ export default {
   padding: 0 4em 1em 4em;
   width: 100%;
   margin: 0 auto;
+}
+
+.post-card {
+  cursor: pointer;
 }
 
 .post-image {
