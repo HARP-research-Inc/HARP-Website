@@ -73,13 +73,35 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  height: 110%;
-  /* background: radial-gradient(ellipse at center, rgb(8, 218, 255), transparent); */
+  height: 100%;
   border-radius: 4em;
   z-index: 0;
-  filter: blur(0.1rem);
   opacity: 0.1;
   transition: opacity 0.3s ease-in; /* Smooth transition */
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .product img{
+    width: 100%;
+  }
+  .product1 {
+  z-index: 3; 
+  top:50%;
+
+}
+
+.product2 {
+  z-index: 2;
+  right: 40%;
+  top: 40%;
+
+}
+
+.product3 {
+  z-index: 1; 
+  bottom:20%;
+  left:40%;
+ 
+}
 }
 
 

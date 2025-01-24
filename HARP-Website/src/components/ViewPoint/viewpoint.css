@@ -458,3 +458,26 @@
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
   color: white;
 }
+@media (min-width: 320px) and (max-width: 768px) {
+  .displaymain{
+    margin-top: 5em;
+  }
+  .product-name {
+    margin-left: 1em;
+  }
+  .product-name h1 {
+    font-size: 2rem;
+  }
+  .product-name h3 {
+    font-size: .75rem;
+  }
+  .text-block{
+    gap: 2em;
+  }
+  .text-block h1{
+    font-size: 1.5em;
+  }
+  .blue-button {
+    font-size: .75rem;
+  }
+}
