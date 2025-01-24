@@ -22,7 +22,7 @@
         v-for="(story, index) in stories"
         :key="index"
         :class="{ active: index === currentStoryIndex }"
-        @click="currentStoryIndex = index"
+        @click="changeStory(index)"
         >•</span
       >
     </div>
@@ -70,8 +70,32 @@ export default {
             "As our digital world continues to grow exponentially, Artificial Intelligence (AI) has been at the forefront, with the maxim: bigger is better. Enormous computational power and massive datasets have driven many AI breakthroughs...",
         },
       ],
+      carouselInterval: null
     };
   },
+  mounted() {
+    this.startCarousel();
+  },
+  beforeUnmount() {
+    this.stopCarousel();
+  },
+  methods: {
+    startCarousel() {
+      this.stopCarousel(); // Clear any existing interval
+      this.carouselInterval = setInterval(() => {
+        this.currentStoryIndex = (this.currentStoryIndex + 1) % this.stories.length;
+      }, 10000); // 10 seconds
+    },
+    stopCarousel() {
+      if (this.carouselInterval) {
+        clearInterval(this.carouselInterval);
+      }
+    },
+    changeStory(index) {
+      this.currentStoryIndex = index;
+      this.startCarousel(); // Reset the timer
+    }
+  }
 };
 </script>
 
