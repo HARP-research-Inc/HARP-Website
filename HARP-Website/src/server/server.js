@@ -16,10 +16,21 @@ const pool = new Pool({
   }
 });
 
-// API Endpoint to fetch all team members from the team_members table
+// API Endpoint to fetch all team members from the team_members table (organized by role)
 app.get("/api/team-members", async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM team_members");
+    const result = await pool.query(`
+      SELECT * FROM team_members
+      ORDER BY 
+        CASE 
+          WHEN role = 'CEO, Vice President of Core Research' THEN 1
+          WHEN role LIKE 'Vice President%' THEN 2
+          WHEN role = 'Marketing Manager' THEN 3
+          WHEN role LIKE 'Project Manager%' THEN 4
+          ELSE 5
+        END,
+        role, name
+    `);
     res.json(result.rows);
   } catch (error) {
     console.error('Error fetching team members:', error);

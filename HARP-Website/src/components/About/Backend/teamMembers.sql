@@ -6,64 +6,66 @@
 -- Base Cases for inserting, updating, and deleting team members is given below. Uncomment and then compile the script for the changes to take effect
 
 -- -- Create team_members table
--- CREATE TABLE team_members (
---     name VARCHAR(100) NOT NULL,
---     role VARCHAR(100) NOT NULL,
---     founder BOOLEAN DEFAULT false,
---     management BOOLEAN DEFAULT false,
---     image_path TEXT NOT NULL,
---     github_url VARCHAR(255),
---     linkedin_url VARCHAR(255),
---     semester VARCHAR(50),
---     member_type VARCHAR(50)
--- );
+CREATE TABLE team_members (
+    name VARCHAR(100) NOT NULL,
+    role VARCHAR(100) NOT NULL,
+    founder BOOLEAN DEFAULT false,
+    management BOOLEAN DEFAULT false,
+    image_path TEXT NOT NULL,
+    github_url VARCHAR(255),
+    linkedin_url VARCHAR(255),
+    semester VARCHAR(50),
+    member_type VARCHAR(50)
+);
 
 -- Insert team members data
--- INSERT INTO team_members (name, role, founder, management, image_path, github_url, linkedin_url, semester, member_type) VALUES
-    ----------------------------- FOUNDERS AND MANAGEMENT TEAM -------------------------------
-    -- ('Yuval Shimoni', 'Vice President of Business Development', true, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/YuvalShimoni/YuvalShimoni.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
-    -- ('Kevin Scott', 'Vice President of Customer Success', true, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/KevinScott.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
-    -- ('Dana Solitaire', 'Vice President of Custom Solutions Department', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/DanaSolitaire/DanaSolitaire.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
-    -- ('Garrett Gee', 'Vice President of General Solutions Department', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/GarrettGee/GarrettGee.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
-    -- ('Shane Stoll', 'Vice President of Talent Development', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/ShaneStoll.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
-    -- ('Kemuel Nunez', 'Marketing Manager', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/ShaneStoll.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
-    -- ('Derek Rubottom', 'Project Manager, DSP-OS 2', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/ShaneStoll.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
-    -- ('William Chen', 'Project Manager, Web Projects', false, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/WilliamChen/WilliamChen.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin')
+INSERT INTO team_members (name, role, founder, image_path, github_url, linkedin_url, semester, member_type) VALUES
+    ('James Wu', 'Applied Mathematics Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/jameswu05', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Researcher'),
+    ('Anna Kelbakh', 'Cognitive Linguistics Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Researcher'),
+    ('Derek Lee', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/kagiri2', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Developer'),
+    ('Jonathan Sun', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/johnny-sun04', 'https://www.linkedin.com/johnny-sun/', 'Spring 2025', 'Developer'),
+    ('Aman Kapoor', 'Hybrid Machine Learning Workflow Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/aman06012003', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Researcher'),
+    ('Matthew Tavares', 'Quantum Machine Learning Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Researcher'),
+     ('Peijing Xu', 'Quantum Machine Learning Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/paxaxxium', 'https://www.linkedin.com/in/peijing-xu-362598297/', 'Spring 2025', 'Researcher');
 
-
-    ------------------------------- TEAM MEMBERS -------------------------------
-
-
+   
 -- Update the role and semester for a specific team member
--- UPDATE team_members
--- SET founder = true 
--- WHERE founder = false AND management = true;
+UPDATE team_members
+SET founder = true 
+WHERE founder = false = true;
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/GarrettGee/GarrettGeeNoBG.png' WHERE name = 'Garrett Gee';
+UPDATE team_members SET github_url = 'https://github.com/grt812' WHERE name = 'Garrett Gee';
+UPDATE team_members SET linkedin_url = 'https://www.linkedin.com/in/garrett-gee-95988b2b0/' WHERE name = 'Garrett Gee';
 
--- Update a URL for a specific team member
--- UPDATE team_members
--- SET role = 'CEO, Vice President of Core Research'
--- WHERE name = 'Harper Chisari';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/KevinScottNoBG.png' WHERE name = 'Kevin Scott';
 
 -- ALTER TABLE team_members DROP COLUMN management;    
 
-
     ------------------------------- INFORMATION ARCHIVE (SORTED BY POSITION) -------------------------------
 --  Founders and Management Team
-    -- ('Harper Chisari', 'CEO, Vice President of Core Research', true, true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari/HarperChisari.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin')
+    -- ('Harper Chisari', 'CEO, Vice President of Core Research', true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari/HarperChisari.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin')
+    -- ('Yuval Shimoni', 'Vice President of Business Development', true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/YuvalShimoni/Yuval Card.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Kevin Scott', 'Vice President of Customer Success', true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/KevinScott.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Dana Solitaire', 'Vice President of Custom Solutions Department', true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/DanaSolitaire/DanaSolitaire.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Garrett Gee', 'Vice President of General Solutions Department', true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/GarrettGee/GarrettGee.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Shane Stoll', 'Vice President of Talent Development', true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/ShaneStoll.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Kemuel Nunez', 'Marketing Manager', true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/ShaneStoll.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('Derek Rubottom', 'Project Manager, DSP-OS 2', true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/ShaneStoll.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin'),
+    -- ('William Chen', 'Project Manager, Web Projects', true, 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/WilliamChen/WilliamChen.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Admin', 'Admin')
 
 -- Applied Mathematics Interns
-        -- ('Ritika Brahmadesam', 'Applied Mathematics Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/bcritika', 'https://www.linkedin.com/in/bcritika/', 'Spring 2025', 'Researcher'),
+        -- ('Ritika Brahmadesam', 'Applied Mathematics Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/bcritika', 'https://www.linkedin.com/in/bcritika/', 'Spring 2025', 'Researcher'),
     -- Cognitive Linguistics Interns
-        -- ('Thomas Dou', 'Cognitive Linguistics Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/tdou25', 'https://www.linkedin.com/in/thomas-dou-43120824b/', 'Spring 2025', 'Researcher')
+        -- ('Thomas Dou', 'Cognitive Linguistics Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/tdou25', 'https://www.linkedin.com/in/thomas-dou-43120824b/', 'Spring 2025', 'Researcher')
 -- Full Stack Development Interns
-        -- ('Barbara Kotlan', 'Full Stack Development Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/bjk2023', 'https://www.linkedin.com/in/barbara-kotlan/', 'Spring 2025', 'Developer'),
-        -- ('Celine Cheung', 'Full Stack Development Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/ccheung777', 'https://www.linkedin.com/in/celinech/', 'Spring 2025', 'Developer'),
-        -- ('Matteo Rathgeber', 'Full Stack Development Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/mrathgeber', 'https://www.linkedin.com/in/matteorathgeber/', 'Spring 2025', 'Developer'),
-        -- ('Angela Imanuel', 'Full Stack Development Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/anqelbun', 'https://www.linkedin.com/in/angela-imanuel/', 'Spring 2025', 'Developer'),
+        -- ('Barbara Kotlan', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/bjk2023', 'https://www.linkedin.com/in/barbara-kotlan/', 'Spring 2025', 'Developer'),
+        -- ('Celine Cheung', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/ccheung777', 'https://www.linkedin.com/in/celinech/', 'Spring 2025', 'Developer'),
+        -- ('Matteo Rathgeber', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/mrathgeber', 'https://www.linkedin.com/in/matteorathgeber/', 'Spring 2025', 'Developer'),
+        -- ('Angela Imanuel', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/anqelbun', 'https://www.linkedin.com/in/angela-imanuel/', 'Spring 2025', 'Developer'),
 -- Hybrid ML Workflow Interns
-        -- ('Chengyu Zhang', 'Hybrid Machine Learning Workflow Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/gnehcuyz', 'https://www.linkedin.com/in/chengyuz/', 'Spring 2025', 'Researcher'),
-        -- ('Aidan Flaherty', 'Hybrid Machine Learning Workflow Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/aidan-n-flaherty', 'https://www.linkedin.com/in/aidan-n-flaherty', 'Spring 2025', 'Researcher'),
-        -- ('Siddhant Agarwal', 'Hybrid Machine Learning Workflow Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/siddhantagarwal151', 'https://www.linkedin.com/in/sidagar1/', 'Spring 2025', 'Researcher'),
+        -- ('Chengyu Zhang', 'Hybrid Machine Learning Workflow Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/gnehcuyz', 'https://www.linkedin.com/in/chengyuz/', 'Spring 2025', 'Researcher'),
+        -- ('Aidan Flaherty', 'Hybrid Machine Learning Workflow Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/aidan-n-flaherty', 'https://www.linkedin.com/in/aidan-n-flaherty', 'Spring 2025', 'Researcher'),
+        -- ('Siddhant Agarwal', 'Hybrid Machine Learning Workflow Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/siddhantagarwal151', 'https://www.linkedin.com/in/sidagar1/', 'Spring 2025', 'Researcher'),
 -- Quantum Machine Learning Interns
-        -- ('Mukul', 'Quantum Machine Learning Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/mukul-quantum-researcher', 'https://www.linkedin.com/in/mukul-malik-47b9b1192/', 'Spring 2025', 'Researcher'),
-        -- ('Ryan So', 'Quantum Machine Learning Intern', false, false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/ryanso128', 'https://www.linkedin.com/in/ryanso128/', 'Spring 2025', 'Researcher')
+        -- ('Mukul', 'Quantum Machine Learning Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/mukul-quantum-researcher', 'https://www.linkedin.com/in/mukul-malik-47b9b1192/', 'Spring 2025', 'Researcher'),
+        -- ('Ryan So', 'Quantum Machine Learning Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/ryanso128', 'https://www.linkedin.com/in/ryanso128/', 'Spring 2025', 'Researcher')
