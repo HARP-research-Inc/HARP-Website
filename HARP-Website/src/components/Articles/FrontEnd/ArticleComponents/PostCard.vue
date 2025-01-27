@@ -46,38 +46,36 @@ const navigateToArticle = () => {
 <style scoped>
 .post-card {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   border-radius: 8px;
   color: white;
-  padding: 0 4em 1em 4em;
-  width: 100%;
+  padding: 2em;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
   cursor: pointer;
   transition: transform 0.3s ease;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .post-card:hover {
-  transform: scale(1.03); /* Slight scale up on hover */
-}
-
-.post-card:hover .post-title {
-  font-size: 2.1em; /* Slightly larger title on hover */
-  transition: font-size 0.3s ease;
+  transform: scale(1.02);
 }
 
 .post-image {
-  width: 500px;
+  width: 40%;
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
-  margin-right: 1.5em;
-  margin-left: 2em;
+  margin-right: 2em;
 }
 
 .post-info {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0; /* Prevents flex items from overflowing */
 }
 
 .post-date {
@@ -90,17 +88,22 @@ const navigateToArticle = () => {
   font-size: 2em;
   font-weight: bold;
   margin: 0.2em 0;
-  line-height: 1.2em;
+  line-height: 1.2;
   color: #ffffff;
-  width: 75%;
-  padding: 0.25em 0 0.5em 0;
+  transition: font-size 0.3s ease;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .post-intro {
   font-size: 1em;
   color: #c4c7d1;
-  margin-bottom: 1em;
-  line-height: 1.5em;
+  margin: 1em 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .linkedin-btn {
@@ -112,6 +115,67 @@ const navigateToArticle = () => {
   font-size: 1em;
   cursor: pointer;
   align-self: start;
-  margin-top: auto; /* Aligns button to the bottom of the text */
+  margin-top: auto;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .post-card {
+    padding: 1.5em;
+    width: 95%;
+  }
+
+  .post-title {
+    font-size: 1.8em;
+  }
+
+  .post-image {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .post-card {
+    flex-direction: column;
+    padding: 1em;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 200px;
+    margin: 0 0 1em 0;
+  }
+
+  .post-title {
+    font-size: 1.5em;
+    width: 100%;
+  }
+
+  .post-intro {
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .post-card {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .post-image {
+    height: 180px;
+  }
+
+  .post-title {
+    font-size: 1.3em;
+  }
+
+  .post-intro {
+    display: none;
+  }
+
+  .post-date {
+    font-size: 0.8em;
+  }
 }
 </style>

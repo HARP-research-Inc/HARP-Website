@@ -113,11 +113,18 @@ export default {
   top: 10em;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2em;
 }
 
 .carousel {
   display: flex;
   overflow: hidden;
+  border-radius: 2em;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .story {
@@ -127,54 +134,59 @@ export default {
   width: 100%;
   transition: transform 0.3s ease, opacity 0.5s ease;
   padding: 2em;
-  border-radius: 2em;
-  justify-content: space-evenly;
+  justify-content: space-between;
   cursor: pointer;
+  gap: 2em;
 }
 
 .story:hover {
-  transform: scale(1.03);
-}
-
-.story:hover .story-title {
-  font-size: 2.1em;
-  transition: font-size 0.3s ease;
-}
-
-.story.active {
-  display: flex;
+  transform: scale(1.02);
 }
 
 .story-image {
   width: 500px;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
-  margin-right: 1em;
-  border-radius: 5px;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .story-info {
   color: white;
   text-align: left;
-  max-width: 600px;
-  padding: 2em;
+  flex: 1;
+  min-width: 0;
 }
 
 .story-date {
   font-size: 0.9em;
   color: #a0a8b8;
+  margin-bottom: 0.5em;
 }
 
 .story-title {
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bold;
   margin: 0.2em 0;
-  width: 75%;
+  line-height: 1.2;
+  transition: font-size 0.3s ease;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .story-intro {
   font-size: 1em;
   color: #c4c7d1;
+  margin: 1em 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dots {
+  margin-top: 1em;
 }
 
 .dots span {
@@ -182,9 +194,82 @@ export default {
   cursor: pointer;
   margin: 0 0.5rem;
   color: #ccc;
+  transition: color 0.3s ease;
 }
 
 .dots span.active {
-  color: #343333;
+  color: #ffffff;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .story {
+    padding: 1.5em;
+  }
+
+  .story-image {
+    width: 400px;
+    height: 250px;
+  }
+
+  .story-title {
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .story {
+    flex-direction: column-reverse;
+    padding: 1.5em;
+    gap: 1.5em;
+  }
+
+  .story-image {
+    width: 100%;
+    height: 300px;
+  }
+
+  .story-info {
+    width: 100%;
+  }
+
+  .story-title {
+    font-size: 1.6em;
+  }
+
+  .story-intro {
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .top-stories {
+    padding: 0 1em;
+    margin-top: 8em;
+  }
+
+  .carousel {
+    border-radius: 1em;
+  }
+
+  .story {
+    padding: 1em;
+  }
+
+  .story-image {
+    height: 200px;
+  }
+
+  .story-title {
+    font-size: 1.4em;
+  }
+
+  .story-intro {
+    display: none;
+  }
+
+  .story-date {
+    font-size: 0.8em;
+  }
 }
 </style>
