@@ -2,7 +2,7 @@
 
 # Website
 
-The prupose of this repository is to document and develop the revitalized and refreshed HARP Research website.
+The purpose of this repository is to document and develop the revitalized and refreshed HARP Research website.
 
 
 ${\color{grey}\textsf{Copyright © 2024 HARP research, Inc. Visit us at }}$ [https://harpresearch.ai](https://harpresearch.ai)
