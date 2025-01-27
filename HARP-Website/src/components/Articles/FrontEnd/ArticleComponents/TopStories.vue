@@ -202,7 +202,7 @@ export default {
 }
 
 /* Media Queries */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
   .story {
     padding: 1.5em;
   }
@@ -217,7 +217,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 768px) {
   .story {
     flex-direction: column-reverse;
     padding: 1.5em;
@@ -242,10 +242,9 @@ export default {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   .top-stories {
     padding: 0 1em;
-    margin-top: 8em;
   }
 
   .carousel {
