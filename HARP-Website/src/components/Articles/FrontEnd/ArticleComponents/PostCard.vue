@@ -50,8 +50,8 @@ const navigateToArticle = () => {
   border-radius: 8px;
   color: white;
   padding: 2em;
-  width: 90%;
-  max-width: 1200px;
+  width: 100%; /* Changed from 90% to 100% */
+  max-width: 1400px; /* Match top-stories max-width */
   margin: 0 auto;
   cursor: pointer;
   transition: transform 0.3s ease;

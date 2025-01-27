@@ -100,22 +100,26 @@ export default {
 <style scoped>
 .explore {
   text-align: left;
-  padding: 2em 2em 2em 2em;
+  padding: 1em;
   color: #ffffff;
   margin-top: 10em;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #exploreword {
   font-size: 2em;
   font-weight: bold;
+  margin: 0; /* Remove default margins */
 }
 .explore-top {
   display: flex;
   flex-direction: row;
-  gap: 1em;
   justify-content: space-between;
   align-items: center;
-  top: 20em;
-  margin: 0vh 5vh 0vh 10vh;
+  width: 100%;
+  margin-bottom: 2em;
+  padding: 0; /* Remove any padding */
 }
 
 h2 {
@@ -126,12 +130,12 @@ h2 {
 .search-bar {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5em;
   border-radius: 2em;
   overflow: hidden;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   width: 40%;
+  margin: 0; /* Remove margins */
 }
 
 .search-bar input {
@@ -163,10 +167,24 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 100%; /* Sets max width for the container */
-  margin: 0 auto; /* Centers the container */
-  gap: 1.5em; /* Adds spacing between post cards */
+  width: 100%;
+  gap: 1.5em;
 }
+.post-card {
+  display: flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  color: white;
+  padding: 2em;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .load-more-btn {
   background-color: #444; /* Change color to a neutral gray */
   color: white;
@@ -191,5 +209,48 @@ h2 {
   background-color: rgba(255, 68, 68, 0.1);
   border-radius: 4px;
   margin: 1em 0;
+}
+
+@media screen and (max-width: 9999px){
+  .explore {
+    padding: 2em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .explore {
+    padding: 2em;
+  }
+  
+  .post-card {
+    padding: 2em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .explore {
+    padding: 2.5em;
+  }
+  
+  
+}
+
+@media screen and (max-width: 480px) {
+  .explore, .post-card {
+    padding: 1em;
+  }
+  .explore-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .post-card {
+    padding: 1em;
+  }
 }
 </style>

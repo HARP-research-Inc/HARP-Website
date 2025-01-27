@@ -116,7 +116,7 @@ export default {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2em;
+  padding: 2em;
 }
 
 .carousel {
@@ -260,7 +260,7 @@ export default {
   }
 
   .story-title {
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
 
   .story-intro {
