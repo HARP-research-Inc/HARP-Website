@@ -105,10 +105,16 @@ export default {
       }
     },
 
-    handleSocialLogin(provider) {
-      console.log(`Logging in with ${provider}`);
-      // Implement social login logic
-    },
+    async handleSocialLogin(provider) {
+    try {
+      const response = await axios.post(`http://localhost:5000/social-login/${provider}`);
+      if (response.data) {
+        this.$router.push('/');
+      }
+    } catch (error) {
+      this.responseMessage = error.response?.data?.error || `${provider} login failed`;
+    }
+  },
 
     redirectToAAS() {
       window.location.href = 'https://aas.org/membership/join';
