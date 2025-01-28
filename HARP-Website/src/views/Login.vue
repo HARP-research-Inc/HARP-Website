@@ -2,28 +2,63 @@
   <div class="page-container">
     <div class="login-container">
       <h1 class="login-title">Login</h1>
+      
+      <!-- Social Login Buttons -->
       <div class="social-buttons">
-        <button class="social-btn apple" aria-label="Sign in with Apple"></button>
-        <button class="social-btn microsoft" aria-label="Sign in with Microsoft"></button>
-        <button class="social-btn google" aria-label="Sign in with Google"></button>
+        <button 
+          class="social-btn apple" 
+          aria-label="Sign in with Apple" 
+          @click="handleSocialLogin('apple')"
+        ></button>
+        <button 
+          class="social-btn microsoft" 
+          aria-label="Sign in with Microsoft"
+          @click="handleSocialLogin('microsoft')"
+        ></button>
+        <button 
+          class="social-btn google" 
+          aria-label="Sign in with Google"
+          @click="handleSocialLogin('google')"
+        ></button>
       </div>
+
       <p class="or-text">or</p>
+
+      <!-- Login Form -->
       <form class="login-form" @submit="handleLogin">
         <label for="email" class="sr-only">Email Address</label>
-        <input id="email" type="email" v-model="email" placeholder="Email Address" class="input-field" />
+        <input 
+          id="email" 
+          type="email" 
+          v-model="email" 
+          placeholder="Email Address" 
+          class="input-field"
+        />
         
         <label for="password" class="sr-only">Password</label>
-        <input id="password" type="password" v-model="password" placeholder="Password" class="input-field" />
+        <input 
+          id="password" 
+          type="password" 
+          v-model="password" 
+          placeholder="Password" 
+          class="input-field"
+        />
         
-        <a href="#" class="forgot-password">Forgot password?</a>
+        <a href="#" class="forgot-password" @click.prevent="$router.push('/forgot-password')">
+          Forgot password?
+        </a>  
         <button type="submit" class="sign-in-btn">Sign In</button>
       </form>
 
+      <!-- Sign Up Link -->
       <p class="signup-text">
         Don't have an account yet? <a href="#" class="signup-link">Sign Up.</a>
       </p>
+
+      <!-- Response Message -->
       <p v-if="responseMessage" class="response-message">{{ responseMessage }}</p>
 
+      <!-- Join AAS Button -->
       <button class="join-btn" @click="redirectToAAS">
         <img
           src="../assets/HARPResearchLockUps/AAS/AAS Logo.svg"
@@ -35,69 +70,60 @@
     </div>
   </div>
 </template>
+
 <script>
 import axios from 'axios';
 
 export default {
+  name: 'LoginPage',
+  
   data() {
     return {
       email: '',
       password: '',
-      responseMessage: '',
+      responseMessage: ''
     };
   },
+
   methods: {
-  async handleLogin(event) {
-    event.preventDefault();
+    async handleLogin(event) {
+      event.preventDefault();
 
-    try {
-      const response = await axios.post('http://localhost:5000/login', {
-        email: this.email,
-        password: this.password,
-      });
+      try {
+        const response = await axios.post('http://localhost:5000/login', {
+          email: this.email,
+          password: this.password
+        });
 
-      // Handle successful login
-      this.responseMessage = response.data.message;
-      alert('Login successful!');
-      console.log('User Info:', response.data.user);
-      this.$router.push('/'); // Redirect to the dashboard or home page
-    } catch (error) {
-      // Handle login failure
-      this.responseMessage = error.response?.data?.error || 'Login failed.';
-      console.error('Login error:', error);
+        this.responseMessage = response.data.message;
+        alert('Login successful!');
+        console.log('User Info:', response.data.user);
+        this.$router.push('/');
+      } catch (error) {
+        this.responseMessage = error.response?.data?.error || 'Login failed.';
+        console.error('Login error:', error);
+      }
+    },
+
+    handleSocialLogin(provider) {
+      console.log(`Logging in with ${provider}`);
+      // Implement social login logic
+    },
+
+    redirectToAAS() {
+      window.location.href = 'https://aas.org/membership/join';
     }
-  },
-},
-
-
+  }
 };
 </script>
 
-
-
-<style lang="css" scoped>
-.response-message {
-  color: red;
-  font-weight: bold;
-  margin-top: 1rem;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
+<style scoped>
 .page-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding-top: 5rem;
 }
 
 .login-container {
@@ -132,11 +158,10 @@ export default {
 }
 
 .apple {
-  background: url("../assets/SocialMediaIcons/apple-logo-transparent.png")
-    no-repeat center;
+  background: url("../assets/SocialMediaIcons/apple-logo-transparent.png") no-repeat center;
   background-size: 50%;
-  background-color: #ffffff; /* White background for contrast */
-  border: 1px solid #ddd; /* Light border for definition */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -145,15 +170,14 @@ export default {
 }
 
 .apple:hover {
-  transform: scale(1.1); /* Slightly enlarge on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add hover shadow */
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .microsoft {
-  background: url("../assets/SocialMediaIcons/Microsoft_Logo_512px.png")
-    no-repeat center;
+  background: url("../assets/SocialMediaIcons/Microsoft_Logo_512px.png") no-repeat center;
   background-size: 50%;
-  background-color: #f3f3f3; /* Light gray background for Microsoft */
+  background-color: #f3f3f3;
   border: 1px solid #ddd;
   border-radius: 50%;
   width: 60px;
@@ -168,10 +192,9 @@ export default {
 }
 
 .google {
-  background: url("../assets/SocialMediaIcons/Google_Icons-09-512.webp")
-    no-repeat center;
+  background: url("../assets/SocialMediaIcons/Google_Icons-09-512.webp") no-repeat center;
   background-size: 50%;
-  background-color: #ffffff; /* White background for Google */
+  background-color: #ffffff;
   border: 1px solid #ddd;
   border-radius: 50%;
   width: 60px;
@@ -196,6 +219,17 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .input-field {
@@ -250,6 +284,12 @@ export default {
 
 .signup-link:hover {
   text-decoration: underline;
+}
+
+.response-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
 .join-btn {
