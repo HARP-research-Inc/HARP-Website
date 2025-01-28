@@ -5,19 +5,41 @@ import bcrypt from 'bcrypt';
 const router = express.Router();
 
 export default (pool) => {
-    // Register new user
+    // Enhanced register endpoint
     router.post('/register', async (req, res) => {
-        const { email, password } = req.body;
+        const { email, password, fullName } = req.body;
+
+        // Input validation
+        if (!email || !password || !fullName) {
+            return res.status(400).json({
+                error: 'Email, password, and full name are required'
+            });
+        }
+
+        // Basic email format validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({
+                error: 'Invalid email format'
+            });
+        }
+
+        // Password strength validation
+        if (password.length < 8) {
+            return res.status(400).json({
+                error: 'Password must be at least 8 characters long'
+            });
+        }
 
         try {
             // Hash password
             const saltRounds = 10;
             const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-            // Insert new user
+            // Insert new user with full name
             const newUser = await pool.query(
-                'INSERT INTO "Login" (email, password) VALUES ($1, $2) RETURNING email, created_at',
-                [email, hashedPassword]
+                'INSERT INTO "Login" (email, password, full_name) VALUES ($1, $2, $3) RETURNING email, full_name, created_at',
+                [email, hashedPassword, fullName]
             );
 
             res.status(201).json({
@@ -29,6 +51,50 @@ export default (pool) => {
                 return res.status(400).json({ error: 'Email already registered' });
             }
             console.error('Registration error:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    });
+
+    router.post('/social-register/:provider', async (req, res) => {
+        const { provider } = req.params;
+        const { email, fullName } = req.body; // These would come from the social provider
+
+        try {
+            // Check if user already exists
+            const existingUser = await pool.query(
+                'SELECT * FROM "Login" WHERE email = $1',
+                [email]
+            );
+
+            if (existingUser.rows.length > 0) {
+                // If user exists, treat it as a login
+                return res.json({
+                    message: 'User already registered, logged in successfully',
+                    user: {
+                        email: existingUser.rows[0].email,
+                        full_name: existingUser.rows[0].full_name,
+                        created_at: existingUser.rows[0].created_at
+                    }
+                });
+            }
+
+            // Generate a random secure password for social users
+            // They can reset it later if they want to use password login
+            const randomPassword = Math.random().toString(36).slice(-12);
+            const hashedPassword = await bcrypt.hash(randomPassword, 10);
+
+            // Insert new social user
+            const newUser = await pool.query(
+                'INSERT INTO "Login" (email, password, full_name) VALUES ($1, $2, $3) RETURNING email, full_name, created_at',
+                [email, hashedPassword, fullName]
+            );
+
+            res.status(201).json({
+                message: 'Social registration successful',
+                user: newUser.rows[0]
+            });
+        } catch (error) {
+            console.error(`${provider} registration error:`, error);
             res.status(500).json({ error: 'Internal server error' });
         }
     });

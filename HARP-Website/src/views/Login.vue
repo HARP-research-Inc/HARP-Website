@@ -52,7 +52,7 @@
 
       <!-- Sign Up Link -->
       <p class="signup-text">
-        Don't have an account yet? <a href="#" class="signup-link">Sign Up.</a>
+        Don't have an account yet? <a href="#" class="signup-link" @click.prevent="$router.push('/register')">Sign Up</a>
       </p>
 
       <!-- Response Message -->
