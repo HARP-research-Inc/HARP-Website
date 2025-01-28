@@ -238,7 +238,7 @@ export default {
   }
 
   .story-intro {
-    -webkit-line-clamp: 2;
+    display: none;
   }
 }
 
