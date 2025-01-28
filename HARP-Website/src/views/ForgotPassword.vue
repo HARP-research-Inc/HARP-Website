@@ -3,7 +3,7 @@
       <div class="login-container">
         <h1 class="login-title">Reset Password</h1>
         
-        <form class="login-form" @submit="handleSubmit">
+        <form class="login-form" @submit.prevent="handleSubmit">
           <label for="email" class="sr-only">Email Address</label>
           <input 
             id="email" 
@@ -47,7 +47,7 @@
         event.preventDefault();
         
         try {
-          const response = await axios.post('http://localhost:5000/forgot-password', {
+          const response = await axios.post('forgot-password', {
             email: this.email
           });
           
