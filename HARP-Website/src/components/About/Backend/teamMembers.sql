@@ -20,25 +20,27 @@ CREATE TABLE team_members (
 
 -- Insert team members data
 INSERT INTO team_members (name, role, founder, image_path, github_url, linkedin_url, semester, member_type) VALUES
-    ('James Wu', 'Applied Mathematics Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/jameswu05', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Researcher'),
-    ('Anna Kelbakh', 'Cognitive Linguistics Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Researcher'),
-    ('Derek Lee', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/kagiri2', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Developer'),
-    ('Jonathan Sun', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/johnny-sun04', 'https://www.linkedin.com/johnny-sun/', 'Spring 2025', 'Developer'),
-    ('Aman Kapoor', 'Hybrid Machine Learning Workflow Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/aman06012003', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Researcher'),
-    ('Matthew Tavares', 'Quantum Machine Learning Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Spring 2025', 'Researcher'),
-     ('Peijing Xu', 'Quantum Machine Learning Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png', 'https://github.com/paxaxxium', 'https://www.linkedin.com/in/peijing-xu-362598297/', 'Spring 2025', 'Researcher');
-
+    ('Ashley Chan', 'UI/UX Designer Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/AshleyChan.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+    ('Aoyan Sarkar', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/AoyanSarkar.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+    ('Caleb Dodson', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/CalebDodson.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+    ('Luke Summa', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/LukeSumma.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+    ('Michael Ortega', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MichaelOrtega.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+    ('Linus Zwaka', 'Research Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/LinusZwaka.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Researcher');
+    
    
 -- Update the role and semester for a specific team member
 UPDATE team_members
 SET founder = true 
 WHERE founder = false = true;
 UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/GarrettGee/GarrettGeeNoBG.png' WHERE name = 'Garrett Gee';
-UPDATE team_members SET github_url = 'https://github.com/grt812' WHERE name = 'Garrett Gee';
-UPDATE team_members SET linkedin_url = 'https://www.linkedin.com/in/garrett-gee-95988b2b0/' WHERE name = 'Garrett Gee';
+UPDATE team_members SET github_url = 'https://github.com/DerekRubottom' WHERE name = 'Derek Rubottom';
+UPDATE team_members SET linkedin_url = 'https://www.linkedin.com/in/derekzlee/' WHERE name = 'Derek Lee';
 
 UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/KevinScottNoBG.png' WHERE name = 'Kevin Scott';
 
+
+UPDATE team_members SET github_url = 'https://github.com/grt812' WHERE name = 'Garrett Gee';
+UPDATE team_members SET linkedin_url = 'https://www.linkedin.com/in/garrett-gee-95988b2b0/' WHERE name = 'Garrett Gee';
 -- ALTER TABLE team_members DROP COLUMN management;    
 
     ------------------------------- INFORMATION ARCHIVE (SORTED BY POSITION) -------------------------------

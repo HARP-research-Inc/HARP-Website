@@ -68,10 +68,9 @@
       <div class="team-buttons">
         <GeneralButton label="View All" @click="updateFilter('all')" />
         <GeneralButton label="Developers" @click="updateFilter('Developer')" />
-        <GeneralButton
-          label="Researchers"
-          @click="updateFilter('Researcher')"
-        />
+        <GeneralButton label="Researchers" @click="updateFilter('Researcher')" />
+        <GeneralButton label="Fall 2024" @click="updateFilter('Fall 2024')" />
+        <GeneralButton label="Spring 2025" @click="updateFilter('Spring 2025')" />
       </div>
       <div class="team-membersCards">
         <TeamMember
@@ -119,6 +118,11 @@ const filteredTeamMembers = computed(() => {
   if (selectedFilter.value === "all") {
     return teamMembers.value.filter((member) => !member.founder);
   }
+  if (selectedFilter.value === "Fall 2024" || selectedFilter.value === "Spring 2025") {
+    return teamMembers.value.filter(
+      (member) => !member.founder && member.semester === selectedFilter.value
+    );
+  }
   return teamMembers.value.filter(
     (member) => !member.founder && member.member_type === selectedFilter.value
   );
@@ -134,6 +138,10 @@ async function fetchTeamMembers() {
     let url = 'http://localhost:3000/api/team-members';
     if (selectedFilter.value === 'Developer') {
       url = 'http://localhost:3000/api/team-members/developers';
+    } else if (selectedFilter.value === 'Researcher') {
+      url = 'http://localhost:3000/api/team-members/researchers';
+    } else if (selectedFilter.value === 'Fall 2024' || selectedFilter.value === 'Spring 2025') {
+      url = `http://localhost:3000/api/team-members?semester=${selectedFilter.value}`;
     }
     const response = await axios.get(url);
     teamMembers.value = response.data;
