@@ -1,66 +1,79 @@
 <template>
-    <div class="page-container">
+  <div class="page-container">
       <div class="login-container">
-        <h1 class="login-title">Reset Password</h1>
-        
-        <form class="login-form" @submit.prevent="handleSubmit">
-          <label for="email" class="sr-only">Email Address</label>
-          <input 
-            id="email" 
-            type="email" 
-            v-model="email" 
-            placeholder="Email Address" 
-            class="input-field"
-            required
-          />
+          <h1 class="login-title">Reset Password</h1>
           
-          <button type="submit" class="sign-in-btn">Send Reset Link</button>
-        </form>
-  
-        <p v-if="message" :class="['response-message', messageType]">
-          {{ message }}
-        </p>
-  
-        <p class="signup-text">
-          Remember your password? <a href="#" @click.prevent="$router.push('/login')" class="signup-link">Back to Login</a>
-        </p>
+          <form class="login-form" @submit.prevent="handleSubmit">
+              <label for="email" class="sr-only">Email Address</label>
+              <input 
+                  id="email" 
+                  type="email" 
+                  v-model="email" 
+                  placeholder="Email Address" 
+                  class="input-field"
+                  required
+              />
+              
+              <button type="submit" class="sign-in-btn">Send Reset Link</button>
+          </form>
+
+          <p v-if="message" :class="['response-message', messageType]">
+              {{ message }}
+          </p>
+
+          <!-- Add this section to display reset link in development -->
+          <div v-if="resetLink" class="mt-4 p-4 bg-gray-800 rounded">
+              <p class="text-sm mb-2">Development Mode: Use this link to reset password</p>
+              <a :href="resetLink" class="text-blue-400 break-all">{{ resetLink }}</a>
+          </div>
+
+          <p class="signup-text">
+              Remember your password? <a href="#" @click.prevent="$router.push('/login')" class="signup-link">Back to Login</a>
+          </p>
       </div>
-    </div>
-  </template>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'ForgotPassword',
   
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    name: 'ForgotPassword',
-    
-    data() {
+  data() {
       return {
-        email: '',
-        message: '',
-        messageType: 'error'
+          email: '',
+          message: '',
+          messageType: 'error',
+          resetLink: null
       };
-    },
-  
-    methods: {
+  },
+
+  methods: {
       async handleSubmit(event) {
-        event.preventDefault();
-        
-        try {
-          const response = await axios.post('forgot-password', {
-            email: this.email
-          });
+          event.preventDefault();
           
-          this.message = 'Password reset instructions have been sent to your email';
-          this.messageType = 'success';
-        } catch (error) {
-          this.message = error.response?.data?.message || 'An error occurred. Please try again.';
-          this.messageType = 'error';
-        }
+          try {
+              const response = await axios.post('http://localhost:5000/api/forgot-password', {
+                  email: this.email
+              });
+              
+              this.message = 'Password reset instructions have been sent';
+              this.messageType = 'success';
+              
+              // Store reset link if in development mode
+              if (response.data.resetLink) {
+                  this.resetLink = response.data.resetLink;
+              }
+          } catch (error) {
+              this.message = error.response?.data?.error || 'An error occurred. Please try again.';
+              this.messageType = 'error';
+              this.resetLink = null;
+          }
       }
-    }
-  };
-  </script>
+  }
+};
+</script>
   
   <style scoped>
   .page-container {

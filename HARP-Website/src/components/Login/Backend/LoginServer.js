@@ -24,14 +24,16 @@ const pool = new Pool({
 const initializeDatabase = async () => {
     try {
         const createTableQuery = `
-      CREATE TABLE IF NOT EXISTS "public"."Login" (
-        email TEXT PRIMARY KEY,
-        password TEXT NOT NULL,
-        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-        last_login TIMESTAMP WITH TIME ZONE,
-        is_active BOOLEAN DEFAULT true
-      );
-    `;
+            CREATE TABLE IF NOT EXISTS "public"."Login" (
+                email TEXT PRIMARY KEY,
+                password TEXT NOT NULL,
+                created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+                last_login TIMESTAMP WITH TIME ZONE,
+                is_active BOOLEAN DEFAULT true,
+                reset_token TEXT,
+                reset_token_expiry TIMESTAMP WITH TIME ZONE
+            );
+        `;
         await pool.query(createTableQuery);
         console.log('Database initialized successfully');
     } catch (error) {
@@ -42,7 +44,7 @@ const initializeDatabase = async () => {
 initializeDatabase();
 
 // Import routes (we'll need to modify this part too)
-import loginRoutes from '../FrontEnd/LoginAPI.js';  // Make sure to add .js extension
+import loginRoutes from './LoginAPI.js';  // Make sure to add .js extension
 app.use('/', loginRoutes(pool));
 
 app.listen(port, () => {

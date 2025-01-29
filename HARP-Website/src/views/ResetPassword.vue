@@ -1,64 +1,96 @@
 <template>
-    <div class="page-container">
-      <div class="login-container">
-        <h1 class="login-title">Reset Password</h1>
+  <div class="page-container">
+    <div class="login-container">
+      <h1 class="login-title">Reset Password</h1>
+      
+      <form class="login-form" @submit.prevent="handleSubmit">
+          <label for="password" class="sr-only">Password</label>
+          <input
+              id="password"
+              type="password" 
+              class="input-field"
+              v-model="password" 
+              placeholder="New Password"
+              required
+          />
+          <label for="password_confirm" class="sr-only">Confirm Password</label>
+          <input
+              id="password_confirm"
+              type="password" 
+              class="input-field"
+              v-model="password_confirm" 
+              placeholder="Confirm Password"
+              required
+          />
         
-        <form class="login-form" @submit.prevent="handleSubmit">
-            <label for="email" class="sr-only">Password</label>
-                <input
-                    type="password" class="form-control" v-model=password placeholder="Password"/>
-            <label for="email" class="sr-only">Reset Password</label>
-                <input
-                    type="password" class="form-control" v-model="password_confirm" placeholder="Password Confirm"/>
-          
-            <button type="submit" class="sign-in-btn">Submit</button>
-        </form>
-  
-        <p v-if="message" :class="['response-message', messageType]">
-          {{ message }}
-        </p>
-  
-        <p class="signup-text">
-          Cancel Password Reset? <a href="#" @click.prevent="$router.push('/login')" class="signup-link">Back to Login</a>
-        </p>
-      </div>
+          <button type="submit" class="sign-in-btn">Reset Password</button>
+      </form>
+
+      <p v-if="message" :class="['response-message', messageType]">
+        {{ message }}
+      </p>
+
+      <p class="signup-text">
+        Remember your password? <a href="#" @click.prevent="$router.push('/login')" class="signup-link">Back to Login</a>
+      </p>
     </div>
-  </template>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'ResetPassword',
   
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    name: 'ResetPassword',
-    
-    data() {
+  data() {
       return {
-        password: '',
-        password_confirm: ''
+          password: '',
+          password_confirm: '',
+          message: '',
+          messageType: 'error'
       };
-    },
-  
-    methods: {
-      async handleSubmit(event) {
-        event.preventDefault();
-        
-        try {
-          const response = await axios.post('reset-password', {
-            password: this.password,
-            password_confirm: this.password_confirm,
-            token: this.$route.params.token
-          });
+  },
+
+  methods: {
+      async handleSubmit() {
+          // Clear previous messages
+          this.message = '';
           
-          this.message = 'Password reset success';
-          this.messageType = 'success';
-        } catch (error) {
-          this.message = error.response?.data?.message || 'An error occurred. Please try again.';
-          this.messageType = 'error';
-        }
+          // Validate passwords
+          if (this.password.length < 8) {
+              this.message = 'Password must be at least 8 characters long';
+              this.messageType = 'error';
+              return;
+          }
+          
+          if (this.password !== this.password_confirm) {
+              this.message = 'Passwords do not match';
+              this.messageType = 'error';
+              return;
+          }
+          
+          try {
+              const token = this.$route.params.token;
+              const response = await axios.post(`http://localhost:5000/api/reset-password/${token}`, {
+                  password: this.password
+              });
+              
+              this.message = 'Password reset successful. You can now login with your new password.';
+              this.messageType = 'success';
+              
+              // Redirect to login page after 2 seconds
+              setTimeout(() => {
+                  this.$router.push('/login');
+              }, 2000);
+          } catch (error) {
+              this.message = error.response?.data?.error || 'An error occurred. Please try again.';
+              this.messageType = 'error';
+          }
       }
-    }
-  };
-  </script>
+  }
+};
+</script>
   
   <style scoped>
   .page-container {

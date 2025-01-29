@@ -1,6 +1,8 @@
 // LoginAPI.js
 import express from 'express';
 import bcrypt from 'bcrypt';
+import crypto from 'crypto';
+import nodemailer from 'nodemailer';
 
 const router = express.Router();
 
@@ -132,6 +134,90 @@ export default (pool) => {
             });
         } catch (error) {
             console.error('Login error:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    });
+
+    router.post('/forgot-password', async (req, res) => {
+        const { email } = req.body;
+
+        if (!email) {
+            return res.status(400).json({ error: 'Email is required' });
+        }
+
+        try {
+            // Check if user exists
+            const user = await pool.query(
+                'SELECT * FROM "Login" WHERE email = $1',
+                [email]
+            );
+
+            // Generate reset token
+            const resetToken = crypto.randomBytes(32).toString('hex');
+            const resetTokenExpiry = new Date(Date.now() + 3600000); // 1 hour from now
+
+            // Save reset token in database
+            await pool.query(
+                'UPDATE "Login" SET reset_token = $1, reset_token_expiry = $2 WHERE email = $3',
+                [resetToken, resetTokenExpiry, email]
+            );
+
+            // For development: Instead of sending email, just return the reset link
+            const resetLink = `http://localhost:5173/reset-password/${resetToken}`;
+
+            res.json({
+                message: 'Password reset link generated successfully',
+                // Only include reset link in development
+                resetLink: process.env.NODE_ENV === 'development' ? resetLink : undefined
+            });
+
+        } catch (error) {
+            console.error('Password reset request error:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    });
+
+    // Reset password with token
+    router.post('/reset-password/:token', async (req, res) => {
+        const { token } = req.params;
+        const { password } = req.body;
+
+        if (!password) {
+            return res.status(400).json({ error: 'New password is required' });
+        }
+
+        if (password.length < 8) {
+            return res.status(400).json({
+                error: 'Password must be at least 8 characters long'
+            });
+        }
+
+        try {
+            // Find user with valid reset token
+            const user = await pool.query(
+                'SELECT * FROM "Login" WHERE reset_token = $1 AND reset_token_expiry > NOW()',
+                [token]
+            );
+
+            if (user.rows.length === 0) {
+                return res.status(400).json({
+                    error: 'Invalid or expired reset token'
+                });
+            }
+
+            // Hash new password
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            // Update password and clear reset token
+            await pool.query(
+                'UPDATE "Login" SET password = $1, reset_token = NULL, reset_token_expiry = NULL WHERE reset_token = $2',
+                [hashedPassword, token]
+            );
+
+            res.json({ message: 'Password has been reset successfully' });
+
+        } catch (error) {
+            console.error('Password reset error:', error);
             res.status(500).json({ error: 'Internal server error' });
         }
     });
