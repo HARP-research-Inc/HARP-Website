@@ -65,12 +65,15 @@
         />
       </div>
       <h2 class="team-membersHeader">Team Members</h2>
-      <div class="team-buttons">
-        <GeneralButton label="View All" @click="updateFilter('all')" />
-        <GeneralButton label="Developers" @click="updateFilter('Developer')" />
-        <GeneralButton label="Researchers" @click="updateFilter('Researcher')" />
-        <GeneralButton label="Fall 2024" @click="updateFilter('Fall 2024')" />
-        <GeneralButton label="Spring 2025" @click="updateFilter('Spring 2025')" />
+      <!-- Dropdown for filtering team members -->
+      <div class="team-dropdown">
+        <select @change="handleDropdownChange($event)">
+          <option value="all">View All</option>
+          <option value="Developer">Developers</option>
+          <option value="Researcher">Researchers</option>
+          <option value="Fall 2024">Fall 2024</option>
+          <option value="Spring 2025">Spring 2025</option>
+        </select>
       </div>
       <div class="team-membersCards">
         <TeamMember
@@ -136,11 +139,7 @@ function updateFilter(filter) {
 async function fetchTeamMembers() {
   try {
     let url = 'http://localhost:3000/api/team-members';
-    if (selectedFilter.value === 'Developer') {
-      url = 'http://localhost:3000/api/team-members/developers';
-    } else if (selectedFilter.value === 'Researcher') {
-      url = 'http://localhost:3000/api/team-members/researchers';
-    } else if (selectedFilter.value === 'Fall 2024' || selectedFilter.value === 'Spring 2025') {
+    if (selectedFilter.value === 'Developer' || selectedFilter.value === 'Researcher' || selectedFilter.value === 'Fall 2024' || selectedFilter.value === 'Spring 2025') {
       url = `http://localhost:3000/api/team-members?semester=${selectedFilter.value}`;
     }
     const response = await axios.get(url);
@@ -148,6 +147,11 @@ async function fetchTeamMembers() {
   } catch (error) {
     console.error('Error fetching team members:', error);
   }
+}
+
+function handleDropdownChange(event) {
+  const selectedValue = event.target.value;
+  updateFilter(selectedValue);
 }
 
 onMounted(() => {
@@ -172,11 +176,25 @@ onMounted(() => {
   flex: 1 1 22%;
   gap: 2%;
 }
-.team-buttons {
+
+/* Dropdown Styling */
+.team-dropdown {
   margin-top: 1rem;
   display: flex;
-  gap: 2%;
+  margin-bottom: 2rem;
 }
+
+.team-dropdown select {
+  padding: 0.6rem;
+  background: linear-gradient(90deg, #124188, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border: 3px solid rgba(128, 68, 248, 0.3);}
+
 .values {
   display: flex;
   justify-content: space-between;
