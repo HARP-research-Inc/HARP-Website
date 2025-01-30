@@ -87,23 +87,28 @@ export default {
 
   methods: {
     async handleLogin(event) {
-      event.preventDefault();
+    event.preventDefault();
 
-      try {
-        const response = await axios.post('http://localhost:5000/login', {
-          email: this.email,
-          password: this.password
-        });
+    try {
+      const response = await axios.post('http://localhost:5000/login', {
+        email: this.email,
+        password: this.password
+      });
 
-        this.responseMessage = response.data.message;
-        alert('Login successful!');
-        console.log('User Info:', response.data.user);
-        this.$router.push('/');
-      } catch (error) {
-        this.responseMessage = error.response?.data?.error || 'Login failed.';
-        console.error('Login error:', error);
-      }
-    },
+      // Store user data in localStorage
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      
+      // Emit a custom event that we'll listen for
+      window.dispatchEvent(new Event('userLoggedIn'));
+      
+      this.responseMessage = response.data.message;
+      console.log('User Info:', response.data.user);
+      this.$router.push('/');
+    } catch (error) {
+      this.responseMessage = error.response?.data?.error || 'Login failed.';
+      console.error('Login error:', error);
+    }
+  },
 
     async handleSocialLogin(provider) {
     try {

@@ -46,6 +46,7 @@ initializeDatabase();
 // Import routes (we'll need to modify this part too)
 import loginRoutes from './LoginAPI.js';  // Make sure to add .js extension
 app.use('/', loginRoutes(pool));
+app.use('/api', loginRoutes(pool));
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

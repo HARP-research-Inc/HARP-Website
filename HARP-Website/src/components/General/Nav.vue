@@ -1,14 +1,27 @@
 <script>
 import GetStarted from "./GetStarted.vue";
+import ProfileButton from "./ProfileButton.vue";
 
 export default {
-  components: { GetStarted },
+  name: 'Nav',
+  components: { 
+    GetStarted, 
+    ProfileButton 
+  },
+
   data() {
     return {
       showProductsDropdown: false,
       isScrolled: false, 
+      currentUser: null
     };
   },
+
+  created() {
+    // Check auth status when component is created
+    this.checkAuthStatus();
+  },
+
   methods: {
     toggleProductsDropdown() {
       this.showProductsDropdown = !this.showProductsDropdown;
@@ -16,14 +29,39 @@ export default {
     handleScroll() {
       this.isScrolled = window.scrollY >100;
     },
+    checkAuthStatus() {
+      try {
+        const userData = localStorage.getItem('user');
+        if (userData) {
+          this.currentUser = JSON.parse(userData);
+          console.log('Current user updated:', this.currentUser); // Debug log
+        } else {
+          this.currentUser = null;
+          console.log('No user data found'); // Debug log
+        }
+      } catch (error) {
+        console.error('Error checking auth status:', error);
+        this.currentUser = null;
+      }
+    }
+  },
+  watch: {
+    currentUser(newValue) {
+      console.log('currentUser changed:', newValue);
+    }
   },
   mounted() {
     // Add scroll event listener when component is mounted
     window.addEventListener('scroll', this.handleScroll);
+    // Listen for login event
+    window.addEventListener('userLoggedIn', this.checkAuthStatus);
+    // Listen for storage changes
+    window.addEventListener('storage', this.checkAuthStatus);
   },
-  beforeDestroy() {
-    // Clean up the event listener when component is destroyed
+  beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('userLoggedIn', this.checkAuthStatus);
+    window.removeEventListener('storage', this.checkAuthStatus);
   },
 };
 </script>
@@ -43,9 +81,7 @@ export default {
         <div class="navLink products" @click="toggleProductsDropdown">
           Products
           <div v-if="showProductsDropdown" class="dropdown">
-            <router-link class="dropdown-link" to="/viewpoint"
-              >ViewPoint</router-link
-            >
+            <router-link class="dropdown-link" to="/viewpoint">ViewPoint</router-link>
           </div>
         </div>
         <router-link class="navLink" to="/projects">Projects</router-link>
@@ -53,9 +89,14 @@ export default {
       </div>
       <div class="nav-right">
         <router-link class="navLink" to="/contact">Contact Us</router-link>
-        <router-link class="navLink" to="/login">
-          <get-started></get-started>
-        </router-link>
+        <template v-if="currentUser && currentUser.full_name">
+          <profile-button :full-name="currentUser.full_name" />
+        </template>
+        <template v-else>
+          <router-link class="navLink" to="/login">
+            <get-started></get-started>
+          </router-link>
+        </template>
       </div>
     </nav>
   </div>

@@ -162,6 +162,9 @@ export default (pool) => {
                 [resetToken, resetTokenExpiry, email]
             );
 
+            console.log('Number of rows updated:', result.rowCount);
+            console.log('Updated row:', result.rows[0]);
+
             // For development: Instead of sending email, just return the reset link
             const resetLink = `http://localhost:5173/reset-password/${resetToken}`;
 
