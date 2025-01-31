@@ -140,6 +140,7 @@ export default (pool) => {
 
     router.post('/forgot-password', async (req, res) => {
         const { email } = req.body;
+        console.log('Received forgot password request for email:', email);
 
         if (!email) {
             return res.status(400).json({ error: 'Email is required' });
@@ -147,36 +148,52 @@ export default (pool) => {
 
         try {
             // Check if user exists
-            const user = await pool.query(
+            console.log('Querying database for user...');
+            const userResult = await pool.query(
                 'SELECT * FROM "Login" WHERE email = $1',
                 [email]
             );
+            console.log('User query completed. Rows found:', userResult.rows.length);
+
+            if (userResult.rows.length === 0) {
+                console.log('No user found with email:', email);
+                return res.status(404).json({ error: 'No account found with this email' });
+            }
 
             // Generate reset token
+            console.log('Generating reset token...');
             const resetToken = crypto.randomBytes(32).toString('hex');
-            const resetTokenExpiry = new Date(Date.now() + 3600000); // 1 hour from now
 
-            // Save reset token in database
-            await pool.query(
-                'UPDATE "Login" SET reset_token = $1, reset_token_expiry = $2 WHERE email = $3',
-                [resetToken, resetTokenExpiry, email]
+            // Set expiry to exactly 1 hour from now using PostgreSQL's timestamp
+            console.log('Updating user with reset token...');
+            const result = await pool.query(
+                `UPDATE "Login" 
+                 SET reset_token = $1, 
+                     reset_token_expiry = CURRENT_TIMESTAMP + INTERVAL '1 hour'
+                 WHERE email = $2 
+                 RETURNING reset_token_expiry`,
+                [resetToken, email]
             );
+            console.log('Update completed. Rows affected:', result.rowCount);
 
-            console.log('Number of rows updated:', result.rowCount);
-            console.log('Updated row:', result.rows[0]);
-
-            // For development: Instead of sending email, just return the reset link
             const resetLink = `http://localhost:5173/reset-password/${resetToken}`;
 
             res.json({
                 message: 'Password reset link generated successfully',
-                // Only include reset link in development
-                resetLink: process.env.NODE_ENV === 'development' ? resetLink : undefined
+                resetLink: resetLink
             });
 
         } catch (error) {
-            console.error('Password reset request error:', error);
-            res.status(500).json({ error: 'Internal server error' });
+            console.error('Detailed error in forgot-password:', {
+                message: error.message,
+                stack: error.stack,
+                code: error.code,
+                detail: error.detail
+            });
+            res.status(500).json({
+                error: 'Internal server error',
+                details: error.message
+            });
         }
     });
 
@@ -196,9 +213,11 @@ export default (pool) => {
         }
 
         try {
-            // Find user with valid reset token
+            // Find user with valid reset token using PostgreSQL's CURRENT_TIMESTAMP
             const user = await pool.query(
-                'SELECT * FROM "Login" WHERE reset_token = $1 AND reset_token_expiry > NOW()',
+                `SELECT * FROM "Login" 
+                 WHERE reset_token = $1 
+                 AND reset_token_expiry > CURRENT_TIMESTAMP`,
                 [token]
             );
 
@@ -213,7 +232,11 @@ export default (pool) => {
 
             // Update password and clear reset token
             await pool.query(
-                'UPDATE "Login" SET password = $1, reset_token = NULL, reset_token_expiry = NULL WHERE reset_token = $2',
+                `UPDATE "Login" 
+                 SET password = $1, 
+                     reset_token = NULL, 
+                     reset_token_expiry = NULL 
+                 WHERE reset_token = $2`,
                 [hashedPassword, token]
             );
 

@@ -43,6 +43,7 @@ const initializeDatabase = async () => {
 
 initializeDatabase();
 
+
 // Import routes (we'll need to modify this part too)
 import loginRoutes from './LoginAPI.js';  // Make sure to add .js extension
 app.use('/', loginRoutes(pool));

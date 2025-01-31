@@ -36,6 +36,7 @@
 
 <script>
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
 
 export default {
   name: 'ForgotPassword',
@@ -50,20 +51,36 @@ export default {
   },
 
   methods: {
-      async handleSubmit(event) {
+    async handleSubmit(event) {
           event.preventDefault();
           
           try {
+              // First make the API call to generate token
               const response = await axios.post('http://localhost:5000/api/forgot-password', {
                   email: this.email
               });
               
-              this.message = 'Password reset instructions have been sent';
+              // Get the reset link (assuming your API returns it)
+              const resetLink = response.data.resetLink;
+              
+              // Send email using EmailJS
+              await emailjs.send(
+                  'service_mjesx6v', // Get this from EmailJS dashboard
+                  'template_dgabfpc', // Get this from EmailJS dashboard
+                  {
+                      to_email: this.email,
+                      reset_link: resetLink,
+                      // Add any other template variables you want to use
+                  },
+                  '3RIW7oSvvKsCnIqVq' // Get this from EmailJS dashboard
+              );
+              
+              this.message = 'Password reset instructions have been sent to your email';
               this.messageType = 'success';
               
               // Store reset link if in development mode
-              if (response.data.resetLink) {
-                  this.resetLink = response.data.resetLink;
+              if (process.env.NODE_ENV === 'development') {
+                  this.resetLink = resetLink;
               }
           } catch (error) {
               this.message = error.response?.data?.error || 'An error occurred. Please try again.';
@@ -71,6 +88,10 @@ export default {
               this.resetLink = null;
           }
       }
+  },
+  mounted() {
+      // Initialize EmailJS
+      emailjs.init('3RIW7oSvvKsCnIqVq');
   }
 };
 </script>
