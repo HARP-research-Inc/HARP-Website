@@ -1,47 +1,66 @@
--- Using Neon DB, to run the script, use the following command:
+-- Using the link to Neon DB, to run the script, use the following command:
 -- psql "postgresql://teamMembersDB_owner:npg_TW2amo6dINZF@ep-holy-unit-a8aq9e5m-pooler.eastus2.azure.neon.tech/teamMembersDB?sslmode=require"
 -- \i path/to/this/script.sql
 
 -- Use curl http://localhost:3000/api/team-members (this should print out the SQL table)
 -- Base Cases for inserting, updating, and deleting team members is given below. Uncomment and then compile the script for the changes to take effect
 
--- -- Create team_members table
-CREATE TABLE team_members (
-    name VARCHAR(100) NOT NULL,
-    role VARCHAR(100) NOT NULL,
-    founder BOOLEAN DEFAULT false,
-    management BOOLEAN DEFAULT false,
-    image_path TEXT NOT NULL,
-    github_url VARCHAR(255),
-    linkedin_url VARCHAR(255),
-    semester VARCHAR(50),
-    member_type VARCHAR(50)
-);
+-- Create team_members table
+--CREATE TABLE team_members (
+--     name VARCHAR(100) NOT NULL,
+--     role VARCHAR(100) NOT NULL,
+--     founder BOOLEAN DEFAULT false,
+--     management BOOLEAN DEFAULT false,
+--     image_path TEXT NOT NULL,
+--     github_url VARCHAR(255),
+--     linkedin_url VARCHAR(255),
+--     semester VARCHAR(50),
+--     member_type VARCHAR(50)
+-- );
 
 -- Insert team members data
-INSERT INTO team_members (name, role, founder, image_path, github_url, linkedin_url, semester, member_type) VALUES
-    ('Ashley Chan', 'UI/UX Designer Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/AshleyChan.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
-    ('Aoyan Sarkar', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/AoyanSarkar.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
-    ('Caleb Dodson', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/CalebDodson.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
-    ('Luke Summa', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/LukeSumma.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
-    ('Michael Ortega', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MichaelOrtega.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
-    ('Linus Zwaka', 'Research Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/LinusZwaka.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Researcher');
+-- INSERT INTO team_members (name, role, founder, image_path, github_url, linkedin_url, semester, member_type) VALUES
+--     ('Ashley Chan', 'UI/UX Designer Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/AshleyChan.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+--     ('Aoyan Sarkar', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/AoyanSarkar.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+--     ('Caleb Dodson', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/CalebDodson.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+--     ('Luke Summa', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/LukeSumma.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+--     ('Michael Ortega', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MichaelOrtega.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
+--     ('Linus Zwaka', 'Research Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/LinusZwaka.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Researcher');
     
    
--- Update the role and semester for a specific team member
-UPDATE team_members
-SET founder = true 
-WHERE founder = false = true;
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/GarrettGee/GarrettGeeNoBG.png' WHERE name = 'Garrett Gee';
-UPDATE team_members SET github_url = 'https://github.com/DerekRubottom' WHERE name = 'Derek Rubottom';
-UPDATE team_members SET linkedin_url = 'https://www.linkedin.com/in/derekzlee/' WHERE name = 'Derek Lee';
+-- Update the image paths for all team members
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/JamesWu.png' WHERE name = 'James Wu';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/RitikaBrahmadesam.png' WHERE name = 'Ritika Brahmadesam';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/AnnaKelbakh.png' WHERE name = 'Anna Kelbakh';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/ThomasDou.png' WHERE name = 'Thomas Dou';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/AngelaImanuel.png' WHERE name = 'Angela Imanuel';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/BarbaraKotlan.png' WHERE name = 'Barbara Kotlan';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/CelineCheung.png' WHERE name = 'Celine Cheung';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/JonathanSun.png' WHERE name = 'Jonathan Sun';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatteoRathgeber.png' WHERE name = 'Matteo Rathgeber';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/AidanFlaherty.png' WHERE name = 'Aidan Flaherty';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/ChengyuZhang.png' WHERE name = 'Chengyu Zhang';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/SiddhantAgarwal.png' WHERE name = 'Siddhant Agarwal';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/Mukul.png' WHERE name = 'Mukul';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/PeijingXu.png' WHERE name = 'Peijing Xu';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/RyanSo.png' WHERE name = 'Ryan So';
 
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/KevinScottNoBG.png' WHERE name = 'Kevin Scott';
 
 
-UPDATE team_members SET github_url = 'https://github.com/grt812' WHERE name = 'Garrett Gee';
-UPDATE team_members SET linkedin_url = 'https://www.linkedin.com/in/garrett-gee-95988b2b0/' WHERE name = 'Garrett Gee';
+
+
+
+
+
+
+
+
+
+
+
 -- ALTER TABLE team_members DROP COLUMN management;    
+
+
 
     ------------------------------- INFORMATION ARCHIVE (SORTED BY POSITION) -------------------------------
 --  Founders and Management Team
