@@ -8,11 +8,11 @@
     <div class="values">
       <div class="values-img">
         <img
-          src="../assets/HARPResearchLockUps/Photos/team.webp"
+          src="../assets/HARPResearchLockUps/Photos/orientation_2.JPG"
           alt="team photo"
         />
         <img
-          src="../assets/HARPResearchLockUps/Photos/team.webp"
+          src="../assets/HARPResearchLockUps/Photos/orientation_3.JPG"
           alt="team photo"
         />
       </div>
@@ -50,7 +50,7 @@
         </h6>
       </div>
         <img class="mission-img"
-          src="../assets/HARPResearchLockUps/Photos/team.webp"
+          src="../assets/HARPResearchLockUps/Photos/orientation_1.JPG"
           alt="team photo"
         />
     </div>
@@ -179,8 +179,10 @@ img {
 }
 
 .values-img img {
-  width: 22rem;
+  width: 30rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  object-fit:cover;
+  object-position: left top;
 }
 
 .values-img img:first-child {
@@ -306,7 +308,7 @@ img {
 }
 @media (min-width: 320px) and (max-width: 768px) {
   .values, .mission{
-   margin: 2em 3em;
+   margin: 3em 1em;
   }
   .values-text h2, .mission-text h2{
     font-size: 1em;
@@ -319,10 +321,11 @@ img {
     font-size: .65em;
   }
   .values-img {
-    margin-right: 5rem;
+    margin-right: 2rem;
   }
   .values-img img {
-    width: 10rem;
+    margin-top: 3em;
+    width: 13rem;
   }
 
   .values-img img:first-child {
@@ -342,7 +345,7 @@ img {
     font-size: 1em;
   }
   .mission-img{
-    width: 40%;
+    width: 50%;
     flex: 0;
   }
   .team {

@@ -188,7 +188,9 @@ export default {
   #socials a {
     width: 20px;
     height: 20px;
-    
+  }
+  .vertical-line{
+    height: 17vh;
   }
 }
 </style>

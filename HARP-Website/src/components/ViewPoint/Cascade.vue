@@ -22,7 +22,7 @@ export default {
 .product {
   position: relative;
   width: 100%;
-  height: 60vh; 
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,75 +35,71 @@ export default {
   transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
 }
 
+/* Adjust the front image */
 .product1 {
-  z-index: 3; 
-  top:50%;
-  right: 40%;
+  z-index: 3;
+  top: 40%; /* Vertically centered */
+  right: 10%; /* Move further to the right */
+  transform: translate(0%, 0%); /* Align correctly */
 }
 
+/* Adjust the middle image */
 .product2 {
-  z-index: 2; 
-  right:60%;
-  top: 30%;
+  z-index: 2;
+  top: 15%; /* Slightly below the center */
+  right: 35%; /* Center the image horizontally */
+  transform: translate(0%, 0%);
 }
 
+/* Adjust the back image */
 .product3 {
-  z-index: 1; 
-  bottom:20%;
-  left:40%;
+  z-index: 1;
+  bottom: 40%; /* Lower on the screen */
+  left: 50%; /* Slightly shifted to the left */
+  transform: translate(0%, 0%);
 }
 
-/* Hover effect to scale in place and bring the image forward */
+/* Add hover effect */
 .product1:hover,
 .product2:hover,
 .product3:hover {
   z-index: 10; /* Bring the hovered image to the front */
-  transform: scale(1.25); /* Scale up in place */
+  transform: scale(1.2); /* Slightly enlarge on hover */
 }
 
+/* Image styling */
 .product img {
-  width: 150%; /* Adjust based on your design */
-  height: auto;
-  border-radius: 2em;
+  width: 100%; /* Ensure the images scale properly */
+  max-width: 600px; /* Limit the maximum size of the images */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 1em; /* Optional rounded corners */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
 }
-.product::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  height: 100%;
-  border-radius: 4em;
-  z-index: 0;
-  opacity: 0.1;
-  transition: opacity 0.3s ease-in; /* Smooth transition */
-}
-@media (min-width: 320px) and (max-width: 768px) {
-  .product img{
-    width: 100%;
-  }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .product1 {
-  z-index: 3; 
-  top:50%;
+    top: 60%;
+    right: 5%;
+  }
 
+  .product2 {
+    top: 40%;
+    right: 30%;
+  }
+
+  .product3 {
+    bottom: 0%;
+    left: 30%;
+  }
+
+  .product img {
+    max-width: 300px; 
+  }
+  .product {
+    margin:0vh;
+  }
 }
-
-.product2 {
-  z-index: 2;
-  right: 40%;
-  top: 40%;
-
-}
-
-.product3 {
-  z-index: 1; 
-  bottom:20%;
-  left:40%;
- 
-}
-}
-
 
 
 </style>

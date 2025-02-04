@@ -46,37 +46,8 @@
         </div> 
     
       <div class="automation-title">
-          <h2>Automation: Easy as 1, 2, 3</h2>
+          <h2>Start Automating Your Emails Today!</h2>
       </div>
-      <div class="container">
-        <div class="box">
-          <span></span>
-          <div class="content">
-            <h2>Install The Extension</h2>
-            <p>Quickly add the Viewpoint extension to your setup.</p>
-          </div>
-        </div>
-        <div class="box">
-          <span></span>
-          <div class="content">
-            <h2>Describe Automated Action</h2>
-            <p>Set your custom automation in the Viewpoint ribbon.</p>
-          </div>
-        </div>
-        <div class="box"><span></span>
-          <div class="content">
-            <h2>Begin Automating Now!</h2>
-            <p>Click start and let the magic happen!</p>
-          </div>
-        </div>
-        <div class="box"><span></span>
-          <div class="content">
-            <h2>
-              Looking to try Viewpoint now?</h2>
-            <a href="#">Click Here to Try It Today!</a>
-          </div>
-        </div>
-      </div> 
     </div>
   </div>
     <StayInTheLoop />

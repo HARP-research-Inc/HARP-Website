@@ -297,12 +297,16 @@ export default {
   z-index: 10;
 }
 @media (min-width: 320px) and (max-width: 768px) {
-  .harpstart,.harpprojects,.harpproducts  {  
+  .harpprojects,.harpproducts  {  
     margin: 0;
     font-size: .5em;
   } 
+  .harpstart{
+    margin: -30em 0 0 0;
+    font-size: .5em;
+  }
   #intro {
-    margin:-4em 0em 2em 4rem;
+    margin:-3em 0em 2em 4rem;
   }
   .founderphotos {
     margin: -6em 0 2em 3rem;

@@ -96,6 +96,9 @@ export default {
     line-height: 1.5em;
     width: 100%;
   }
+  #demo-canvas {
+  clip-path: inset(0 0 50% 0);
+}
 }
 
 

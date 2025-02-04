@@ -169,18 +169,18 @@
   .description-block h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 4rem;
   }
   .description-block h3 {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.75rem;
   }
   .product-images {
     display: flex;
     justify-content: space-around;
     gap: 20px;
-    padding: 4em;
+    padding: 1em;
     flex-wrap: wrap; 
   }
   
@@ -236,7 +236,7 @@
   }
   
   .automation-title h2 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 600;
     margin-bottom: 1.5em;
     color: #ffffff; 
@@ -249,14 +249,14 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 40px 0;
+  padding:0;
 }
 
 .container .box
 {
   position: relative;
-  width: 320px;
-  height: 400px;
+  width: 220px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -479,5 +479,14 @@
   }
   .blue-button {
     font-size: .75rem;
+  }
+  .description-block{
+    margin-top: 3em;
+  }
+  .description-block h1{
+    font-size: 2em;
+  }
+  .automation-title h2{
+    font-size: 2em;
   }
 }
