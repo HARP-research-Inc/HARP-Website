@@ -323,4 +323,84 @@ export default {
   width: 20px;
   height: 20px;
 }
+@media (min-width: 320px) {
+  .login-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .social-buttons {
+    justify-content: center;
+  }
+
+  .social-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .input-field {
+    padding: 0.6rem;
+  }
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  .login-container {
+    width: 70%;
+    padding: 2rem;
+  }
+
+  .login-title {
+    font-size: 1.8rem;
+  }
+
+  .social-btn {
+    width: 55px;
+    height: 55px;
+  }
+
+  .input-field {
+    padding: 0.8rem;
+  }
+}
+
+/* Small Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  .login-container {
+    width: 50%;
+  }
+
+  .social-buttons {
+    justify-content: flex-start;
+  }
+}
+
+/* Medium Desktop (1220px and up) */
+@media (min-width: 1220px) {
+  .login-container {
+    width: 40%;
+    max-width: 600px;
+  }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .login-container {
+    width: 35%;
+    padding: 2.5rem;
+  }
+
+  .login-title {
+    font-size: 2rem;
+  }
+
+  .social-btn {
+    width: 60px;
+    height: 60px;
+  }
+}
 </style>

@@ -8,17 +8,17 @@
           <button 
             class="social-btn apple" 
             aria-label="Sign up with Apple" 
-            @click="handleSocialRegister('apple')"
+            @click="initiateOAuth('apple')"
           ></button>
           <button 
             class="social-btn microsoft" 
             aria-label="Sign up with Microsoft"
-            @click="handleSocialRegister('microsoft')"
+            @click="initiateOAuth('microsoft')"
           ></button>
           <button 
             class="social-btn google" 
             aria-label="Sign up with Google"
-            @click="handleSocialRegister('google')"
+            @click="initiateOAuth('google')"
           ></button>
         </div>
   
@@ -144,6 +144,11 @@
   
       redirectToAAS() {
         window.location.href = 'https://aas.org/membership/join';
+      },
+
+      initiateOAuth(provider) {
+      // Redirect to backend OAuth endpoint
+      window.location.href = `http://localhost:5000/auth/${provider}`;
       }
     }
   };
@@ -333,4 +338,117 @@
     width: 20px;
     height: 20px;
   }
+  /* Mobile First (320px and up) */
+@media (min-width: 320px) {
+  .page-container {
+    padding-top: 3rem;
+  }
+
+  .login-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .social-buttons {
+    justify-content: center;
+  }
+
+  .social-btn, .apple, .microsoft, .google {
+    width: 45px;
+    height: 45px;
+  }
+
+  .input-field {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .join-btn {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  .page-container {
+    padding-top: 5rem;
+  }
+
+  .login-container {
+    width: 70%;
+    padding: 2rem;
+  }
+
+  .login-title {
+    font-size: 1.8rem;
+  }
+
+  .social-btn, .apple, .microsoft, .google {
+    width: 55px;
+    height: 55px;
+  }
+
+  .input-field {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .join-btn {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Small Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  .page-container {
+    padding-top: 7rem;
+  }
+
+  .login-container {
+    width: 50%;
+  }
+
+  .social-buttons {
+    justify-content: flex-start;
+  }
+
+  .login-form {
+    gap: 1.2rem;
+  }
+}
+
+/* Medium Desktop (1220px and up) */
+@media (min-width: 1220px) {
+  .login-container {
+    width: 40%;
+    max-width: 600px;
+  }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .login-container {
+    width: 35%;
+    padding: 2.5rem;
+  }
+
+  .login-title {
+    font-size: 2rem;
+  }
+
+  .social-btn, .apple, .microsoft, .google {
+    width: 60px;
+    height: 60px;
+  }
+
+  .input-field {
+    padding: 1rem;
+  }
+}
   </style>

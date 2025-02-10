@@ -193,4 +193,124 @@ export default {
   .response-message.success {
     color: #4CAF50;
   }
+  /* Mobile First (320px and up) */
+@media (min-width: 320px) {
+  .page-container {
+    padding-top: 3rem;
+  }
+
+  .login-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .input-field {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .sign-in-btn {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .signup-text {
+    font-size: 0.8rem;
+  }
+
+  .response-message {
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  .page-container {
+    padding-top: 4rem;
+  }
+
+  .login-container {
+    width: 70%;
+    padding: 2rem;
+  }
+
+  .login-title {
+    font-size: 1.8rem;
+  }
+
+  .input-field {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .sign-in-btn {
+    padding: 0.8rem;
+    font-size: 1rem;
+    margin-top: 0.8rem;
+  }
+
+  .signup-text {
+    font-size: 0.9rem;
+  }
+
+  .response-message {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Small Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  .page-container {
+    padding-top: 5rem;
+  }
+
+  .login-container {
+    width: 50%;
+  }
+
+  .login-form {
+    gap: 1.2rem;
+  }
+}
+
+/* Medium Desktop (1220px and up) */
+@media (min-width: 1220px) {
+  .login-container {
+    width: 40%;
+    max-width: 500px;
+  }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .login-container {
+    width: 35%;
+    padding: 2.5rem;
+  }
+
+  .login-title {
+    font-size: 2rem;
+  }
+
+  .input-field {
+    padding: 1rem;
+  }
+
+  .sign-in-btn {
+    margin-top: 1rem;
+  }
+
+  .response-message {
+    font-size: 1.1rem;
+    margin-top: 1.2rem;
+  }
+}
   </style>
