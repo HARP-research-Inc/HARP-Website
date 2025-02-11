@@ -29,21 +29,22 @@
     
    
 -- Update the image paths for all team members
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/JamesWu.png' WHERE name = 'James Wu';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/RitikaBrahmadesam.png' WHERE name = 'Ritika Brahmadesam';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/AnnaKelbakh.png' WHERE name = 'Anna Kelbakh';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/ThomasDou.png' WHERE name = 'Thomas Dou';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/AngelaImanuel.png' WHERE name = 'Angela Imanuel';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/BarbaraKotlan.png' WHERE name = 'Barbara Kotlan';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/CelineCheung.png' WHERE name = 'Celine Cheung';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/JonathanSun.png' WHERE name = 'Jonathan Sun';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/MatteoRathgeber.png' WHERE name = 'Matteo Rathgeber';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/AidanFlaherty.png' WHERE name = 'Aidan Flaherty';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/ChengyuZhang.png' WHERE name = 'Chengyu Zhang';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/SiddhantAgarwal.png' WHERE name = 'Siddhant Agarwal';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/Mukul.png' WHERE name = 'Mukul';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/PeijingXu.png' WHERE name = 'Peijing Xu';
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/RyanSo.png' WHERE name = 'Ryan So';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari.png' WHERE name = 'Harper Chisari';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/YuvalShimoni.png' WHERE name = 'Yuval Shimoni';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/DanaSolitaire.png' WHERE name = 'Dana Solitaire';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/GarrettGee.png' WHERE name = 'Garrett Gee';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll.png' WHERE name = 'Shane Stoll';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KemuelNunez.png' WHERE name = 'Kemuel Nunez';
+
+
+
+
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/BarbaraKotlan.png' WHERE name = 'Barbara Kotlan';
+
+
+
+-- UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott_NOBG.png' WHERE name = 'Kevin Scott';
+
 
 
 

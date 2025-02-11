@@ -89,8 +89,9 @@ const props = defineProps({
   background: linear-gradient(to bottom, #54204d 0%, #7db9e8 100%);
 }
 .front img {
-  width: 15rem;
+  width: 30em;
   border-radius: 10%;
+  margin-bottom: 4em;
 }
 
 .back {
