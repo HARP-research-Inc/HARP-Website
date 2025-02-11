@@ -30,6 +30,18 @@
     transform: translate(-120%, -120%);
   }
 }
+@media (min-width: 390px) {
+  .dropdown {
+    top: 110%;
+    left: 42%;
+  }
+}
+@media (min-width: 412px) {
+  .dropdown {
+    top: 110%;
+    left: 40%;
+  }
+}
 @media (min-width: 481px) {
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 }

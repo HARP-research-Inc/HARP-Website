@@ -21,6 +21,16 @@
     align-items: center;
   }
 }
+@media (min-width: 390px) {
+  #demo-canvas {
+    clip-path: inset(0 0 70% 0);
+  }
+}
+@media (min-width: 412px) {
+  #demo-canvas {
+    clip-path: inset(0 0 75% 0);
+  }
+}
 @media (min-width: 481px) {
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 }

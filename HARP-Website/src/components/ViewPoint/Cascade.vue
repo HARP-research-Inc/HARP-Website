@@ -80,7 +80,7 @@ export default {
 }
 
 /* Responsive adjustments */
-@media (max-width: 320px) {
+@media (min-width: 320px) {
   .product1 {
     top: 20%;
     right: 15%;
@@ -94,6 +94,29 @@ export default {
   .product3 {
     bottom: 65%;
     left: 40%;
+  }
+
+  .product img {
+    max-width: 9em;
+  }
+  .product {
+    margin: 0vh;
+  }
+}
+@media (min-width: 390px) {
+  .product1 {
+    top: 20%;
+    right: 20%;
+  }
+
+  .product2 {
+    top: 10%;
+    right: 45%;
+  }
+
+  .product3 {
+    bottom: 75%;
+    left: 45%;
   }
 
   .product img {

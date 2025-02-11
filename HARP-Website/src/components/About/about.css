@@ -1,4 +1,4 @@
-@media (min-width: 320px) {
+@media (min-width: 390px) {
   .info-container {
     padding: 0 1em 0 1em;
   }
@@ -82,8 +82,9 @@
   }
   .team-foundersCards,
   .team-membersCards {
-    flex: 1 1 22%;
-    gap: 2%;
+    flex: 1 1 25%;
+    gap: 5%;
+    margin-bottom: 2em;
   }
   .team-buttons {
     margin-top: 0.5em;
@@ -128,7 +129,7 @@
   justify-content: space-start;
   flex-wrap: wrap;
   flex: 1 1 22%;
-  gap: 2%;
+  /* gap: 2%; */
 }
 .team-buttons {
   /* margin-top: 1rem; */
