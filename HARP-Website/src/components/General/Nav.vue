@@ -6,7 +6,7 @@ export default {
   data() {
     return {
       showProductsDropdown: false,
-      isScrolled: false, 
+      isScrolled: false,
     };
   },
   methods: {
@@ -14,23 +14,23 @@ export default {
       this.showProductsDropdown = !this.showProductsDropdown;
     },
     handleScroll() {
-      this.isScrolled = window.scrollY >100;
+      this.isScrolled = window.scrollY > 100;
     },
   },
   mounted() {
     // Add scroll event listener when component is mounted
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   },
   beforeDestroy() {
     // Clean up the event listener when component is destroyed
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>
 
 <template>
   <div>
-    <nav :class="{'scrolled': isScrolled}">
+    <nav :class="{ scrolled: isScrolled }">
       <div class="nav-left">
         <router-link class="navLink" to="/">
           <img
@@ -64,7 +64,7 @@ export default {
 <style lang="css" scoped>
 /* Base nav styles */
 nav {
-  width: 100%; 
+  width: 100%;
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -93,19 +93,19 @@ nav.scrolled {
 .navLink {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  font-size: 1em; 
+  font-size: 1em;
   cursor: pointer;
 }
 
 .logo {
-  width: 5em; 
+  width: 5em;
   margin: 0.5em;
 }
 
 .dropdown {
   position: absolute;
-  top: 100%;
-  left: 50%;
+  top: 65%;
+  left: 21%;
   background-color: #222;
   border-radius: 8px;
   display: flex;
@@ -128,7 +128,7 @@ nav.scrolled {
   color: white;
   text-decoration: none;
   padding: 10px 15px;
-  font-size: 0.9em; 
+  font-size: 0.9em;
   transition: background-color 0.3s ease, color 0.3s ease;
   border-radius: 4px;
 }
@@ -138,12 +138,11 @@ nav.scrolled {
   color: rgba(16, 71, 190);
 }
 
-
 @media (min-width: 320px) and (max-width: 768px) {
   nav {
     flex-direction: row;
     padding: 1.5% 5%;
-    font-size: .75em;
+    font-size: 0.75em;
     justify-content: space-between;
     align-items: center;
   }
@@ -155,13 +154,13 @@ nav.scrolled {
   }
 
   .logo {
-    width: 3em; 
+    width: 3em;
   }
 
   .dropdown-link {
-    font-size: 0.9em; 
+    font-size: 0.9em;
   }
-  .dropdown{
+  .dropdown {
     top: 70%;
     left: 23%;
   }
@@ -184,4 +183,3 @@ nav.scrolled {
   }
 }
 </style>
-

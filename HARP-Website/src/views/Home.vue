@@ -152,7 +152,7 @@ export default {
   font-weight: 400;
 }
 #intro {
-  margin: -4em 0 2em 6rem;
+  margin: -2em 0 2em 6rem;
   font-size: 3em;
 }
 .founderinfo {
@@ -289,34 +289,36 @@ export default {
   width: 50em;
   height: 30em;
   border-radius: 2em;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
-.images img:nth-child(1):hover, .images img:nth-child(2):hover{
+.images img:nth-child(1):hover,
+.images img:nth-child(2):hover {
   transform: scale(1.2);
   z-index: 10;
 }
 @media (min-width: 320px) and (max-width: 768px) {
-  .harpprojects,.harpproducts  {  
+  .harpprojects,
+  .harpproducts {
     margin: 0;
-    font-size: .5em;
-  } 
-  .harpstart{
+    font-size: 0.5em;
+  }
+  .harpstart {
     margin: -30em 0 0 0;
-    font-size: .5em;
+    font-size: 0.5em;
   }
   #intro {
-    margin:-3em 0em 2em 4rem;
+    margin: -3em 0em 2em 4rem;
   }
   .founderphotos {
     margin: -6em 0 2em 3rem;
   }
-  .founderinfo{
+  .founderinfo {
     margin: 0em 0 2em 4rem;
   }
-  .harpinfo{
+  .harpinfo {
     gap: 2em;
-    margin: -15em 3rem 0 0 ;
+    margin: -15em 3rem 0 0;
   }
   .harpright {
     width: 60%;
@@ -324,7 +326,7 @@ export default {
     gap: 1.5em;
   }
   #intro2 {
-    margin:0em 0em 2em 4rem;
+    margin: 0em 0em 2em 4rem;
   }
   .images {
     margin-top: 5em;
@@ -335,8 +337,7 @@ export default {
   .images img {
     width: 20em;
     height: 10em;
-    border-radius: 2em; 
+    border-radius: 2em;
   }
 }
-
 </style>

@@ -9,7 +9,9 @@
             class="logo"
         /></router-link>
         <p>
-          HARP Research accelerates innovation by delivering cutting-edge solutions that drive progress and create real-world impact. Driving Innovation, Delivering Impact.
+          HARP Research accelerates innovation by delivering cutting-edge
+          solutions that drive progress and create real-world impact. Driving
+          Innovation, Delivering Impact.
         </p>
       </div>
       <div class="vertical-line"></div>
@@ -21,10 +23,12 @@
               <router-link class="navLink" to="/about">About</router-link>
             </li>
             <li>
-              <router-link class="navLink" to="/products">Products</router-link>
+              <router-link class="navLink" to="/viewpoint"
+                >Products</router-link
+              >
             </li>
             <li>
-              <router-link class="navLink" to="/articles">Articles</router-link>
+              <router-link class="navLink" to="/">Articles</router-link>
             </li>
           </ul>
         </div>
@@ -183,13 +187,13 @@ export default {
 
 @media (min-width: 320px) and (max-width: 768px) {
   .footer-container {
-    font-size: .5em;
+    font-size: 0.5em;
   }
   #socials a {
     width: 20px;
     height: 20px;
   }
-  .vertical-line{
+  .vertical-line {
     height: 17vh;
   }
 }

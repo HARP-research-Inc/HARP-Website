@@ -43,7 +43,7 @@
     "semester": "Admin",
     "type": "Admin"
   },
-  
+
   {
     "id": 5,
     "name": "Garrett Gee",
@@ -60,7 +60,7 @@
     "name": "Dana Solitaire",
     "role": "Vice President",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Researchers/DanaSmith/DanaSmith Background Removed.png",
+    "image": "src/assets/HARPResearchLockUps/Photos/Image1.jpg",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Spring 2025",
@@ -71,15 +71,14 @@
     "name": "Derek Rubottom",
     "role": "Full Stack Developer",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Developers/AlexJohnson/AlexJohnson Background Removed.png",
+    "image": "src/assets/HARPResearchLockUps/Photos/DerekRubottom.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Admin",
     "type": "Developer"
   },
   {
-    "id": 8
-    ,
+    "id": 8,
     "name": "Shane Stoll",
     "role": "Full Stack Collaborator",
     "founder": true,
@@ -88,7 +87,8 @@
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Spring 2025",
     "type": "Developer"
-  },{
+  },
+  {
     "id": 9,
     "name": "Aoyan Sarkar",
     "role": "Full Stack Developer Intern",
@@ -165,6 +165,4 @@
     "semester": "Fall 2024",
     "type": "Developer"
   }
-
-
 ]

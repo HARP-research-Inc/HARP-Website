@@ -1,13 +1,22 @@
 <template>
   <div class="product">
     <div class="product1">
-      <img src="../../assets/HARPResearchLockUps/Photos/Example1.webp" alt="Product 1" />
+      <img
+        src="../../assets/HARPResearchLockUps/Photos/Example1.webp"
+        alt="Product 1"
+      />
     </div>
     <div class="product2">
-      <img src="../../assets/HARPResearchLockUps/Photos/Example1.webp" alt="Product 2" />
+      <img
+        src="../../assets/HARPResearchLockUps/Photos/Example3.webp"
+        alt="Product 2"
+      />
     </div>
     <div class="product3">
-      <img src="../../assets/HARPResearchLockUps/Photos/Example1.webp" alt="Product 3" />
+      <img
+        src="../../assets/HARPResearchLockUps/Photos/Example4.webp"
+        alt="Product 3"
+      />
     </div>
   </div>
 </template>
@@ -39,7 +48,7 @@ export default {
 .product1 {
   z-index: 3;
   top: 40%; /* Vertically centered */
-  right: 10%; /* Move further to the right */
+  right: 20%; /* Move further to the right */
   transform: translate(0%, 0%); /* Align correctly */
 }
 
@@ -47,7 +56,7 @@ export default {
 .product2 {
   z-index: 2;
   top: 15%; /* Slightly below the center */
-  right: 35%; /* Center the image horizontally */
+  right: 50%; /* Center the image horizontally */
   transform: translate(0%, 0%);
 }
 
@@ -55,7 +64,7 @@ export default {
 .product3 {
   z-index: 1;
   bottom: 40%; /* Lower on the screen */
-  left: 50%; /* Slightly shifted to the left */
+  left: 45%; /* Slightly shifted to the left */
   transform: translate(0%, 0%);
 }
 
@@ -94,15 +103,10 @@ export default {
   }
 
   .product img {
-    max-width: 300px; 
+    max-width: 300px;
   }
   .product {
-    margin:0vh;
+    margin: 0vh;
   }
 }
-
-
 </style>
-
- 
-
