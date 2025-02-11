@@ -36,6 +36,12 @@ export default {
 </script>
 
 <style scoped>
+@media (min-width: 320px) {
+  .blue-button {
+    padding: 0.5em;
+    font-size: 0.75em;
+  }
+}
 .blue-button {
   background: rgb(18, 65, 136);
   background: linear-gradient(
@@ -46,8 +52,8 @@ export default {
   );
   color: white;
   border: none;
-  padding: 0.75em 1rem;
-  font-size: 1rem;
+  /* padding: 0.75em 1rem; */
+  /* font-size: 1rem; */
   display: flex;
   align-items: center;
   justify-content: center;

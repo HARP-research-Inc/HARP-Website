@@ -35,7 +35,7 @@
           <div class="product-images">
             <div class="product-card">
               <img
-                src="../../assets/HARPResearchLockUps/Photos/Example3.webp"
+                src="../../assets/HARPResearchLockUps/Photos/Example1.webp"
                 alt="Automate"
               />
               <h1>Automate From Your Mailbox</h1>
@@ -43,7 +43,7 @@
             </div>
             <div class="product-card">
               <img
-                src="../../assets/HARPResearchLockUps/Photos/Example4.webp"
+                src="../../assets/HARPResearchLockUps/Photos/Example1.webp"
                 alt="Settings"
               />
               <h1>Change Account Settings</h1>
@@ -60,9 +60,9 @@
           </div>
         </div>
 
-        <div class="automation-title">
+        <!-- <div class="automation-title">
           <h2>Start Automating Your Emails Today!</h2>
-        </div>
+      </div> -->
       </div>
     </div>
     <StayInTheLoop />

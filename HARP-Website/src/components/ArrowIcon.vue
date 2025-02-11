@@ -24,4 +24,10 @@ export default {
   width: 20px;
   height: 20px;
 }
+@media (min-width: 320px) {
+  .size-5 {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
 </style>

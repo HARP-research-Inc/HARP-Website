@@ -111,22 +111,40 @@ const props = defineProps({
   font-size: 1.1rem;
 }
 
-
-@media (min-width: 320px) and (max-width: 768px) {
+@media (min-width: 320px) {
   .member-card {
-  width: 5rem;
-  height: 5rem;
+    width: 2em;
+    height: 2em;
   }
   .front img {
-  width: 5rem;
+    width: 2rem;
   }
   .member-name {
     font-weight: bold;
-    font-size: .5rem;
+    font-size: 0.25rem;
   }
   .member-role {
-    font-size: .35rem;
+    font-size: 0.2rem;
   }
-
+  .back img {
+    height: 1em;
+    width: 1em;
+    margin: 0.1rem;
+  }
+}
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
 }
 </style>

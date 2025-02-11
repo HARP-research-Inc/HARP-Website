@@ -14,39 +14,5 @@ export default {
 </script>
 
 <style scoped>
-.get-started-btn {
-  background: rgb(18, 65, 136);
-  background: linear-gradient(
-    90deg,
-    rgba(18, 65, 136, 1) 0%,
-    rgba(67, 164, 229, 1) 100%
-  );
-  border: none;
-  padding: 1em 2em;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 2em;
-  color: white;
-}
-
-.get-started-btn:hover {
-  background-color: #add8e6;
-}
-
-@media (min-width: 320px) and (max-width: 768px) {
-  .get-started-btn {
-    background: rgb(18, 65, 136);
-    background: linear-gradient(
-      90deg,
-      rgba(18, 65, 136, 1) 0%,
-      rgba(67, 164, 229, 1) 100%
-    );
-    border: none;
-    padding: 1em 1.2em;
-    font-size: .75rem;
-    cursor: pointer;
-    border-radius: 2em;
-    color: white;
-  }
-}
+@import "./getstarted.css";
 </style>

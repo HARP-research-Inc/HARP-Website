@@ -18,6 +18,15 @@ export default {
 </script>
 
 <style scoped>
+@media (min-width: 320px) {
+  .blue-button {
+    font-size: 2em;
+    padding: 0.5em 0.75em;
+  }
+  .blue-button svg {
+    margin-left: 0.25em;
+  }
+}
 .about-us-button {
   text-decoration: none;
 }
@@ -26,8 +35,6 @@ export default {
   background-color: #124188;
   color: white;
   border: none;
-  padding: 0.75em 1em;
-  font-size: 1.5em;
   display: flex;
   align-items: center;
   border-radius: 2em;
@@ -38,9 +45,5 @@ export default {
 
 .blue-button:hover {
   background-color: #0056b3;
-}
-
-.blue-button svg {
-  margin-left: 8px;
 }
 </style>

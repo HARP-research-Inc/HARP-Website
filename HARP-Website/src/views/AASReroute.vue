@@ -33,24 +33,5 @@ import Footer from "@/components/General/Footer.vue";
 </script>
 
 <style lang="css" scoped>
-h1 {
-  padding-top: 8rem;
-  color: white;
-  font-weight: bold;
-}
-.AAS {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(to bottom, #124188, #ffffff);
-  min-height: 100vh;
-}
-.cards {
-  display: flex;
-  justify-content: space-between;
-}
+@import "../components/AASReroute/aas.css";
 </style>

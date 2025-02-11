@@ -54,6 +54,25 @@ const cardStyle = computed(() => {
 </script>
 
 <style lang="css" scoped>
+@media (min-width: 320px) {
+  .card {
+    height: 8em;
+    width: 8em;
+    margin: 0.75em;
+    justify-content: none;
+  }
+  .card img {
+    width: 30%;
+    margin: 0.5em;
+  }
+  .card h2 {
+    font-size: 0.75em;
+  }
+  .card h4 {
+    font-size: 0.5em;
+    margin-bottom: 5em;
+  }
+}
 .card {
   background: rgb(21, 139, 194);
   background: linear-gradient(
@@ -63,21 +82,21 @@ const cardStyle = computed(() => {
   );
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   text-align: center;
   color: white;
-  height: 28rem;
-  width: 23rem;
+  /* height: 28rem;
+  width: 23rem; */
   border-radius: 10%;
-  margin: 5rem;
+  /* margin: 5rem; */
 }
 h2 {
   font-weight: bold;
   margin-bottom: 1rem;
 }
 h4 {
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
 }
 .button {
   width: 80%;

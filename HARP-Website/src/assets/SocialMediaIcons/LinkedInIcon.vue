@@ -40,11 +40,10 @@ export default {
   text-decoration: none;
 }
 
-@media (min-width: 320px) and (max-width: 768px) {
+@media (min-width: 320px) {
   .linkedin-icon svg {
-    width: 20px;
-    height: 20px;
-  
+    width: 2em;
+    height: 2em;
   }
 }
 </style>

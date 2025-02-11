@@ -25,8 +25,14 @@ export default {
 </script>
 
 <style scoped>
-.ionicon {
+@media (min-width: 320px) {
+  .ionicon {
+    width: 8em;
+    height: 8em;
+  }
+}
+/* .ionicon {
   width: 20em;
   height: 20em;
-}
+} */
 </style>

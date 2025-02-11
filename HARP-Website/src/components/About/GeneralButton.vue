@@ -46,7 +46,7 @@ export default {
   background-color: #124188;
   color: white;
   border: none;
-  padding: 0.75em 1rem;
+  /* padding: 0.75em 1rem; */
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -66,9 +66,10 @@ export default {
   margin-left: 8px;
 }
 
-@media (min-width: 320px) and (max-width: 768px) {
-  .blue-button{
-    font-size: .75em;
+@media (min-width: 320px) {
+  .blue-button {
+    font-size: 0.5em;
+    padding: 0.5em 0.75rem;
   }
 }
 </style>

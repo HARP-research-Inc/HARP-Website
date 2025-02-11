@@ -7,16 +7,10 @@
       />
     </div>
     <div class="product2">
-      <img
-        src="../../assets/HARPResearchLockUps/Photos/Example3.webp"
-        alt="Product 2"
-      />
+      <img src="../../assets/HARPResearchLockUps/Photos/Example3.webp" />
     </div>
     <div class="product3">
-      <img
-        src="../../assets/HARPResearchLockUps/Photos/Example4.webp"
-        alt="Product 3"
-      />
+      <img src="../../assets/HARPResearchLockUps/Photos/Example4.webp" />
     </div>
   </div>
 </template>
@@ -86,24 +80,24 @@ export default {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 320px) {
   .product1 {
-    top: 60%;
-    right: 5%;
+    top: 20%;
+    right: 15%;
   }
 
   .product2 {
-    top: 40%;
-    right: 30%;
+    top: 10%;
+    right: 40%;
   }
 
   .product3 {
-    bottom: 0%;
-    left: 30%;
+    bottom: 65%;
+    left: 40%;
   }
 
   .product img {
-    max-width: 300px;
+    max-width: 9em;
   }
   .product {
     margin: 0vh;
