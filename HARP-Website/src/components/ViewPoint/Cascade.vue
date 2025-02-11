@@ -126,4 +126,27 @@ export default {
     margin: 0vh;
   }
 }
+@media (min-width: 768px) {
+  .product1 {
+    top: 22%;
+    right: 25%;
+  }
+
+  .product2 {
+    top: 10%;
+    right: 45%;
+  }
+
+  .product3 {
+    bottom: 70%;
+    left: 45%;
+  }
+
+  .product img {
+    max-width: 16em;
+  }
+  .product {
+    margin: 0vh;
+  }
+}
 </style>

@@ -42,8 +42,33 @@
     left: 40%;
   }
 }
-@media (min-width: 481px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width: 768px) {
+  nav {
+    padding: 2% 5%;
+    font-size: 1em;
+  }
+
+  .nav-left,
+  .nav-right {
+    gap: 2em;
+  }
+
+  .logo {
+    width: 5em;
+    margin: 0.65em;
+  }
+
+  .dropdown-link {
+    padding: 0.75em 2em;
+    font-size: 0.9em;
+  }
+  .dropdown {
+    top: 110%;
+    left: 44%;
+  }
+  .products:hover .dropdown {
+    transform: translate(-120%, -120%);
+  }
 }
 @media (min-width: 641px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */

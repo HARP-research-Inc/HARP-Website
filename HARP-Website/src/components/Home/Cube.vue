@@ -31,6 +31,12 @@ export default {
     height: 8em;
   }
 }
+@media (min-width: 768px) {
+  .ionicon {
+    width: 15em;
+    height: 15em;
+  }
+}
 /* .ionicon {
   width: 20em;
   height: 20em;

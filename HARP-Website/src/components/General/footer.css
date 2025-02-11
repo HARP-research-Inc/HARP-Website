@@ -43,8 +43,50 @@
     padding-bottom: 0.5em;
   }
 }
-@media (min-width: 481px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width: 768px) {
+  .footer-container {
+    font-size: 1em;
+    padding: 3em 0;
+  }
+
+  #socials a {
+    width: 20px;
+    height: 20px;
+  }
+  .vertical-line {
+    height: 10em;
+    margin: 1em 1em 0em 0em;
+  }
+  .footer-logo img {
+    width: 5em;
+    margin-bottom: 0em;
+    margin-top: 1em;
+  }
+  .footer-logo p {
+    font-size: 0.75em;
+    margin-bottom: 1em;
+  }
+  .footer-column h3 {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    margin-top: 1.5em;
+  }
+  .footer-column ul li {
+    margin-bottom: 0.5em;
+    font-size: 0.75em;
+  }
+  .footer-column p {
+    font-size: 0.75em;
+  }
+  .social-links a svg {
+    width: 1em;
+    height: 1em;
+    margin-right: 1em;
+  }
+  #followtext {
+    font-size: 0.75em;
+    padding-bottom: 0.5em;
+  }
 }
 @media (min-width: 641px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */

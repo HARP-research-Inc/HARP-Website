@@ -132,8 +132,26 @@ const props = defineProps({
     margin: 0.1rem;
   }
 }
-@media (min-width: 481px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width: 768px) {
+  .member-card {
+    width: 10em;
+    height: 10em;
+  }
+  .front img {
+    width: 9rem;
+  }
+  .member-name {
+    font-weight: bold;
+    font-size: 1em;
+  }
+  .member-role {
+    font-size: 0.75rem;
+  }
+  .back img {
+    height: 3em;
+    width: 3em;
+    margin: 1em;
+  }
 }
 @media (min-width: 641px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */

@@ -73,6 +73,25 @@ const cardStyle = computed(() => {
     margin-bottom: 5em;
   }
 }
+@media (min-width: 768px) {
+  .card {
+    height: 20em;
+    width: 20em;
+    margin: 1em;
+    justify-content: none;
+  }
+  .card img {
+    width: 30%;
+    margin: 1em;
+  }
+  .card h2 {
+    font-size: 1.5em;
+  }
+  .card h4 {
+    font-size: 0.95em;
+    margin-bottom: 1em;
+  }
+}
 .card {
   background: rgb(21, 139, 194);
   background: linear-gradient(

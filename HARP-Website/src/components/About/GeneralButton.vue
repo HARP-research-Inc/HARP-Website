@@ -72,4 +72,12 @@ export default {
     padding: 0.5em 0.75rem;
   }
 }
+@media (min-width: 768px) {
+  .blue-button {
+    font-size: 1em;
+    padding: 0.5em 0.75rem;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+}
 </style>

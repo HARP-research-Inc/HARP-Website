@@ -29,8 +29,36 @@
     font-size: 0.35em;
   }
 }
-@media (min-width: 481px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width: 768px) {
+  .stay-in-the-loop {
+    padding: 2em;
+    border-radius: 1em;
+  }
+  .image-placeholder {
+    width: 10em;
+    height: 10em;
+  }
+  #FirstText {
+    font-size: 1.5em;
+    margin: -2% 0% 3% 8%;
+  }
+
+  #SecondaryText {
+    font-size: 1.25em;
+    margin: -2% 0% 3% 15%;
+  }
+  .subscribe-form {
+    padding: 0.5em 1em;
+    width: 80%;
+  }
+  .subscribe-form input {
+    padding: 0.25em;
+    font-size: 1em;
+  }
+  .subscribe-form button {
+    font-size: 1em;
+    padding: 0.65em;
+  }
 }
 @media (min-width: 641px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */

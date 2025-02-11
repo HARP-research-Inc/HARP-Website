@@ -54,6 +54,63 @@
     font-size: 0.75em;
   }
 }
+@media (min-width: 768px) {
+  .login-container {
+    width: 80%;
+    padding: 2em;
+  }
+  .login-title {
+    font-size: 1.5em;
+  }
+  .social-btn {
+    width: 4em;
+    height: 3em;
+  }
+  .apple,
+  .microsoft,
+  .google {
+    width: 4em;
+    height: 4em;
+  }
+  .or-text {
+    margin: 1em 0;
+    font-size: 1em;
+  }
+  .input-field {
+    padding: 1.1em;
+    margin-bottom: 1em;
+  }
+  .forgot-password {
+    font-size: 1em;
+  }
+  .sign-in-btn {
+    padding: 1em;
+    font-size: 1em;
+  }
+  .join-btn {
+    padding: 0.75em;
+    font-size: 1em;
+  }
+  .login-form {
+    gap: 0.5em;
+  }
+  .join-btn {
+    margin-top: 0.5em;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    font-size: 1em;
+  }
+
+  .aas-logo {
+    width: 2em;
+    height: 1.5em;
+  }
+
+  .signup-text {
+    font-size: 1em;
+  }
+}
 .page-container {
   display: flex;
   justify-content: center;

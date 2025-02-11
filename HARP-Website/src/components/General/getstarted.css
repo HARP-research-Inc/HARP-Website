@@ -6,11 +6,14 @@
     border-radius: 2em;
   }
 }
-@media (min-width: 481px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-}
-@media (min-width: 641px) {
-  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+
+@media (min-width: 768px) {
+  .get-started-btn {
+    padding: 1em 1.1em;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 1.5em;
+  }
 }
 @media (min-width: 961px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */

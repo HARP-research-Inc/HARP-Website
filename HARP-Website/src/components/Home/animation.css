@@ -31,12 +31,30 @@
     clip-path: inset(0 0 75% 0);
   }
 }
-@media (min-width: 481px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width: 768px) {
+  #opening-line {
+    top: 9em;
+    left: 4em;
+    font-size: 0.75em;
+    width: 100%;
+    line-height: 2.5em;
+  }
+  #second-line {
+    margin-top: 1em;
+    font-size: 0.8rem;
+    line-height: 1.3em;
+    width: 45%;
+  }
+  #demo-canvas {
+    clip-path: inset(0 0 70% 0);
+  }
+  .action-items {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+  }
 }
-@media (min-width: 641px) {
-  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-}
+
 @media (min-width: 961px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
 }
