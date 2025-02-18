@@ -111,14 +111,13 @@ export default {
   },
 
     async handleSocialLogin(provider) {
-    try {
-      const response = await axios.post(`http://localhost:5000/social-login/${provider}`);
-      if (response.data) {
-        this.$router.push('/');
+      if (provider === 'google') {
+        window.location.href = 'http://localhost:5000/auth/google';
+        return;
       }
-    } catch (error) {
-      this.responseMessage = error.response?.data?.error || `${provider} login failed`;
-    }
+    
+      // For other providers (temporary)
+      this.responseMessage = `${provider} login not implemented yet`;
   },
 
     redirectToAAS() {
