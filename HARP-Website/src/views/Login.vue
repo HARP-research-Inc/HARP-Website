@@ -110,7 +110,7 @@ export default {
     }
   },
 
-    async handleSocialLogin(provider) {
+  handleSocialLogin(provider) {
       if (provider === 'google') {
         window.location.href = 'http://localhost:5000/auth/google';
         return;
