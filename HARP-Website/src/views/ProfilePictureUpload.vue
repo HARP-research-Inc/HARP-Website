@@ -1,4 +1,3 @@
-<!-- ProfilePictureUpload.vue -->
 <template>
   <div class="profile-picture-upload">
     <h3>Change Profile Picture</h3>
@@ -25,6 +24,15 @@
         </svg>
         <p>No profile picture set</p>
       </div>
+    </div>
+    
+    <div v-if="selectedFile && !currentPreview" class="selected-file">
+      Selected file: {{ selectedFile.name }}
+    </div>
+    
+    <div v-if="currentPreview && !currentPicture" class="preview">
+      <p>Preview:</p>
+      <img :src="currentPreview" alt="Preview" class="preview-image" />
     </div>
     
     <div class="upload-controls">
@@ -68,6 +76,7 @@ export default {
   data() {
     return {
       currentPicture: null,
+      currentPreview: null,
       selectedFile: null,
       uploading: false,
       error: null,
@@ -76,14 +85,8 @@ export default {
   },
   
   mounted() {
-    // Get current profile picture from user data in localStorage
-    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
-    if (userData && userData.profile_picture) {
-      this.currentPicture = userData.profile_picture;
-    } else {
-      // If not in localStorage, try to fetch from API
-      this.fetchUserProfile();
-    }
+    // Always fetch from API to ensure we have the latest data
+    this.fetchUserProfile();
   },
   
   methods: {
@@ -95,6 +98,8 @@ export default {
         
         if (response.ok) {
           const userData = await response.json();
+          console.log('User data fetched:', userData);
+          
           if (userData.profile_picture) {
             this.currentPicture = userData.profile_picture;
             
@@ -103,6 +108,8 @@ export default {
             storedData.profile_picture = userData.profile_picture;
             localStorage.setItem('userData', JSON.stringify(storedData));
           }
+        } else {
+          console.error('Failed to fetch user profile:', response.status);
         }
       } catch (error) {
         console.error('Error fetching user profile:', error);
@@ -116,6 +123,11 @@ export default {
     handleFileChange(event) {
       const file = event.target.files[0];
       if (!file) return;
+      
+      // Reset previous states
+      this.error = null;
+      this.success = null;
+      this.currentPreview = null;
       
       // Validate file size (max 2MB)
       if (file.size > 2 * 1024 * 1024) {
@@ -135,7 +147,13 @@ export default {
       }
       
       this.selectedFile = file;
-      this.error = null;
+      
+      // Create a preview
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.currentPreview = e.target.result;
+      };
+      reader.readAsDataURL(file);
     },
     
     async uploadPicture() {
@@ -155,14 +173,17 @@ export default {
           credentials: 'include'
         });
         
-        const data = await response.json();
-        
         if (!response.ok) {
-          throw new Error(data.error || 'Failed to upload profile picture');
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to upload profile picture');
         }
+        
+        const data = await response.json();
+        console.log('Upload response:', data);
         
         // Update displayed picture
         this.currentPicture = data.profilePicture;
+        this.currentPreview = null;
         
         // Update stored user data
         const userData = JSON.parse(localStorage.getItem('userData') || '{}');
@@ -179,10 +200,8 @@ export default {
         // Emit event for parent components
         this.$emit('picture-updated', data.profilePicture);
         
-        // Trigger storage event to update other components
-        window.dispatchEvent(new StorageEvent('storage'));
-        
       } catch (error) {
+        console.error('Upload error:', error);
         this.error = error.message || 'Failed to upload profile picture';
       } finally {
         this.uploading = false;
@@ -220,6 +239,19 @@ export default {
   flex-direction: column;
   align-items: center;
   color: #6c757d;
+}
+
+.selected-file {
+  text-align: center;
+  margin: 10px 0;
+  color: #495057;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
 }
 
 .upload-controls {
