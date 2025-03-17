@@ -79,15 +79,15 @@ export default (pool) => {
     
     // Upload profile picture endpoint
     router.post('/upload-profile-picture', upload.single('profilePicture'), async (req, res) => {
-        if (!req.isAuthenticated()) {
-            return res.status(401).json({ error: 'Not authenticated' });
-        }
-        
-        if (!req.file) {
-            return res.status(400).json({ error: 'No file uploaded' });
-        }
-        
         try {
+            if (!req.isAuthenticated()) {
+                return res.status(401).json({ error: 'Not authenticated' });
+            }
+            
+            if (!req.file) {
+                return res.status(400).json({ error: 'No file uploaded' });
+            }
+            
             // Read the file into a buffer
             const fileBuffer = fs.readFileSync(req.file.path);
             
@@ -98,8 +98,6 @@ export default (pool) => {
             const dataUrl = `data:${req.file.mimetype};base64,${base64Image}`;
             
             console.log('Attempting to update profile picture for user:', req.user.email);
-            console.log('Image type:', req.file.mimetype);
-            console.log('Base64 length:', base64Image.length);
             
             // Update user's profile picture in the database
             await pool.query(
@@ -108,11 +106,11 @@ export default (pool) => {
             );
             
             // Delete the temporary file
-            fs.unlinkSync(req.file.path);
+            if (fs.existsSync(req.file.path)) {
+                fs.unlinkSync(req.file.path);
+            }
             
-            console.log('Profile picture updated successfully in database');
-            
-            res.json({
+            return res.json({
                 message: 'Profile picture uploaded successfully',
                 profilePicture: dataUrl
             });
@@ -121,10 +119,14 @@ export default (pool) => {
             
             // Clean up the temporary file if it exists
             if (req.file && req.file.path && fs.existsSync(req.file.path)) {
-                fs.unlinkSync(req.file.path);
+                try {
+                    fs.unlinkSync(req.file.path);
+                } catch (unlinkError) {
+                    console.error('Error deleting temporary file:', unlinkError);
+                }
             }
             
-            res.status(500).json({
+            return res.status(500).json({
                 error: 'Failed to update profile picture',
                 details: error.message
             });
@@ -162,7 +164,11 @@ export default (pool) => {
                 res.status(500).json({ error: 'Failed to fetch user data' });
             }
         } else {
-            res.status(401).json({ error: 'Not authenticated' });
+            console.error('Error fetching user data:', error);
+        return res.status(500).json({ 
+            error: 'Failed to fetch user data',
+            details: error.message 
+        });
         }
     });
     

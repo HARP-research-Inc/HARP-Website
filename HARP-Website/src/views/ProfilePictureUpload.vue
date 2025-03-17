@@ -157,28 +157,41 @@ export default {
     },
     
     async uploadPicture() {
-      if (!this.selectedFile) return;
-      
-      this.uploading = true;
-      this.error = null;
-      this.success = null;
-      
-      try {
+    if (!this.selectedFile) return;
+    
+    this.uploading = true;
+    this.error = null;
+    this.success = null;
+    
+    try {
         const formData = new FormData();
         formData.append('profilePicture', this.selectedFile);
         
+        console.log('Starting upload...');
         const response = await fetch('/api/upload-profile-picture', {
-          method: 'POST',
-          body: formData,
-          credentials: 'include'
+            method: 'POST',
+            body: formData,
+            credentials: 'include'
         });
         
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to upload profile picture');
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
+        
+        const responseText = await response.text();
+        console.log('Raw response:', responseText);
+        
+        let data;
+        try {
+            data = JSON.parse(responseText);
+        } catch (jsonError) {
+            console.error('JSON parsing error:', jsonError);
+            throw new Error('Invalid server response');
         }
         
-        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data.error || 'Failed to upload profile picture');
+        }
+        
         console.log('Upload response:', data);
         
         // Update displayed picture
@@ -200,13 +213,13 @@ export default {
         // Emit event for parent components
         this.$emit('picture-updated', data.profilePicture);
         
-      } catch (error) {
+    } catch (error) {
         console.error('Upload error:', error);
         this.error = error.message || 'Failed to upload profile picture';
-      } finally {
+    } finally {
         this.uploading = false;
-      }
     }
+}
   }
 };
 </script>
