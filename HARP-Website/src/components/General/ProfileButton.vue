@@ -74,7 +74,7 @@ export default {
     },
     profilePicture: {
       type: String,
-      default: null
+      default: ''
     }
   },
   
@@ -96,34 +96,65 @@ export default {
   },
   
   methods: {
-    loadUserData() {
-      const userData = JSON.parse(localStorage.getItem('userData') || '{}');
-  
-  // Only update if values exist in localStorage, otherwise keep what we have
-  if (userData.profile_picture) {
-    this.profilePicture = userData.profile_picture;
-  }
-  
-  if (userData.full_name) {
-    this.fullName = userData.full_name;
-  } else if (this.initialFullName) {
-    // Fall back to prop if available
-    this.fullName = this.initialFullName;
-  }
-  
-  console.log('Loaded user data:', this.fullName, this.profilePicture);
+    async loadUserData() {
+      try {
+        // First check if the user is logged in
+        const authCheckResponse = await fetch('http://localhost:5000/api/auth-check', {
+          credentials: 'include'
+        });
+        
+        if (!authCheckResponse.ok) {
+          console.log('User not authenticated, redirecting to login...');
+          // Redirect to login page
+          this.$router.push('/login');
+          return;
+        }
+        
+        // Now try to load the user data
+        const response = await fetch('http://localhost:5000/api/user', {
+          credentials: 'include'
+        });
+        
+        if (response.ok) {
+          const userData = await response.json();
+          
+          // Store in localStorage
+          localStorage.setItem('userData', JSON.stringify(userData));
+          
+          // If there's a profile picture, use it
+          if (userData.profile_picture) {
+            const profileImgElements = this.$el.querySelectorAll('.profile-image');
+            profileImgElements.forEach(img => {
+              img.src = userData.profile_picture;
+            });
+          }
+        } else if (response.status === 401) {
+          // Not authenticated
+          console.log('User not authenticated, redirecting to login...');
+          this.$router.push('/login');
+        } else {
+          console.error('Error loading user data:', response.status);
+        }
+      } catch (error) {
+        console.error('Error in loadUserData:', error);
+      }
     },
-    toggleDropdown() {
-      this.showDropdown = !this.showDropdown
-    },
-    
     closeModal() {
       this.showProfilePictureModal = false;
     },
+    toggleDropdown() {
+      console.log('Toggle dropdown called');
+      this.showDropdown = !this.showDropdown;
+    },
     
     onPictureUpdated(newPictureUrl) {
-      this.profilePicture = newPictureUrl;
+      this.$emit('update:profilePicture', newPictureUrl);
       this.closeModal();
+      
+      // Update localStorage
+      const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+      userData.profile_picture = newPictureUrl;
+      localStorage.setItem('userData', JSON.stringify(userData));
       
       // Emit event to parent components
       this.$emit('profile-updated', { 
@@ -133,7 +164,7 @@ export default {
     
     async signOut() {
       try {
-        // First, try to log out from the server (for OAuth)
+        // Use axios instead of fetch
         await axios.get('http://localhost:5000/api/logout', {
           withCredentials: true
         });
@@ -141,14 +172,18 @@ export default {
       } catch (error) {
         console.error('Error logging out from server:', error);
       } finally {
-        // Always clear localStorage (for regular login)
         localStorage.removeItem('user');
-        
-        // Notify components about logout
+        localStorage.removeItem('userData');
         window.dispatchEvent(new Event('userLoggedIn'));
-        
-        // Redirect to login page
         this.$router.push('/login');
+      }
+    },
+    handleProfilePictureUpdate(event) {
+      if (event.detail && event.detail.profilePicture) {
+        const profileImgElements = this.$el.querySelectorAll('.profile-image');
+        profileImgElements.forEach(img => {
+          img.src = event.detail.profilePicture;
+        });
       }
     },
 
@@ -160,13 +195,20 @@ export default {
   },
 
   mounted() {
-    document.addEventListener('click', this.handleClickOutside)
-    console.log('ProfileButton mounted with name:', this.fullName); // Debug log
-    console.log('Profile picture:', this.profilePicture); // Debug log
+    document.addEventListener('click', this.handleClickOutside);
+    
+    // Listen for profile picture update events
+    window.addEventListener('profile-picture-updated', this.handleProfilePictureUpdate);
+    
+    // Initial load
+    this.loadUserData();
   },
 
   beforeUnmount() {
-    document.removeEventListener('click', this.handleClickOutside)
+    document.removeEventListener('click', this.handleClickOutside);
+    
+    // Remove the event listener for profile updates
+    window.removeEventListener('profile-picture-updated', this.handleProfilePictureUpdate);
   }
 }
 </script>
@@ -202,6 +244,7 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;;
 }
 
 .user-icon {

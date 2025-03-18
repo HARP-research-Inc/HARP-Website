@@ -14,7 +14,9 @@ const { Pool } = pg;
 // Middleware
 app.use(cors({
     origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
@@ -166,10 +168,14 @@ app.get('/api/user', (req, res) => {
 
 // Logout route
 app.get('/api/logout', (req, res) => {
-    req.logout(() => {
-        res.redirect(process.env.FRONTEND_URL || 'http://localhost:8080/');
+    req.logout(function(err) {
+      if (err) {
+        return res.status(500).json({ error: 'Failed to logout' });
+      }
+      // Return JSON instead of redirecting
+      return res.status(200).json({ message: 'Logged out successfully' });
     });
-});
+  });
 
 app.listen(port, () => {
     console.log(`Authentication server running on port ${port}`);

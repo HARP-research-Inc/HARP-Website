@@ -300,5 +300,13 @@ export default (pool) => {
         }
     });
 
+    router.get('/auth-check', (req, res) => {
+        if (req.isAuthenticated()) {
+        return res.status(200).json({ authenticated: true });
+        } else {
+        return res.status(401).json({ authenticated: false });
+        }
+    });
+
     return router;
 };
