@@ -134,43 +134,45 @@ export default (pool) => {
     });
     
     // Get user profile endpoint
-    router.get('/user', async (req, res) => {
-        if (req.isAuthenticated()) {
-            try {
-                // Get the latest user data from the database
-                const result = await pool.query(
-                    'SELECT email, full_name, profile_picture_data, profile_picture_type FROM "Login" WHERE email = $1',
-                    [req.user.email]
-                );
+    // Get user profile endpoint
+router.get('/user', async (req, res) => {
+    if (req.isAuthenticated()) {
+        try {
+            // Get the latest user data from the database
+            const result = await pool.query(
+                'SELECT email, full_name, profile_picture_data, profile_picture_type FROM "Login" WHERE email = $1',
+                [req.user.email]
+            );
+            
+            if (result.rows.length > 0) {
+                const userData = result.rows[0];
                 
-                if (result.rows.length > 0) {
-                    const userData = result.rows[0];
-                    
-                    // Create a data URL if profile picture exists
-                    if (userData.profile_picture_data && userData.profile_picture_type) {
-                        userData.profile_picture = `data:${userData.profile_picture_type};base64,${userData.profile_picture_data}`;
-                    }
-                    
-                    // Remove the raw data before sending to client
-                    delete userData.profile_picture_data;
-                    delete userData.profile_picture_type;
-                    
-                    res.json(userData);
-                } else {
-                    res.status(404).json({ error: 'User not found' });
+                // Create a data URL if profile picture exists
+                if (userData.profile_picture_data && userData.profile_picture_type) {
+                    userData.profile_picture = `data:${userData.profile_picture_type};base64,${userData.profile_picture_data}`;
                 }
-            } catch (error) {
-                console.error('Error fetching user data:', error);
-                res.status(500).json({ error: 'Failed to fetch user data' });
+                
+                // Remove the raw data before sending to client
+                delete userData.profile_picture_data;
+                delete userData.profile_picture_type;
+                
+                res.json(userData);
+            } else {
+                res.status(404).json({ error: 'User not found' });
             }
-        } else {
+        } catch (error) {
             console.error('Error fetching user data:', error);
-        return res.status(500).json({ 
-            error: 'Failed to fetch user data',
-            details: error.message 
-        });
+            res.status(500).json({ error: 'Failed to fetch user data' });
         }
-    });
+    } else {
+        // Fixed: No undefined error variable here
+        console.error('User not authenticated');
+        return res.status(401).json({ 
+            error: 'Not authenticated',
+            details: 'User must be logged in to access this resource' 
+        });
+    }
+});
     
     return router;
 };

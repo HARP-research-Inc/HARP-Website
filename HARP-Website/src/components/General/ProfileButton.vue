@@ -81,9 +81,7 @@ export default {
   data() {
     return {
       showDropdown: false,
-      showProfilePictureModal: false,
-      profilePicture: this.initialProfilePicture || null,
-      fullName: this.initialFullName || ''
+      showProfilePictureModal: false
     }
   },
   created() {
